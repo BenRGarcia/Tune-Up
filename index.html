@@ -26,6 +26,15 @@
     href="./assets/css/style.css" 
     media="screen,projection"
   >
+  <!-- Firebase Authentication -->
+  <script 
+    src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"
+  ></script>
+  <link 
+    type="text/css" 
+    rel="stylesheet" 
+    href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css"
+  />
 </head>
 <body>
   <div id="app" class="container">
@@ -58,8 +67,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <!-- Firebase CDN -->
   <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-  <!-- Firebase Config -->
-  <script src="./assets/javascript/firebase.js"></script>
+  <!-- Firebase Config/Initialization -->
+  <script src="./assets/javascript/firebase-config.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="./assets/javascript/firebase-auth.js"></script>
+  <!-- Firebase Database -->
+  <script src="./assets/javascript/firebase-db.js"></script>
   <!-- NHTSA JS/API -->
   <script src="./assets/javascript/api-nhtsa.js"></script>
   <!-- Google Maps JS -->
