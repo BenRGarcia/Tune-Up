@@ -7,6 +7,7 @@
 1. [Materialize CSS](http://materializecss.com/)
 2. [Google Maps API](https://developers.google.com/maps/documentation/)
 3. [NHTSA API](https://vpic.nhtsa.dot.gov/api/)
+4. [vis.js](http://visjs.org/)
 
 ## Web App Description
 
