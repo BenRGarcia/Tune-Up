@@ -68,7 +68,7 @@ const vehicleApi = {
     // 2 async calls (one for car/suv models, one for trucks -- API limitation)
     $.when( $.ajax(carsUrl), $.ajax(trucksUrl) ).then( (a1, a2) => {
       // If success, combine 2 response object 'Results' arrays
-      carObjArray = a1[0].Results.concat(a2.[0].Results);
+      carObjArray = a1[0].Results.concat(a2[0].Results);
       return carObjArray;
     }, (err) => {
       console.log(`vehicleApi call error thrown: ${err}`);
