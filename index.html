@@ -4,32 +4,41 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tune Up</title>
+
+  <!-- Firebase CDN -->
+  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+  <!-- Firebase Config/Initialization -->
+  <script src="./assets/javascript/firebase-config.js"></script>
+  <!-- Firebase Authentication CDN -->
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
   <!-- Firebase Authentication -->
-  <script 
-    src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"
-  ></script>
+  <script src="./assets/javascript/firebase-auth.js"></script>
   <!-- Firebase Authentication CSS -->
   <link 
     type="text/css" 
     rel="stylesheet" 
     href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css"
   />
-  <!-- Material Icons -->
+
+  <!-- Material Icons for Materialize -->
   <link 
     href="https://fonts.googleapis.com/icon?family=Material+Icons" 
     rel="stylesheet"
   >
+
   <!-- Materialize CSS -->
   <link 
     rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" 
     media="screen,projection"
   >
+
   <!-- vis CSS -->
   <link 
     rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css"
   >
+
   <!-- Custom CSS -->
   <link 
     rel="stylesheet" 
@@ -44,14 +53,15 @@
     <!--=================-->
   
 
-   
-    
+
+
  
   
     
     <!--=================-->
     <!-- Code above here -->
     <!--=================-->
+    <div id="firebaseui-auth-container"></div>
   </div>
   <!--==================-->
   <!-- Javascript below -->
@@ -67,15 +77,7 @@
   <!-- Custom vis.js -->
   <script src="./assets/javascript/vis-js.js"></script>
   <!-- Materialize JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <!-- Firebase CDN -->
-  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-  <!-- Firebase Config/Initialization -->
-  <script src="./assets/javascript/firebase-config.js"></script>
-  <!-- Firebase Authentication -->
-  <script src="./assets/javascript/firebase-auth.js"></script>
-  <!-- Firebase Database -->
-  <script src="./assets/javascript/firebase-db.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
   <!-- NHTSA JS/API -->
   <script src="./assets/javascript/api-nhtsa.js"></script>
   <!-- Google Maps JS -->
