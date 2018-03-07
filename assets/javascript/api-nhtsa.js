@@ -1,17 +1,25 @@
-/*
- * How to use this object:
- *   - Access the array of available car 'makes' like this:
- *       vehicleApi.makes;
- *   - To initiate api call, call method like this, passing in the actual string of a make of vehicle: 
- *       vehicleApi.searchModel(make);
- *   - In either case, you will receive an array of makes or models in response
-*/
+/***********************************
+ *  API DOC's:
+ *  https://vpic.nhtsa.dot.gov/api/
+ ***********************************/
 
+/* Here's how to use vehicleApi */
+/*
+// ex. Variables provided by user input:
+var year = 2015;
+var make = "Honda";
+
+// Call the object method with this template:
+vehicleApi.searchModel(year, make).then( response => {
+  // 'response' = array of car model names
+  console.log(response);
+  // ... do other stuff
+});
+
+// One line translation:
+vehicleApi.searchModel("2015", "honda").then( response => {console.log(response);});
+*/
 const vehicleApi = {
-  /*
-  API DOC's:
-  https://vpic.nhtsa.dot.gov/api/
-  */
   // Available Vehicle Makes
   _makes: [
     "Acura","Audi","BMW","Buick","Cadillac","Chevrolet","Chrysler","Dodge",
@@ -26,7 +34,7 @@ const vehicleApi = {
   _year: "/modelyear/",
   // Will return 'Truck' vehicle type
   _truck: "/vehicleType/truck?format=json",
-  // Will return 'Car' and 'SUV' vehicle type
+  // Will return 'Car' and 'SUV' vehicle types
   _car: "/vehicleType/passenger?format=json",
   // Return value of last api call
   _modelObjArray: [],
@@ -34,9 +42,7 @@ const vehicleApi = {
     return this._makes;
   },
   get models() {
-    let modelNameArray = this._modelObjArray.map(obj => obj.Model_Name);
-    console.log(`modelNameArray: ${modelNameArray}`);
-    return modelNameArray;
+    return this._modelObjArray;
   },
   searchModel(year, make) {
     // Ignore 'falsy' 'make' arg passed
@@ -45,34 +51,36 @@ const vehicleApi = {
       let stringYear = year.toString();
       // Get query URL for cars and suvs
       let carQueryUrl = this.createCarQueryUrl(year, make);
-      console.log(`carQueryUrl: ${carQueryUrl}`);
       // Get query URL for trucks
       let truckQueryUrl = this.createTruckQueryUrl(year, make);
-      console.log(`truckQueryUrl: ${truckQueryUrl}`);
       // Call API with both query URL's
-      let carObjArray = this.callAPI(carQueryUrl, truckQueryUrl);
-      console.log(`carObjArray: ${carObjArray}`);
-      return carObjArray;
+      this._modelObjArray = this.callApi(carQueryUrl, truckQueryUrl);
     }
-    console.log(`vehicleApi.searchModel() 'make' falsy value passed: ${make}`);
-    return make;
+    return this._modelObjArray;
   },
   createCarQueryUrl(year, make) {
-    return this._url + make + this._year + year + this._truck;
-  },
-  createTruckQueryUrl(year, make) {
     return this._url + make + this._year + year + this._car;
   },
-  callAPI(carsUrl, trucksUrl) {
-    let carObjArray;
-    // 2 async calls (one for car/suv models, one for trucks -- API limitation)
-    $.when( $.ajax(carsUrl), $.ajax(trucksUrl) ).then( (a1, a2) => {
-      // If success, combine 2 response object 'Results' arrays
-      carObjArray = a1[0].Results.concat(a2[0].Results);
-      return carObjArray;
-    }, (err) => {
-      console.log(`vehicleApi call error thrown: ${err}`);
-    }
-    );
+  createTruckQueryUrl(year, make) {
+    return this._url + make + this._year + year + this._truck;
+  },
+  callApi(carsUrl, trucksUrl) {
+    return $.when( 
+      // 2 concurrent ajax calls
+      $.ajax(carsUrl).fail( (jqXHR, textStatus, errorThrown) => {
+        console.log(`vehicleApi error at carsUrl:`);
+        console.log(jqXHR, textStatus, errorThrown);
+      }), 
+      $.ajax(trucksUrl).fail( (jqXHR, textStatus, errorThrown) => {
+        console.log(`vehicleApi error at trucksUrl:`);
+        console.log(jqXHR, textStatus, errorThrown);
+      }) 
+    ).then( function(a1, a2) {
+      // Combine 2 response object 'Results' arrays
+      let modelObjArray = a1[0].Results.concat(a2[0].Results);
+      // Create new array of only model names
+      let modelNameArray = modelObjArray.map(obj => obj.Model_Name);
+      return modelNameArray;
+    });
   }
 };
