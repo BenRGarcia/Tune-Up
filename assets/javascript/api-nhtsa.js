@@ -10,23 +10,20 @@ var year = 2015;
 var make = "Honda";
 
 // Call the object method with this template:
-vehicleApi.searchModel(year, make).then( response => {
-  // 'response' = array of car model names
+vehicleApi.searchModel("2015", "honda").then( response => {
   console.log(response);
-  // ... do other stuff
+}, err => {
+  console.log(err);
 });
-
-// One line translation:
-vehicleApi.searchModel("2015", "honda").then( response => {console.log(response);});
 */
 const vehicleApi = {
   // Available Vehicle Makes
   _makes: [
     "Acura","Audi","BMW","Buick","Cadillac","Chevrolet","Chrysler","Dodge",
     "FIAT","Ford","Genesis","GMC","Honda","Hyundai","INFINITI","Jaguar","Jeep",
-    "Kia","Land Rover","Lexus","Lincoln","Lotus","Mazda","Mercedes-Benz","MINI",
-    "Mitsubishi","Nissan","Porsche","Ram","smart","Subaru","Tesla","Toyota",
-    "Volkswagen","Volvo"
+    "Kia","Land Rover","Lexus","Lincoln","Lotus","Mazda","Mercedes-Benz",
+    "MINI","Mitsubishi","Nissan","Porsche","Ram","smart","Subaru","Tesla",
+    "Toyota","Volkswagen","Volvo"
   ],
   // Query Parameters
   _url: "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/",
@@ -67,20 +64,16 @@ const vehicleApi = {
   callApi(carsUrl, trucksUrl) {
     return $.when( 
       // 2 concurrent ajax calls
-      $.ajax(carsUrl).fail( (jqXHR, textStatus, errorThrown) => {
-        console.log(`vehicleApi error at carsUrl:`);
-        console.log(jqXHR, textStatus, errorThrown);
-      }), 
-      $.ajax(trucksUrl).fail( (jqXHR, textStatus, errorThrown) => {
-        console.log(`vehicleApi error at trucksUrl:`);
-        console.log(jqXHR, textStatus, errorThrown);
-      }) 
-    ).then( function(a1, a2) {
+      $.ajax(carsUrl),
+      $.ajax(trucksUrl)
+    ).then( (a1, a2) => {
       // Combine 2 response object 'Results' arrays
       let modelObjArray = a1[0].Results.concat(a2[0].Results);
       // Create new array of only model names
       let modelNameArray = modelObjArray.map(obj => obj.Model_Name);
       return modelNameArray;
+    }, err => {
+      console.log(err);
     });
   }
 };
