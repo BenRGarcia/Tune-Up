@@ -41,10 +41,10 @@ const googleApi = {
 },
   //searchs for location inside the bounds of the mapview
   search: 
-  function(keyword){
+  function(){
     let request = {
       bounds: map.getBounds(),
-      query: keyword,
+      query: "Autoparts",
       openNow: true
   }
   console.log(request, "search 1");
