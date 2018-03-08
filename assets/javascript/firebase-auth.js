@@ -1,8 +1,6 @@
 /**
- *  firebase-auth.js to contain all code with respect to user authentication.
- *  Users will log in with either GitHub or email/password.
+ *  https://firebase.google.com/docs/auth/web/firebaseui
  *  https://github.com/firebase/firebaseui-web
- *  https://www.youtube.com/watch?v=hb85pYZSJaI
  */
 
 // FirebaseUI config.
