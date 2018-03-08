@@ -44,8 +44,8 @@ const userAuth = {
         console.log(`Signed out`);
       }, function(error) {
         console.log(`Signout error: ${error}`);
-      });
-    }
+      }
+    );
   }
 };
 
