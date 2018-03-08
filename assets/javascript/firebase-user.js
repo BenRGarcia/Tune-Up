@@ -28,16 +28,16 @@ const userAuth = {
   _uid: null,
   _name: null,
   get getUid() {
-    return this._uid
+    return this._uid;
   },
   get getName() {
-    return this._name
+    return this._name;
   },
   set setUid(uid) {
     return this._uid = uid;
   },
   set setName(displayName) {
-    return this._uid = displayName;
+    return this._name = displayName;
   },
   signOut() {
     firebase.auth().signOut().then( function() {
