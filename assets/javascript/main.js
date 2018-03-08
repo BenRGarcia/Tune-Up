@@ -6,3 +6,12 @@
  *    db         | (Firebase database)
  *    
  */
+
+ //User input we will need:
+    //car make
+    //car year 
+    //car model
+    //miles traveled
+    //date of last oil change
+    //date of last tire rotation
+    //date of last inspection
