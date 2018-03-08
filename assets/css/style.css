@@ -81,6 +81,10 @@ li {
   font-size: 90px;
 }
 
+div.firebaseui-container {
+  display: hidden;
+}
+
 #map-canvas {
   width: 100%;
   height: 400px;
