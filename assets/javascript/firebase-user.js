@@ -8,6 +8,7 @@ initApp = function() {
     if (user) {
       // User is signed in
       console.log(`Logged in user: displayName = '${user.displayName}', uid = '${user.uid}'`);
+      // Set uid and displayment in userAuth object
       userAuth.setUid = user.uid;
       userAuth.setName = user.displayName;
     } else {
@@ -19,11 +20,12 @@ initApp = function() {
   });
 };
 
+// Start listener on page load
 window.addEventListener('load', function() {
   initApp()
 });
 
-// Object to return 'uid' for use with firebase db
+// Object to return 'uid' and 'displayName' for use with firebase db
 const userAuth = {
   _uid: null,
   _name: null,
