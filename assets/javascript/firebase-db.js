@@ -10,49 +10,104 @@ const db = {
 };
 
 /*
-Maintenence Schedule data source:
-https://www.autozone.com/repairinfo/carCareAwareMain.jsp
-*/
-
-/*
 // Sample schema of database
-
-"users": { // <------------------- Root/Node #1 "users"
-  "$uid...1": {
-    "cars": {
-      "firebaseKeyGen": {
-        "year":       2015, 
-        "make":    "HONDA",
-        "model":   "CIVIC",
-        "mileage":   33000,
-        "maintenanceInterval": {
-          "oilChange":             3000,
-          "tireRotation":          6000,
-          "brakeInspectionMonths":   12, // months
-          "carInspectionMonths":     12, // months
-          "wiperBladesMonths":        6  // months
-        },
-        "lastMaintenance": {
-          "oilChange":             30000,
-          "tireRotation":          29500,
-          "brakeInspection":       12000,
-          "carInspectionUTC": 1360013296, // UTC
-          "wiperBladesUTC":   1360013296  // UTC
-        }
-      },
-      "firebaseKeyGen": {...car2},
-      "firebaseKeyGen": {...car3}
-    }
+{
+  "defaultMaintenance" : {
+    "brakeInspectionMonths" : 12,
+    "carInspectionMonths" : 12,
+    "oilChange" : 3000,
+    "tireRotation" : 6000,
+    "wiperBladesMonths" : 6
   },
-  "$uid...2": {...}
-},
-"defaultMaintenance": { // <------- Root/Node #2 "defaultMaintenance"
-  "oilChange":             3000,
-  "tireRotation":          6000,
-  "brakeInspectionMonths":   12, // months
-  "carInspectionMonths":     12, // months
-  "wiperBladesMonths":        6  // months
+  "users" : {
+
+    "authUid1" : {
+      "-LakjnwowPEPKFksda" : {
+        "lastMaintenance" : {
+          "brakeInspection" : 12000,
+          "carInspectionUTC" : 1360013296,
+          "oilChange" : 30000,
+          "tireRotation" : 29500,
+          "wiperBladesUTC" : 1360013296
+        },
+        "maintenanceInterval" : {
+          "brakeInspectionMonths" : 12,
+          "carInspectionMonths" : 12,
+          "oilChange" : 3000,
+          "tireRotation" : 6000,
+          "wiperBladesMonths" : 6
+        },
+        "make" : "honda",
+        "mileage" : 33000,
+        "model" : "civic",
+        "year" : 2015
+      },
+      "-PakjnwowPEPKFksda" : {
+        "lastMaintenance" : {
+          "brakeInspection" : 12000,
+          "carInspectionUTC" : 1360013296,
+          "oilChange" : 30000,
+          "tireRotation" : 29500,
+          "wiperBladesUTC" : 1360013296
+        },
+        "maintenanceInterval" : {
+          "brakeInspectionMonths" : 12,
+          "carInspectionMonths" : 12,
+          "oilChange" : 3000,
+          "tireRotation" : 6000,
+          "wiperBladesMonths" : 6
+        },
+        "make" : "jeep",
+        "mileage" : 33000,
+        "model" : "commander",
+        "year" : 2015
+      }
+    },
+    "authUid2" : {
+      "-LakjnwowPEPKFksda" : {
+        "lastMaintenance" : {
+          "brakeInspection" : 12000,
+          "carInspectionUTC" : 1360013296,
+          "oilChange" : 30000,
+          "tireRotation" : 29500,
+          "wiperBladesUTC" : 1360013296
+        },
+        "maintenanceInterval" : {
+          "brakeInspectionMonths" : 12,
+          "carInspectionMonths" : 12,
+          "oilChange" : 3000,
+          "tireRotation" : 6000,
+          "wiperBladesMonths" : 6
+        },
+        "make" : "honda",
+        "mileage" : 33000,
+        "model" : "civic",
+        "year" : 2015
+      },
+      "-PakjnwowPEPKFksda" : {
+        "lastMaintenance" : {
+          "brakeInspection" : 12000,
+          "carInspectionUTC" : 1360013296,
+          "oilChange" : 30000,
+          "tireRotation" : 29500,
+          "wiperBladesUTC" : 1360013296
+        },
+        "maintenanceInterval" : {
+          "brakeInspectionMonths" : 12,
+          "carInspectionMonths" : 12,
+          "oilChange" : 3000,
+          "tireRotation" : 6000,
+          "wiperBladesMonths" : 6
+        },
+        "make" : "jeep",
+        "mileage" : 33000,
+        "model" : "commander",
+        "year" : 2015
+      }
+    }
+  }
 }
+
 */
 
 /*
