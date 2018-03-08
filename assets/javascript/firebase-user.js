@@ -1,28 +1,18 @@
+/**
+ *  Retrieve and store uid and displayName on load
+ */
+
 // Add realtime listener
 initApp = function() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in
-      console.log(`User is signed in`);
-      // Get user info
-      user.getIdToken().then(function(accessToken) {
-        document.getElementById('account-details').textContent = JSON.stringify({
-          displayName:   user.displayName,
-          email:         user.email,
-          emailVerified: user.emailVerified,
-          phoneNumber:   user.phoneNumber,
-          photoURL:      user.photoURL,
-          uid:           user.uid,
-          accessToken:   accessToken,
-          providerData:  user.providerData
-        }, null, '  ');
-      });
+      console.log(`Logged in user: displayName = '${user.displayName}', uid = '${user.uid}'`);
+      userAuth.setUid = user.uid;
+      userAuth.setName = user.displayName;
     } else {
       // user is signed out
       console.log(`User is signed out`);
-      document.getElementById('sign-in-status').textContent = 'Signed out';
-      document.getElementById('sign-in').textContent = 'Sign in';
-      document.getElementById('account-details').textContent = 'null';
     }
   }, function(error) {
     console.log(error);
@@ -32,3 +22,51 @@ initApp = function() {
 window.addEventListener('load', function() {
   initApp()
 });
+
+// Object to return 'uid' for use with firebase db
+const userAuth = {
+  _uid: null,
+  _name: null,
+  get getUid() {
+    return this._uid
+  },
+  get getName() {
+    return this._name
+  },
+  set setUid(uid) {
+    return this._uid = uid;
+  },
+  set setName(displayName) {
+    return this._uid = displayName;
+  },
+  signOut() {
+    firebase.auth().signOut().then( function() {
+        console.log(`Signed out`);
+      }, function(error) {
+        console.log(`Signout error: ${error}`);
+      });
+    }
+  }
+};
+
+/* // Sample data available for firebase auth ui user:
+{ 
+  "displayName": "Ben...", 
+  "email": "ben@email.com", 
+  "emailVerified": false, 
+  "phoneNumber": null, 
+  "photoURL": "https://avatars3.gith...", 
+  "uid": "I9QtY5OfJLdgqLuz...", 
+  "accessToken": "eyJh.....................", 
+  "providerData": [ 
+    { 
+      "uid": "26......", 
+      "displayName": "Ben...", 
+      "photoURL": "https://avatars3.gith...", 
+      "email": "ben@email.com", 
+      "phoneNumber": null, 
+      "providerId": "github.com" 
+    } 
+  ] 
+}
+*/
