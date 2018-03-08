@@ -85,3 +85,9 @@ body {
 .text3 {
   font-size: 90px;
 }
+
+li {
+    margin-top: 40px;
+    font-weight: bold;
+    
+}
