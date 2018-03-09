@@ -57,32 +57,34 @@ const db = {
       console.log(error);
     });
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // Get the already-set 'maintenance intervals' for a specific vehicle
+  /**
+   * Get 'maintenance intervals' for a specific vehicle
+   *   Test Results: Passing
+   */
   getMaintenanceIntervals(uid, carKey) {
-    return this._usersRef.child(uid).once('value').then( function(snapshot) {
-      console.log(`firebase-db getMaintenanceIntervals() says, "maintenanceInterval object:"`);
-      console.log(snapshot.child(carKey).maintenanceInterval.val());
-      return snapshot.child(carKey).maintenanceInterval.val(); // test results:
+    return firebase.database().ref('/users/' + uid).child(carKey).once('value').then( function(snapshot) {
+      return snapshot.val().maintenanceInterval;
     }, function(error) {
       console.log(error);
     });
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // Get an object of all of the user's car object (an object of objects)
   getUsersCars(uid) {
     return this._usersRef.child(uid).once('value').then( function(snapshot) {
