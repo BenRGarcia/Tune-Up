@@ -53,8 +53,8 @@ const db = {
   getLastMaintenance(uid, carKey) {
     return firebase.database().ref('/users/' + uid).child(carKey).once('value').then( function(snapshot) {
       return snapshot.val().lastMaintenance;
-    }, function(error) {
-      console.log(error);
+    }, function(err) {
+      console.log(err);
     });
   },
   /**
@@ -64,8 +64,19 @@ const db = {
   getMaintenanceIntervals(uid, carKey) {
     return firebase.database().ref('/users/' + uid).child(carKey).once('value').then( function(snapshot) {
       return snapshot.val().maintenanceInterval;
-    }, function(error) {
-      console.log(error);
+    }, function(err) {
+      console.log(err);
+    });
+  },
+  /**
+   * Get an object of all of the user's cars (an object of car objects)
+   *   Test Results: Passing
+   */
+  getAllUserCars(uid) {
+    return firebase.database().ref('/users/' + uid).once('value').then( function(snapshot) {
+      return snapshot.val();
+    }, function(err) {
+      console.log(err);
     });
   },
 
@@ -84,17 +95,6 @@ const db = {
 
 
 
-
-  // Get an object of all of the user's car object (an object of objects)
-  getUsersCars(uid) {
-    return this._usersRef.child(uid).once('value').then( function(snapshot) {
-      console.log(`firebase-db.js db.getUsersCars() says, "all car objects are:"`);
-      console.log(snapshot.val());
-      return snapshot.val(); // test results:
-    }, function(error) {
-      console.log(error);
-    });
-  },
   getUsersCar(uid, carKey) {
     return this._usersRef.child(uid).once('value').then( function(snapshot) {
       console.log(`firebase-db.js db.getUsersCar() says, "specific car object is:"`);
