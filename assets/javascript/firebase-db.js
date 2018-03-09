@@ -208,27 +208,10 @@ const db = {
       console.log(err);
     });
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   /**
    *  Update mileage of last tire rotation
-   *    Test Results: 
+   *    Test Results: Passing
    */
-  // Update mileage of last tire rotation
   updateLastTireRotation(uid, carKey, newMileage) {
     // Convert newMileage to number type
     let mileage = parseInt(newMileage);
@@ -251,7 +234,7 @@ const db = {
 
 
 
-  
+
   /**
    *  Update Unix time of last car inspection
    *    Test Results: 
