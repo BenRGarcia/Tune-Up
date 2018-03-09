@@ -51,6 +51,7 @@ const db = {
    *    Test Results: Passing
    */
   getLastMaintenance(uid, carKey) {
+    // Get firebase database 'lastMaintenance' object 
     return firebase.database().ref('/users/' + uid).child(carKey).once('value').then( function(snapshot) {
       return snapshot.val().lastMaintenance;
     }, function(err) {
@@ -62,6 +63,7 @@ const db = {
    *    Test Results: Passing
    */
   getMaintenanceIntervals(uid, carKey) {
+    // Get firebase database 'maintenanceInterval' object 
     return firebase.database().ref('/users/' + uid).child(carKey).once('value').then( function(snapshot) {
       return snapshot.val().maintenanceInterval;
     }, function(err) {
@@ -73,6 +75,7 @@ const db = {
    *    Test Results: Passing
    */
   getAllUserCars(uid) {
+    // Get firebase database object of car objects
     return firebase.database().ref('/users/' + uid).once('value').then( function(snapshot) {
       return snapshot.val();
     }, function(err) {
@@ -84,43 +87,50 @@ const db = {
    *    Test Results: passing
    */
   deleteCar(uid, carKey) {
-    let deletedCar = {
-      carKey: null
-    };
+    // Create object with null value for car
+    let deletedCar = { carKey: null };
+    // Set carKey child with null value (deletes object from database)
     return firebase.database().ref('/users/' + uid).child(carKey).set(deletedCar).then( function() {
       return carKey;
     }, function(err) {
       console.log(err)
     });
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // Update mileage of a specific vehicle
+  /**
+   *  Update mileage of a car
+   *    Test Results: Passing
+   */
   updateMileage(uid, carKey, newMileage) {
-    console.log(`firebase-db updateMileage() was just called`);
+    // Convert mileage to number type
     let mileage = parseInt(newMileage);
-    return firebase.database().ref('/users/' + uid)[carKey].mileage.update(mileage).then( function() {
-      return mileage; // test results:
-    }, function(error) {
-      console.log(error);
+    // Create object with new mileage
+    let updatedMileage = { mileage: mileage };
+    // Update database with new car mileage object
+    return firebase.database().ref('/users/' + uid).child(carKey).update(updatedMileage).then( function() {
+      return updatedMileage;
+    }, function(err) {
+      console.log(err);
     });
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // Update interval for oil changes
   updateIntervalOilChange(uid, carKey, newIntervalMiles) {
     console.log(`firebase-db updateIntervalOilChange() was just called`);
