@@ -12,50 +12,50 @@ const db = {
    *  Methods to retrieve data from the firebase db 
    */
   // Get the default maintenance schedule object
-  get getDefMaint() {
-    this._defMaintRef.once('value').then( function(snapshot) {
-      console.log(`firebase-db.js getDefMaint says, 'snapshot:'`);
+  getDefMaint() {
+    return this._defMaintRef.once('value').then( function(snapshot) {
+      console.log(`firebase-db.js getDefMaint() says, 'snapshot:'`);
       console.log(snapshot.val());
-      return snapshot.val();
+      return snapshot.val(); // test results: works, no complaints
     }, function(error) {
       console.log(error);
     })
   },
   // Get the 'last maintenance' object from the db
   getLastMaintenance(uid, carKey) {
-    this._usersRef.child(uid).once('value').then( function(snapshot) {
+    return this._usersRef.child(uid).once('value').then( function(snapshot) {
       console.log(`firebase-db getLastMaintenance() says, "lastMaintenance object:"`);
       console.log(snapshot.child(carKey).lastMaintenance.val());
-      return snapshot.child(carKey).lastMaintenance.val();
+      return snapshot.child(carKey).lastMaintenance.val(); // test results:
     }, function(error) {
       console.log(error);
     });
   },
   // Get the already-set 'maintenance intervals' for a specific vehicle
   getMaintenanceIntervals(uid, carKey) {
-    this._usersRef.child(uid).once('value').then( function(snapshot) {
+    return this._usersRef.child(uid).once('value').then( function(snapshot) {
       console.log(`firebase-db getMaintenanceIntervals() says, "maintenanceInterval object:"`);
       console.log(snapshot.child(carKey).maintenanceInterval.val());
-      return snapshot.child(carKey).maintenanceInterval.val();
+      return snapshot.child(carKey).maintenanceInterval.val(); // test results:
     }, function(error) {
       console.log(error);
     });
   },
   // Get an object of all of the user's car object (an object of objects)
   getUsersCars(uid) {
-    this._usersRef.child(uid).once('value').then( function(snapshot) {
+    return this._usersRef.child(uid).once('value').then( function(snapshot) {
       console.log(`firebase-db.js db.getUsersCars() says, "all car objects are:"`);
       console.log(snapshot.val());
-      return snapshot.val();
+      return snapshot.val(); // test results:
     }, function(error) {
       console.log(error);
     });
   },
   getUsersCar(uid, carKey) {
-    this._usersRef.child(uid).once('value').then( function(snapshot) {
+    return this._usersRef.child(uid).once('value').then( function(snapshot) {
       console.log(`firebase-db.js db.getUsersCar() says, "specific car object is:"`);
       console.log(snapshot.child(carKey).val());
-      return snapshot.child(carKey).val();
+      return snapshot.child(carKey).val(); // test results:
     }, function(error) {
       console.log(error);
     });
@@ -65,41 +65,55 @@ const db = {
    */
   // User creates a new car object
   addNewCar(uid, year, make, model, mileage) {
-    // Get maintenance defaults
-    let maintenanceInterval = this.getDefMaint;
-    // Convert mileage to number type
-    let currentMileage = parseInt(mileage);
-    // Get key from db
-    let carKey = this._usersRef.push().key;
-    // Assemble new car object
-    let newCar = {};
-    newCar[uid] = {
-      year: year,
-      make: make,
-      model: model,
-      mileage: currentMileage,
-      maintenanceInterval: maintenanceInterval
-    };
-    // Add to user's cars in db
-    console.log(`firebase-db.js addNewCar() says, "new car object:"`);
-    console.log(newCar);
-    this._usersRef.update(newCar).then( function() {
-      return newCar;
+    let maintenanceInterval = this.getDefMaint();
+    return this.getDefMaint().then( function() {
+      let currentMileage = parseInt(mileage);
+      // Get key from db
+      let carKey = db._usersRef.push().key;
+      console.log(`new carKey: ${carKey}`);
+      // Assemble new car object
+      let newCar = {};
+      newCar[uid] = {
+        year: year,
+        make: make,
+        model: model,
+        mileage: currentMileage,
+        maintenanceInterval: {
+          "brakeInspectionMonths" : 12,
+          "carInspectionMonths" : 12,
+          "oilChange" : 3000,
+          "tireRotation" : 6000,
+          "wiperBladesMonths" : 6
+        }
+          
+      };
+      // Add to user's cars in db
+      console.log(`firebase-db.js addNewCar() says, "new car object:"`);
+      console.log(newCar);
+      db._usersRef.update(newCar).then( function() {
+        return newCar; // test results: functional, but needs work -- bad, smelly code
+      }, function(error) {
+        console.log(error)
+      });
     }, function(error) {
-      console.log(error)
+      console.log(error);
     });
+    // Get maintenance defaults
+    // let maintenanceInterval = this.getDefMaint;
+    // Convert mileage to number type
+    
   },
   // User deletes an existing car object
   deleteCar(uid, carKey) {
     console.log(`firebase-db deleteCar() was just called (double check node deletion worked as expected)`);
-    return this._usersRef.child(uid).child(carKey).remove();
+    return this._usersRef.child(uid).child(carKey).remove(); // test results:
   },
   // Update mileage of a specific vehicle
   updateMileage(uid, carKey, newMileage) {
     console.log(`firebase-db updateMileage() was just called`);
     let mileage = parseInt(newMileage);
-    this._usersRef.child(uid).child(carKey).mileage.update(mileage).then( function() {
-      return mileage;
+    return firebase.database().ref('/users/' + uid)[carKey].mileage.update(mileage).then( function() {
+      return mileage; // test results:
     }, function(error) {
       console.log(error);
     });
@@ -108,8 +122,8 @@ const db = {
   updateIntervalOilChange(uid, carKey, newIntervalMiles) {
     console.log(`firebase-db updateIntervalOilChange() was just called`);
     let newInterval = parseInt(newIntervalMiles);
-    this._usersRef.child(uid).child(carKey).oilChange.update(newInterval).then( function() {
-      return newInterval;
+    return firebase.database().ref('/users/' + uid)[carKey].oilChange.update(newInterval).then( function() {
+      return newInterval; // test results:
     }, function(error) {
       console.log(error);
     });
@@ -118,8 +132,8 @@ const db = {
   updateIntervalTireRotation(uid, carKey, newIntervalMiles) {
     console.log(`firebase-db updateIntervalTireRotation() was just called`);
     let newInterval = parseInt(newIntervalMiles);
-    this._usersRef.child(uid).child(carKey).tireRotation.update(newInterval).then( function() {
-      return newInterval;
+    return this._usersRef.child(uid).child(carKey).tireRotation.update(newInterval).then( function() {
+      return newInterval; // test results:
     }, function(error) {
       console.log(error);
     });
@@ -128,8 +142,8 @@ const db = {
   updateIntervalCarInspection(uid, carKey, newIntervalMonths) {
     console.log(`firebase-db updateIntervalCarInspection() was just called`);
     let newInterval = parseInt(newIntervalMonths);
-    this._usersRef.child(uid).child(carKey).carInspectionMonths.update(newInterval).then( function() {
-      return newInterval;
+    return this._usersRef.child(uid).child(carKey).carInspectionMonths.update(newInterval).then( function() {
+      return newInterval; // test results:
     }, function(error) {
       console.log(error);
     });
@@ -138,8 +152,8 @@ const db = {
   updateIntervalWiperBlades(uid, carKey, newIntervalMonths) {
     console.log(`firebase-db updateIntervalWiperBlades() was just called`);
     let newInterval = parseInt(newIntervalMonths);
-    this._usersRef.child(uid).child(carKey).wiperBladesMonths.update(newInterval).then( function() {
-      return newInterval;
+    return this._usersRef.child(uid).child(carKey).wiperBladesMonths.update(newInterval).then( function() {
+      return newInterval; // test results:
     }, function(error) {
       console.log(error);
     });
@@ -148,8 +162,8 @@ const db = {
   updateIntervalBrakeInspection(uid, carKey, newIntervalMonths) {
     console.log(`firebase-db updateIntervalBrakeInspection() was just called`);
     let newInterval = parseInt(newIntervalMonths);
-    this._usersRef.child(uid).child(carKey).brakeInspectionMonths.update(newInterval).then( function() {
-      return newInterval;
+    return this._usersRef.child(uid).child(carKey).brakeInspectionMonths.update(newInterval).then( function() {
+      return newInterval; // test results:
     }, function(error) {
       console.log(error);
     });
@@ -157,8 +171,8 @@ const db = {
   // Update mileage of last oil change
   updateLastOilChange(uid, carKey, mileage) {
     console.log(`firebase-db updateLastOilChange() was just called`);
-    this._usersRef.child(uid).child(carKey).oilChange.update(mileage).then( function() {
-      return mileage;
+    return this._usersRef.child(uid).child(carKey).oilChange.update(mileage).then( function() {
+      return mileage; // test results:
     }, function(error) {
       console.log(error);
     });
@@ -166,8 +180,8 @@ const db = {
   // Update mileage of last tire rotation
   updateLastTireRotation(uid, carKey, mileage) {
     console.log(`firebase-db updateLastTireRotation() was just called`);
-    this._usersRef.child(uid).child(carKey).tireRotation.update(mileage).then( function() {
-      return mileage;
+    return this._usersRef.child(uid).child(carKey).tireRotation.update(mileage).then( function() {
+      return mileage; // test results:
     }, function(error) {
       console.log(error);
     });
@@ -175,8 +189,8 @@ const db = {
   // Update date (UTC) of last car inspection
   updateLastCarInspection(uid, carKey, dateUTC) {
     console.log(`firebase-db updateLastCarInspection() was just called`);
-    this._usersRef.child(uid).child(carKey).carInspectionUTC.update(dateUTC).then( function() {
-      return dateUTC;
+    return this._usersRef.child(uid).child(carKey).carInspectionUTC.update(dateUTC).then( function() {
+      return dateUTC; // test results:
     }, function(error) {
       console.log(error);
     });
@@ -184,8 +198,8 @@ const db = {
   // Update date (UTC) of last wiper blades
   updateLastWiperBlades(uid, carKey, dateUTC) {
     console.log(`firebase-db updateLastWiperBlades() was just called`);
-    this._usersRef.child(uid).child(carKey).wiperBladesUTC.update(dateUTC).then( function() {
-      return dateUTC;
+    return this._usersRef.child(uid).child(carKey).wiperBladesUTC.update(dateUTC).then( function() {
+      return dateUTC; // test results:
     }, function(error) {
       console.log(error);
     });
@@ -193,8 +207,8 @@ const db = {
   // Update date (UTC) of last brake inspection
   updateLastBrakeInspection(uid, carKey, dateUTC) {
     console.log(`firebase-db updateLastBrakeInspection() was just called`);
-    this._usersRef.child(uid).child(carKey).brakeInspectionUTC.update(dateUTC).then( function() {
-      return dateUTC;
+    return this._usersRef.child(uid).child(carKey).brakeInspectionUTC.update(dateUTC).then( function() {
+      return dateUTC; // test results:
     }, function(error) {
       console.log(error);
     });

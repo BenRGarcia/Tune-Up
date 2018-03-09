@@ -13,6 +13,8 @@
   <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
   <!-- Firebase Authentication -->
   <script src="./assets/javascript/firebase-user.js"></script>
+  <!-- Firebase Database -->
+  <script src="./assets/javascript/firebase-db.js"></script>
   <!-- Firebase Authentication CSS -->
   <link 
     type="text/css" 
@@ -39,9 +41,40 @@
     href="./assets/css/style.css" 
     media="screen,projection"
   >
+  <style>
+    button {
+      margin: 3px;
+    }
+  </style>
 </head>
 <body>
   <div id="app" class="container">
+
+    <!--============================-->
+    <!-- Ben's Test Code Below Here -->
+    <!--============================-->
+    <button id="js-new-car" class="waves-effect waves-light btn">Create New Car (or additional car)</button><br>
+    <button id="js-def-maint" class="waves-effect waves-light btn">Get default maintenance from db</button><br>
+    <button id="js-last-maint" class="waves-effect waves-light btn">Get last maintenance obj</button><br>
+    <button id="js-last-maint-interval" class="waves-effect waves-light btn">get last maintenance interval obj</button><br>
+    <button id="js-get-user-cars" class="waves-effect waves-light btn">Get all user cars</button><br>
+    <button id="js-get-user-car" class="waves-effect waves-light btn">Get 1 of user's cars</button><br>
+    <button id="js-update-mileage" class="waves-effect waves-light btn">Update mileage</button><br>
+    <button id="js-update-oil-int" class="waves-effect waves-light btn">update oil change interval</button><br>
+    <button id="js-update-inspect-int" class="waves-effect waves-light btn">update inspection interval</button><br>
+    <button id="js-update-wiper-int" class="waves-effect waves-light btn">update wiper interval</button><br>
+    <button id="js-update-brake-int" class="waves-effect waves-light btn">update brake interval</button><br>
+    <button id="js-update-tire-int" class="waves-effect waves-light btn">update tire interval</button><br>
+    <button id="js-last-oil" class="waves-effect waves-light btn">update last oil change</button><br>
+    <button id="js-last-tire" class="waves-effect waves-light btn">update last tire rotation</button><br>
+    <button id="js-last-inspect" class="waves-effect waves-light btn">update last inspection</button><br>
+    <button id="js-last-wiper" class="waves-effect waves-light btn">update last wiper blades</button><br>
+    <button id="js-last-brake" class="waves-effect waves-light btn">update last brake</button><br>
+    <button id="js-delete-car" class="waves-effect waves-light btn">Delete a car</button>
+    <!--============================-->
+    <!-- Ben's Test Code Above Here -->
+    <!--============================-->
+
     <!--=================-->
     <!-- Code below here -->
     <!--=================-->
@@ -58,7 +91,7 @@
         </ul>
       </div>
     </div>
- 
+
     <!-- Google Map Display -->
     <div id="map-canvas"></div>
     <!--=================-->

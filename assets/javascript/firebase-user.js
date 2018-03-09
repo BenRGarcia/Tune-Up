@@ -36,9 +36,11 @@ const userAuth = {
     return this._name;
   },
   set setUid(uid) {
+    console.log(`we were called too! uid: ${uid}`);
     return this._uid = uid;
   },
   set setName(displayName) {
+    console.log(`we were called too! ${displayName}`);
     return this._name = displayName;
   },
   signOut() {
