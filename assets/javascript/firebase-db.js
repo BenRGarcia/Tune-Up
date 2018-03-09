@@ -1,6 +1,6 @@
 /*
  *  firebase-db contains all code to interact with the database.
- */
+**/
 
 const db = {
   // Default values of maintenance intervals
@@ -21,8 +21,7 @@ const db = {
   },
   /**
    *  Create a new car object
-   *    Test Results: Passing
-   */
+  **/
   addNewCar(uid, year, make, model, mileage) {
     // Convert mileage to number type
     let mileageNumber = parseInt(mileage);
@@ -48,8 +47,7 @@ const db = {
   },
   /**
    *  Get the 'last maintenance' object from the db
-   *    Test Results: Passing
-   */
+  **/
   getLastMaintenance(uid, carKey) {
     // Get firebase database 'lastMaintenance' object 
     return firebase.database().ref('/users/' + uid).child(carKey).once('value').then( function(snapshot) {
@@ -60,8 +58,7 @@ const db = {
   },
   /**
    *  Get 'maintenance intervals' for a specific vehicle
-   *    Test Results: Passing
-   */
+  **/
   getMaintenanceIntervals(uid, carKey) {
     // Get firebase database 'maintenanceInterval' object 
     return firebase.database().ref('/users/' + uid).child(carKey).once('value').then( function(snapshot) {
@@ -72,8 +69,7 @@ const db = {
   },
   /**
    *  Get an object of all of the user's cars (an object of car objects)
-   *    Test Results: Passing
-   */
+  **/
   getAllUserCars(uid) {
     // Get firebase database object of car objects
     return firebase.database().ref('/users/' + uid).once('value').then( function(snapshot) {
@@ -84,8 +80,7 @@ const db = {
   },
   /**
    *  Delete a car object
-   *    Test Results: passing
-   */
+  **/
   deleteCar(uid, carKey) {
     // Create object with null value for car
     let deletedCar = { carKey: null };
@@ -98,8 +93,7 @@ const db = {
   },
   /**
    *  Update mileage of a car
-   *    Test Results: Passing
-   */
+  **/
   updateMileage(uid, carKey, newMileage) {
     // Convert mileage to number type
     let mileage = parseInt(newMileage);
@@ -114,8 +108,7 @@ const db = {
   },
   /**
    *  Update interval for oil changes
-   *    Test Results: Passing
-   */
+  **/
   updateIntervalOilChange(uid, carKey, newIntervalMiles) {
     // Convert newIntervalMiles to number type
     let newInterval = parseInt(newIntervalMiles);
@@ -130,8 +123,7 @@ const db = {
   },
   /**
    *  Update interval for tire rotations
-   *    Test Results: Passing
-   */
+  **/
   updateIntervalTireRotation(uid, carKey, newIntervalMiles) {
     // Convert newIntervalMiles to number type
     let newInterval = parseInt(newIntervalMiles);
@@ -146,8 +138,7 @@ const db = {
   },
   /**
    *  Update interval for car inspections
-   *    Test Results: Passing
-   */
+  **/
   updateIntervalCarInspection(uid, carKey, newIntervalMonths) {
     // Convert newIntervalMiles to number type
     let newInterval = parseInt(newIntervalMonths);
@@ -162,8 +153,7 @@ const db = {
   },
   /**
    *  Update interval for wiper blades
-   *    Test Results: Passing
-   */
+  **/
   updateIntervalWiperBlades(uid, carKey, newIntervalMonths) {
     // Convert newIntervalMiles to number type
     let newInterval = parseInt(newIntervalMonths);
@@ -178,8 +168,7 @@ const db = {
   },
   /**
    *  Update interval for brake inspections
-   *    Test Results: Passing
-   */
+  **/
   updateIntervalBrakeInspection(uid, carKey, newIntervalMonths) {
     // Convert newIntervalMiles to number type
     let newInterval = parseInt(newIntervalMonths);
@@ -194,8 +183,7 @@ const db = {
   },
   /**
    *  Update mileage of last oil change
-   *    Test Results: Passing
-   */
+  **/
   updateLastOilChange(uid, carKey, newMileage) {
     // Convert newMileage to number type
     let mileage = parseInt(newMileage);
@@ -210,8 +198,7 @@ const db = {
   },
   /**
    *  Update mileage of last tire rotation
-   *    Test Results: Passing
-   */
+  **/
   updateLastTireRotation(uid, carKey, newMileage) {
     // Convert newMileage to number type
     let mileage = parseInt(newMileage);
@@ -226,8 +213,7 @@ const db = {
   },
   /**
    *  Update Unix time of last car inspection
-   *    Test Results: Passing
-   */
+  **/
   updateLastCarInspection(uid, carKey, dateUnixTime) {
     // Convert dateUnixTime to number type
     let unixTimeNumber = parseInt(dateUnixTime);
@@ -242,8 +228,7 @@ const db = {
   },
   /**
    *  Update Unix time of last wiper blades
-   *    Test Results: Passing
-   */
+  **/
   updateLastWiperBlades(uid, carKey, dateUnixTime) {
     // Convert dateUnixTime to number type
     let unixTimeNumber = parseInt(dateUnixTime);
@@ -258,8 +243,7 @@ const db = {
   },
   /**
    *  Update Unix time of last brake inspection
-   *    Test Results: Passing
-   */
+  **/
   updateLastBrakeInspection(uid, carKey, dateUnixTime) {
     // Convert dateUnixTime to number type
     let unixTimeNumber = parseInt(dateUnixTime);
