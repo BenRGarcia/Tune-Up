@@ -7,7 +7,7 @@ initApp = function() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in
-      console.log(`Logged in user: displayName = '${user.displayName}', uid = '${user.uid}'`);
+      console.log(`Logged in user, displayName: '${user.displayName}', uid: '${user.uid}'`);
       // Set uid and displayment in userAuth object
       userAuth.setUid = user.uid;
       userAuth.setName = user.displayName;
@@ -43,9 +43,10 @@ const userAuth = {
   },
   signOut() {
     firebase.auth().signOut().then( function() {
-        console.log(`Signed out`);
+        console.log("User signed out");
       }, function(error) {
-        console.log(`Signout error: ${error}`);
+        console.log("Signout error:");
+        console.log(error);
       }
     );
   }
