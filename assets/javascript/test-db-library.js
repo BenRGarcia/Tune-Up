@@ -390,7 +390,7 @@ $( function() {
       let carKey; // set equal to car key, looks something like "-L7A7Ce9TWt-nfaa1gCv"
 
       // Call db object's method to update the last maintenance of wiper blades
-      db.updateLastWiperBlades(uid, carKey, 1357).then( function(response) {
+      db.updateLastWiperBlades(uid, carKey, unixDate).then( function(response) {
         console.log(response); // 'response' is an object of last maintenance of wiper blades
       }, function(err) {
         console.log(err); // Errors are logged in the console
@@ -421,7 +421,7 @@ $( function() {
       let carKey; // set equal to car key, looks something like "-L7A7Ce9TWt-nfaa1gCv"
 
       // Call db object's method to update the last maintenance of brake inspection
-      db.updateLastBrakeInspection(uid, carKey, 9753).then( function(response) {
+      db.updateLastBrakeInspection(uid, carKey, unixDate).then( function(response) {
         console.log(response); // 'response' is an object of last maintenance of brake inspection
       }, function(err) {
         console.log(err); // Errors are logged in the console
