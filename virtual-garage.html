@@ -35,12 +35,25 @@
         <!--=================-->
         <!-- Code below here -->
         <!--=================-->
-<!--        <div class="row">-->
-            <p class="shadow text1">VIRTUAL GARAGE</p>
-            <p class="shadow text2"> Here you can find any information related to your vehicle(s).</p>
-            <br><br>
+        <!--        <div class="row">-->
+        <p class="shadow text1">VIRTUAL GARAGE</p>
+        <p class="shadow text2"> Here you can find any information related to your vehicle(s).</p>
+        <br><br>
+        <!--
+        <nav>
+            <div class="nav-wrapper">
+                <class="brand-logo">Logo</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="badges.html">Sign Out</a></li>
+                    
+                </ul>
+            </div>
+        </nav>
+-->
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
-            <!--
+        <!--
             <nav id="navbar">
                 <div class="nav-wrapper">
                     <a href="#" class="brand-logo right">Logo</a>
@@ -54,83 +67,80 @@
 -->
 
 
-
-
-
-
-            <div class="row">
-                <div class="col s4">
-                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>  <p class="dropdown" class="shadow text2">VEHICLE MAKE:</p> </a>
-
-                    <!-- Dropdown Structure -->
-                    <ul id='dropdown1' class='dropdown-content'>
-
-                        <li><a href="#!"></a>Mazda</li>
-                        <li><a href="#!"></a>Honda</li>
-                        <li class="divider">Mercedes</li>
-                        <li><a href="#!"></a>BMW</li>
-
-                    </ul>
-                    <br>
-                    
-                    
-
-
-                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'><p class="dropdown" class="shadow text2">VEHICLE MODEL:</p> </a>
-                    <!-- Dropdown Structure -->
-                    <ul id='dropdown1' class='dropdown-content'>
-
-                        <li><a href="#!"></a>Mazda2</li>
-                        <li><a href="#!"></a>Civic</li>
-                        <li class="divider">Sonata</li>
-                        <li><a href="#!"></a>Accord</li>
-
-                    </ul>
-                    <br>
-
-
-                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'><p class="dropdown" class="shadow text2">VEHICLE YEAR:</p></a>
-
-
-
-                    <!-- Dropdown Structure -->
-                    <ul id='dropdown1' class='dropdown-content'>
-
-                        <li><a href="#!"></a>2016</li>
-                        <li><a href="#!"></a>2015</li>
-                        <li class="divider">2014</li>
-                        <li><a href="#!"></a>2013/li>
-
-                    </ul>
-                    <br>
-
-
-
-
-                    <h7> SET YOUR VEHICLE MILEAGE: </h7>
-
-                    <!-- Dropdown Structure -->
-
-
-
-                    <input id="milage" type="text" name="mileage">
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        
+                    </div>
+                    <a href="#!user"><img class="circle" src="./assets/images/goodlogo.png"></a>
+                    <a href="#!name"><span class="white-text name">John Doe</span></a>
+                    <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
                 </div>
-           
+            </li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordian">
+                    <li>
+                        <a class="collapsible-header">Select your vehicle make:</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#!"></a>Mazda</li>
+                                <li><a href="#!"></a>Honda</li>
+                                <li> <a href="#!"></a>Mercedes</li>
+                                <li><a href="#!"></a>BMW</li>
+
+                            </ul>
 
 
-    <div id="vehicle-details" class= "col s8">
-            <p class="shadow text1">VEHICLE DETAILS</p>
-            
+                        </div>
+                    </li>
+                    <li>
+                        <a class="collapsible-header">Select your vehicle model:</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#!"></a>Mazda</li>
+                                <li><a href="#!"></a>Honda</li>
+                                <li><a href="#!"></a>Honda</li>
+                                <li><a href="#!"></a>BMW</li>
 
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="collapsible-header">Select your vehicle year:</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#!"></a>Mazda</li>
+                                <li><a href="#!"></a>Honda</li>
+                                <li><a href="#!"></a>Honda</li>
+                                <li><a href="#!"></a>BMW</li>
 
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="collapsible-header">Please enter your vehicle's mileage:</a>
+                        <div class="collapsible-body" style="padding: 10px">
+                            <input type="text">
+                            <input type="submit">
+                        </div>
+                    </li>
 
-            
-                
-            <div class="row">
-                <div class="col s6">
-                    <h6> Please indicate the last completed date for the following: </h6>
-                    <form >
-                            
+                </ul>
+            </li>
+        </ul>
+        <!-- Dropdown Structure -->
+
+        <br>
+
+        <div class="row">
+            <div id="vehicle-details" class="col s12">
+                <p class="shadow text1">VEHICLE DETAILS</p>
+                <div class="row">
+                    <div class="col s6">
+                        <h6> Please indicate the last completed date for the following: </h6>
+                        <form>
+
                             <label>Oil Change</label>
                             <input type="date" class="datepicker" />
                             <label>Tire Rotation</label>
@@ -142,47 +152,51 @@
                             <label>Wiper Blades</label>
                             <input type="date" class="datepicker" />
 
-                    
-                    </form>
-                    
-                    
-                </div>
-                 <div class="col s6">
-                     <h6> Please indicate how often your vehicle requires maintenance on each of the following: </h6>
-                     <form>
-                         <label>Oil Change (miles)</label>
+
+                        </form>
+
+
+                    </div>
+                    <div class="col s6">
+                        <h6> Please indicate how often your vehicle requires maintenance on each of the following: </h6>
+                        <form>
+                            <label>Oil Change (miles)</label>
                             <input type="text" />
                             <label>Tire Rotation (miles)</label>
                             <input type="text" />
                             <label>Brake Check (miles)</label>
                             <input type="text" />
                             <label>Inspection (months) </label>
-                            <input type="text"/>
+                            <input type="text" />
                             <label>Wiper Blades (months)</label>
                             <input type="text" />
-                         
-                     </form>
+
+                        </form>
+                    </div>
+                    
+
+
+
+
                 </div>
-            
-
-
-
+                <div class="row" style="text-align: center">
+                    <input type="submit" value="submit">
                 </div>
 
+
+            </div>
 
         </div>
-        
-    </div>
-    
-
-
-    <div id="account-details"></div>
 
 
 
-    <!--=================-->
-    <!-- Code above here -->
-    <!--=================-->
+        <div id="account-details"></div>
+
+
+
+        <!--=================-->
+        <!-- Code above here -->
+        <!--=================-->
     </div>
     <!--==================-->
     <!-- Javascript below -->
@@ -203,6 +217,9 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YC_GpZvlge7TTOgdNhujspZ8yjdbvQU&libraries=places"></script>
     <!-- Custom JS -->
     <script src="./assets/javascript/main.js"></script>
+    <script type="text/javascript">
+        $(".button-collapse").sideNav();
+    </script>
 </body>
 
 </html>
