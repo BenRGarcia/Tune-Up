@@ -5,23 +5,26 @@
 const db = {
   // Default values of maintenance intervals
   _defaultMaintenanceInterval: {
-    wiperBladesMonths: 6,
-    brakeInspectionMonths: 12,
-    carInspectionMonths: 12,
-    oilChange: 3000,
-    tireRotation: 6000
+    wiperBladesMonths:        6,
+    brakeInspectionMonths:   12,
+    carInspectionMonths:     12,
+    oilChange:             3000,
+    tireRotation:          6000
   },
   // Default values of last maintenance performed
   _defaultLastMaintenance: {
-    wiperBladesUTC: false,
-    brakeInspectionUTC: false,
-    carInspectionUTC: false,
-    oilChange: false,
-    tireRotation: false
+    wiperBladesUnixTime:     false,
+    brakeInspectionUnixTime: false,
+    carInspectionUnixTime:   false,
+    oilChange:               false,
+    tireRotation:            false
   },
-  // User creates a new car object
-  addNewCar(uid, year, make, model, mileage) { // Testing: Tests passed
-    // Convert mileage to number if string
+  /**
+   *  Create a new car object
+   *    Test Results: Passing
+   */
+  addNewCar(uid, year, make, model, mileage) {
+    // Convert mileage to number type
     let mileageNumber = parseInt(mileage);
     // Get firebase db key for new car object
     let carKey = firebase.database().ref('users').child(uid).push().key;
@@ -29,39 +32,47 @@ const db = {
     let newCar = {};
     // Assemble new car object
     newCar[carKey] = {
-      year: year,
-      make: make,
-      model: model,
+      year:    year,
+      make:    make,
+      model:   model,
       mileage: mileageNumber,
       maintenanceInterval: this._defaultMaintenanceInterval,
-      lastMaintenance: this._defaultLastMaintenance
+      lastMaintenance:     this._defaultLastMaintenance
     };
+    // Update database with new car object
     return firebase.database().ref('/users/' + uid).update(newCar).then( function() {
       return newCar;
-    }, function(error) {
-      console.log(error);
+    }, function(err) {
+      console.log(err);
     });
   },
-  // Get the default maintenance schedule object
-  getDefMaint() {
-    return this._defMaintRef.once('value').then( function(snapshot) {
-      console.log(`firebase-db.js getDefMaint() says, 'snapshot:'`);
-      console.log(snapshot.val());
-      return snapshot.val(); // test results: works, no complaints
-    }, function(error) {
-      console.log(error);
-    })
-  },
-  // Get the 'last maintenance' object from the db
+  /**
+   * Get the 'last maintenance' object from the db
+   *   Test Results: Passing
+   */
   getLastMaintenance(uid, carKey) {
-    return this._usersRef.child(uid).once('value').then( function(snapshot) {
-      console.log(`firebase-db getLastMaintenance() says, "lastMaintenance object:"`);
-      console.log(snapshot.child(carKey).lastMaintenance.val());
-      return snapshot.child(carKey).lastMaintenance.val(); // test results:
+    return firebase.database().ref('/users/' + uid).child(carKey).once('value').then( function(snapshot) {
+      return snapshot.val().lastMaintenance;
     }, function(error) {
       console.log(error);
     });
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // Get the already-set 'maintenance intervals' for a specific vehicle
   getMaintenanceIntervals(uid, carKey) {
     return this._usersRef.child(uid).once('value').then( function(snapshot) {
@@ -206,63 +217,3 @@ const db = {
     });
   }
 };
-
-/*
-// Sample schema of database
-
-{
-  "defaultMaintenance" : {
-    "brakeInspectionMonths" : 12,
-    "carInspectionMonths" : 12,
-    "oilChange" : 3000,
-    "tireRotation" : 6000,
-    "wiperBladesMonths" : 6
-  },
-  "users" : {
-    "authUid1" : {
-      "-LakjnwowPEPKFksda" : {
-        "lastMaintenance" : {
-          "brakeInspectionUTC" : 1360013296,
-          "carInspectionUTC" : 1360013296,
-          "oilChange" : 30000,
-          "tireRotation" : 29500,
-          "wiperBladesUTC" : 1360013296
-        },
-        "maintenanceInterval" : {
-          "brakeInspectionMonths" : 12,
-          "carInspectionMonths" : 12,
-          "oilChange" : 3000,
-          "tireRotation" : 6000,
-          "wiperBladesMonths" : 6
-        },
-        "make" : "honda",
-        "mileage" : 33000,
-        "model" : "civic",
-        "year" : 2015
-      }
-    },
-    "authUid2" : {
-      "-TakjnwowPEPKFksda" : {...},
-      "-MakjnwowPEPKFksda" : {...}
-    }
-  }
-}
-*/
-
-/*
-Firebase db rules:
-{
-  "rules": {
-    "users": {
-      "$uid": {
-        ".write": "$uid === auth.uid",
-        ".read": "$uid === auth.uid"
-      }
-    },
-    "defaultMaintenance": {
-      ".write": false,
-      ".read": "auth != null"
-    }
-  }
-}
-*/
