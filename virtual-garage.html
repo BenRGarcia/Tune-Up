@@ -1,103 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tune Up</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tune Up</title>
 
-  <!-- Firebase CDN -->
-  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-  <!-- Firebase Config/Initialization -->
-  <script src="./assets/javascript/firebase-config.js"></script>
-  <!-- Firebase Authentication CDN -->
-  <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
-  <!-- Firebase Authentication -->
-  <script src="./assets/javascript/firebase-auth.js"></script>
-  <!-- Firebase Authentication CSS -->
-  <link 
-    type="text/css" 
-    rel="stylesheet" 
-    href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css"
-  />
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <!-- Firebase Config/Initialization -->
+    <script src="./assets/javascript/firebase-config.js"></script>
+    <!-- Firebase Authentication CDN -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <!-- Firebase Authentication -->
+    <script src="./assets/javascript/firebase-auth.js"></script>
+    <!-- Firebase Authentication CSS -->
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 
-  <!-- Material Icons for Materialize -->
-  <link 
-    href="https://fonts.googleapis.com/icon?family=Material+Icons" 
-    rel="stylesheet"
-  >
+    <!-- Material Icons for Materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Materialize CSS -->
-  <link 
-    rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" 
-    media="screen,projection"
-  >
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection">
 
-  <!-- vis CSS -->
-  <link 
-    rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css"
-  >
+    <!-- vis CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
 
-  <!-- Custom CSS -->
-  <link 
-    rel="stylesheet" 
-    href="./assets/css/style.css" 
-    media="screen,projection"
-  >
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" media="screen,projection">
 </head>
+
 <body>
-  <div id="app" class="container">
-    <!--=================-->
-    <!-- Code below here -->
-    <!--=================-->
-  <div class="row">
-       <p class="shadow text1">VIRTUAL GARAGE</p>
-      <p class="shadow text2"> Here you can find any information related to your vehicle(s).</p>
-      <div class="nav-wrapper">
-          <a href="#" class="list"> Filler</a>
-          <ul id="nav-bar" class="nav">
-              <li><a href="vehicle.html"> Vehicle 1</a>
-              </li>
-          </ul>
-      </div>
-      </div>
+    <div id="app" class="container">
+        <!--=================-->
+        <!-- Code below here -->
+        <!--=================-->
+<!--        <div class="row">-->
+            <p class="shadow text1">VIRTUAL GARAGE</p>
+            <p class="shadow text2"> Here you can find any information related to your vehicle(s).</p>
+            <br><br>
+
+            <!--
+            <nav id="navbar">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo right">Logo</a>
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <li><a href="sass.html">Sass</a></li>
+                        <li><a href="badges.html">Components</a></li>
+                        <li><a href="collapsible.html">JavaScript</a></li>
+                    </ul>
+                </div>
+            </nav>
+-->
+
+
+
+
+
+
+            <div class="row">
+                <div class="col s4">
+                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>  <p class="dropdown" class="shadow text2">VEHICLE MAKE:</p> </a>
+
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+
+                        <li><a href="#!"></a>Mazda</li>
+                        <li><a href="#!"></a>Honda</li>
+                        <li class="divider">Mercedes</li>
+                        <li><a href="#!"></a>BMW</li>
+
+                    </ul>
+                    <br>
+                    
+                    
+
+
+                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'><p class="dropdown" class="shadow text2">VEHICLE MODEL:</p> </a>
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+
+                        <li><a href="#!"></a>Mazda2</li>
+                        <li><a href="#!"></a>Civic</li>
+                        <li class="divider">Sonata</li>
+                        <li><a href="#!"></a>Accord</li>
+
+                    </ul>
+                    <br>
+
+
+                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'><p class="dropdown" class="shadow text2">VEHICLE YEAR:</p></a>
+
+
+
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+
+                        <li><a href="#!"></a>2016</li>
+                        <li><a href="#!"></a>2015</li>
+                        <li class="divider">2014</li>
+                        <li><a href="#!"></a>2013/li>
+
+                    </ul>
+                    <br>
+
+
+
+
+                    <h7> SET YOUR VEHICLE MILEAGE: </h7>
+
+                    <!-- Dropdown Structure -->
+
+
+
+                    <input id="milage" type="text" name="mileage">
+                </div>
+           
+
+
+    <div id="vehicle-details" class= "col s8">
+            <p class="shadow text1">VEHICLE DETAILS</p>
+            
+
+
+
+            
+                
+            <div class="row">
+                <div class="col s6">
+                    <h6> Please indicate the last completed date for the following: </h6>
+                    <form >
+                            
+                            <label>Oil Change</label>
+                            <input type="date" class="datepicker" />
+                            <label>Tire Rotation</label>
+                            <input type="date" class="datepicker" />
+                            <label>Brakes</label>
+                            <input type="date" class="datepicker" />
+                            <label>Inspection</label>
+                            <input type="date" class="datepicker" />
+                            <label>Wiper Blades</label>
+                            <input type="date" class="datepicker" />
+
+                    
+                    </form>
+                    
+                    
+                </div>
+                 <div class="col s6">
+                     <h6> Please indicate how often your vehicle requires maintenance on each of the following: </h6>
+                     <form>
+                         <label>Oil Change (miles)</label>
+                            <input type="text" />
+                            <label>Tire Rotation (miles)</label>
+                            <input type="text" />
+                            <label>Brake Check (miles)</label>
+                            <input type="text" />
+                            <label>Inspection (months) </label>
+                            <input type="text"/>
+                            <label>Wiper Blades (months)</label>
+                            <input type="text" />
+                         
+                     </form>
+                </div>
+            
+
+
+
+                </div>
+
+
+        </div>
+        
+    </div>
+    
 
 
     <div id="account-details"></div>
- 
-  
-    
+
+
+
     <!--=================-->
     <!-- Code above here -->
     <!--=================-->
-  </div>
-  <!--==================-->
-  <!-- Javascript below -->
-  <!--==================-->
-  <!-- jQuery CDN -->
-  <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"
-  ></script>
-  <!-- vis JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
-  <!-- Custom vis.js -->
-  <script src="./assets/javascript/vis-js.js"></script>
-  <!-- Materialize JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
-  <!-- NHTSA JS/API -->
-  <script src="./assets/javascript/api-nhtsa.js"></script>
-  <!-- Google Maps JS -->
-  <script src="./assets/javascript/api-google-maps.js"></script>
-  <!-- Google Maps API -->
-  <script 
-    async 
-    defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YC_GpZvlge7TTOgdNhujspZ8yjdbvQU&libraries=places"
-  ></script>
-  <!-- Custom JS -->
-  <script src="./assets/javascript/main.js"></script>
+    </div>
+    <!--==================-->
+    <!-- Javascript below -->
+    <!--==================-->
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- vis JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <!-- Custom vis.js -->
+    <script src="./assets/javascript/vis-js.js"></script>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- NHTSA JS/API -->
+    <script src="./assets/javascript/api-nhtsa.js"></script>
+    <!-- Google Maps JS -->
+    <script src="./assets/javascript/api-google-maps.js"></script>
+    <!-- Google Maps API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YC_GpZvlge7TTOgdNhujspZ8yjdbvQU&libraries=places"></script>
+    <!-- Custom JS -->
+    <script src="./assets/javascript/main.js"></script>
 </body>
+
 </html>

@@ -63,6 +63,29 @@ body {
   padding: 0 0.3em;
 
 }
+.dropdown {
+    font-size: 10px;
+}
+
+    
+}
+#navbar {
+    background-color: #26a69a;
+}
+label {
+    color: white;
+}
+h7 {
+    background-color: #26a69a;
+    color: white;
+    padding: 10px;
+    
+}
+#vehicle-details {
+    background-color: #26a69a;
+    color: white;
+    
+}
 
 #tune-up {
     font-style: oblique;
@@ -90,4 +113,7 @@ li {
     margin-top: 40px;
     font-weight: bold;
     
+}
+.row {
+    left: 10px;
 }
