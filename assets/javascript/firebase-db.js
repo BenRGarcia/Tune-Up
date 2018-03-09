@@ -256,18 +256,9 @@ const db = {
       console.log(err);
     });
   },
-
-
-
-
-
-
-
-
-
   /**
    *  Update Unix time of last brake inspection
-   *    Test Results: 
+   *    Test Results: Passing
    */
   updateLastBrakeInspection(uid, carKey, dateUnixTime) {
     // Convert dateUnixTime to number type
