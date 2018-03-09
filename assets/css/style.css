@@ -1,6 +1,18 @@
 /* Global CSS Styles */
+
+
+#map-canvas {
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+}
+
+
+
 @import url(https://fonts.googleapis.com/css?family=Arvo:700);
 @import url(https://fonts.googleapis.com/css?family=Seaweed+Script);
+
+
 
 body {
   background-image: url("../images/image.jpg");
@@ -21,6 +33,7 @@ li {
   font-weight: bold;
 }
 
+
 .plate {
   width: 410px;
   margin: 10% auto;
@@ -30,14 +43,16 @@ li {
   font-family: Arvo;
   font-weight: bold;
   text-shadow:
-  -3px -3px 0 #222,
-  3px -3px 0 #222,
-  -3px  3px 0 #222,
-  3px  3px 0 #222,
-  4px  4px 0 #fff,
-  5px  5px 0 #fff,
-  6px  6px 0 #fff,
-  7px  7px 0 #fff;
+
+    -3px -3px 0 #222,
+    3px -3px 0 #222,
+    -3px 3px 0 #222,
+    3px 3px 0 #222,
+    4px 4px 0 #fff,
+    5px 5px 0 #fff,
+    6px 6px 0 #fff,
+    7px 7px 0 #fff;
+
   line-height: 0.8em;
   letter-spacing: 0.1em;
   transform: scaleY(0.7);
@@ -57,7 +72,52 @@ li {
 .script span {
   background-color: #222;
   padding: 0 0.3em;
+
+
+
 }
+.dropdown {
+    font-size: 10px;
+}
+img {
+       
+    width: 12%;
+    height: 12%;
+   
+    margin-left: 50%;
+    margin-right: 50%;
+}
+    
+}
+#navbar {
+    background-color: #26a69a;
+}
+label {
+    color: white;
+}
+h7 {
+    background-color: #26a69a;
+    color: white;
+    padding: 10px;
+    
+}
+#vehicle-details {
+    background-color: #26a69a;
+    color: white;
+    
+}
+
+#tune-up {
+    font-style: oblique;
+}
+
+/*}*/
+
+
+
+}
+
+
 
 .script:before {
   content:"";
@@ -69,6 +129,9 @@ li {
   border-bottom: 3px solid #fff;
 }
 
+
+
+
 .text1 {
   font-size: 50px;
 }
@@ -77,15 +140,30 @@ li {
   font-size: 50px;
 }
 
+
+
+
 .text3 {
   font-size: 90px;
 }
+
+
+
+li {
+    margin-top: 40px;
+    font-weight: bold;
+    
+
+}
+.row {
+    left: 10px;
+
 
 div.firebaseui-container {
   display: hidden;
 }
 
-#map-canvas {
+#map-canvas, #directions-canvas {
   width: 100%;
   height: 400px;
   background-color: grey;
@@ -93,4 +171,5 @@ div.firebaseui-container {
 
 #tune-up {
   font-style: oblique;
+
 }
