@@ -192,60 +192,112 @@ const db = {
       console.log(err);
     });
   },
-
-
-
-
-
-
-
-
-
-
-
-  // Update mileage of last oil change
-  updateLastOilChange(uid, carKey, mileage) {
-    console.log(`firebase-db updateLastOilChange() was just called`);
-    return this._usersRef.child(uid).child(carKey).oilChange.update(mileage).then( function() {
-      return mileage; // test results:
-    }, function(error) {
-      console.log(error);
+  /**
+   *  Update mileage of last oil change
+   *    Test Results: Passing
+   */
+  updateLastOilChange(uid, carKey, newMileage) {
+    // Convert newMileage to number type
+    let mileage = parseInt(newMileage);
+    // Create object with new last mileage
+    let updates = { oilChange: mileage };
+    // Update database with new last mileage
+    return firebase.database().ref('/users/' + uid).child(carKey).child('lastMaintenance').update(updates).then( function() {
+      return updates;
+    }, function(err) {
+      console.log(err);
     });
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /**
+   *  Update mileage of last tire rotation
+   *    Test Results: 
+   */
   // Update mileage of last tire rotation
-  updateLastTireRotation(uid, carKey, mileage) {
-    console.log(`firebase-db updateLastTireRotation() was just called`);
-    return this._usersRef.child(uid).child(carKey).tireRotation.update(mileage).then( function() {
-      return mileage; // test results:
-    }, function(error) {
-      console.log(error);
+  updateLastTireRotation(uid, carKey, newMileage) {
+    // Convert newMileage to number type
+    let mileage = parseInt(newMileage);
+    // Create object with new last mileage
+    let updates = { tireRotation: mileage };
+    // Update database with new last mileage
+    return firebase.database().ref('/users/' + uid).child(carKey).child('lastMaintenance').update(updates).then( function() {
+      return updates;
+    }, function(err) {
+      console.log(err);
     });
   },
-  // Update date (UTC) of last car inspection
-  updateLastCarInspection(uid, carKey, dateUTC) {
-    console.log(`firebase-db updateLastCarInspection() was just called`);
-    return this._usersRef.child(uid).child(carKey).carInspectionUTC.update(dateUTC).then( function() {
-      return dateUTC; // test results:
-    }, function(error) {
-      console.log(error);
+
+
+
+
+
+
+
+
+
+
+  
+  /**
+   *  Update Unix time of last car inspection
+   *    Test Results: 
+   */
+  updateLastCarInspection(uid, carKey, dateUnixTime) {
+    // Convert dateUnixTime to number type
+    let unixTimeNumber = parseInt(dateUnixTime);
+    // Create object with new last mileage
+    let updates = { carInspectionUnixTime: unixTimeNumber };
+    // Update database with new last mileage
+    return firebase.database().ref('/users/' + uid).child(carKey).child('lastMaintenance').update(updates).then( function() {
+      return updates;
+    }, function(err) {
+      console.log(err);
     });
   },
-  // Update date (UTC) of last wiper blades
-  updateLastWiperBlades(uid, carKey, dateUTC) {
-    console.log(`firebase-db updateLastWiperBlades() was just called`);
-    return this._usersRef.child(uid).child(carKey).wiperBladesUTC.update(dateUTC).then( function() {
-      return dateUTC; // test results:
-    }, function(error) {
-      console.log(error);
+  /**
+   *  Update Unix time of last wiper blades
+   *    Test Results: 
+   */
+  updateLastWiperBlades(uid, carKey, dateUnixTime) {
+    // Convert dateUnixTime to number type
+    let unixTimeNumber = parseInt(dateUnixTime);
+    // Create object with new last mileage
+    let updates = { wiperBladesUnixTime: unixTimeNumber };
+    // Update database with new last mileage
+    return firebase.database().ref('/users/' + uid).child(carKey).child('lastMaintenance').update(updates).then( function() {
+      return updates;
+    }, function(err) {
+      console.log(err);
     });
   },
-  // Update date (UTC) of last brake inspection
-  updateLastBrakeInspection(uid, carKey, dateUTC) {
-    console.log(`firebase-db updateLastBrakeInspection() was just called`);
-    return this._usersRef.child(uid).child(carKey).brakeInspectionUTC.update(dateUTC).then( function() {
-      return dateUTC; // test results:
-    }, function(error) {
-      console.log(error);
+  /**
+   *  Update Unix time of last brake inspection
+   *    Test Results: 
+   */
+  updateLastBrakeInspection(uid, carKey, dateUnixTime) {
+    // Convert dateUnixTime to number type
+    let unixTimeNumber = parseInt(dateUnixTime);
+    // Create object with new last mileage
+    let updates = { brakeInspectionUnixTime: unixTimeNumber };
+    // Update database with new last mileage
+    return firebase.database().ref('/users/' + uid).child(carKey).child('lastMaintenance').update(updates).then( function() {
+      return updates;
+    }, function(err) {
+      console.log(err);
     });
   }
 };
