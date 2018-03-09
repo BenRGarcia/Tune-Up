@@ -3,14 +3,45 @@
  */
 
 const db = {
-  /* 
-   *  Database refs 
-   */
-  _defMaintRef: firebase.database().ref('/defaultMaintenance'),
-  _usersRef: firebase.database().ref('/users'),
-  /* 
-   *  Methods to retrieve data from the firebase db 
-   */
+  // Default values of maintenance intervals
+  _defaultMaintenanceInterval: {
+    wiperBladesMonths: 6,
+    brakeInspectionMonths: 12,
+    carInspectionMonths: 12,
+    oilChange: 3000,
+    tireRotation: 6000
+  },
+  // Default values of last maintenance performed
+  _defaultLastMaintenance: {
+    wiperBladesUTC: false,
+    brakeInspectionUTC: false,
+    carInspectionUTC: false,
+    oilChange: false,
+    tireRotation: false
+  },
+  // User creates a new car object
+  addNewCar(uid, year, make, model, mileage) { // Testing: Tests passed
+    // Convert mileage to number if string
+    let mileageNumber = parseInt(mileage);
+    // Get firebase db key for new car object
+    let carKey = firebase.database().ref('users').child(uid).push().key;
+    // Create empty object
+    let newCar = {};
+    // Assemble new car object
+    newCar[carKey] = {
+      year: year,
+      make: make,
+      model: model,
+      mileage: mileageNumber,
+      maintenanceInterval: this._defaultMaintenanceInterval,
+      lastMaintenance: this._defaultLastMaintenance
+    };
+    return firebase.database().ref('/users/' + uid).update(newCar).then( function() {
+      return newCar;
+    }, function(error) {
+      console.log(error);
+    });
+  },
   // Get the default maintenance schedule object
   getDefMaint() {
     return this._defMaintRef.once('value').then( function(snapshot) {
@@ -63,46 +94,7 @@ const db = {
   /* 
    *  Methods to add/change data from the firebase db 
    */
-  // User creates a new car object
-  addNewCar(uid, year, make, model, mileage) {
-    let maintenanceInterval = this.getDefMaint();
-    return this.getDefMaint().then( function() {
-      let currentMileage = parseInt(mileage);
-      // Get key from db
-      let carKey = db._usersRef.push().key;
-      console.log(`new carKey: ${carKey}`);
-      // Assemble new car object
-      let newCar = {};
-      newCar[uid] = {
-        year: year,
-        make: make,
-        model: model,
-        mileage: currentMileage,
-        maintenanceInterval: {
-          "brakeInspectionMonths" : 12,
-          "carInspectionMonths" : 12,
-          "oilChange" : 3000,
-          "tireRotation" : 6000,
-          "wiperBladesMonths" : 6
-        }
-          
-      };
-      // Add to user's cars in db
-      console.log(`firebase-db.js addNewCar() says, "new car object:"`);
-      console.log(newCar);
-      db._usersRef.update(newCar).then( function() {
-        return newCar; // test results: functional, but needs work -- bad, smelly code
-      }, function(error) {
-        console.log(error)
-      });
-    }, function(error) {
-      console.log(error);
-    });
-    // Get maintenance defaults
-    // let maintenanceInterval = this.getDefMaint;
-    // Convert mileage to number type
-    
-  },
+  
   // User deletes an existing car object
   deleteCar(uid, carKey) {
     console.log(`firebase-db deleteCar() was just called (double check node deletion worked as expected)`);
