@@ -124,8 +124,8 @@ const db = {
     // Update database with new interval for oil changes
     return firebase.database().ref('/users/' + uid).child(carKey).child('maintenanceInterval').update(updatedInterval).then( function() {
       return updatedInterval;
-    }, function(error) {
-      console.log(error);
+    }, function(err) {
+      console.log(err);
     });
   },
   /**
@@ -140,8 +140,8 @@ const db = {
     // Update database with new interval for oil changes
     return firebase.database().ref('/users/' + uid).child(carKey).child('maintenanceInterval').update(updatedInterval).then( function() {
       return updatedInterval;
-    }, function(error) {
-      console.log(error);
+    }, function(err) {
+      console.log(err);
     });
   },
   /**
@@ -156,49 +156,53 @@ const db = {
     // Update database with new interval for oil changes
     return firebase.database().ref('/users/' + uid).child(carKey).child('maintenanceInterval').update(updatedInterval).then( function() {
       return updatedInterval;
-    }, function(error) {
-      console.log(error);
+    }, function(err) {
+      console.log(err);
     });
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // Update interval for wiper blades
+  /**
+   *  Update interval for wiper blades
+   *    Test Results: Passing
+   */
   updateIntervalWiperBlades(uid, carKey, newIntervalMonths) {
-    console.log(`firebase-db updateIntervalWiperBlades() was just called`);
+    // Convert newIntervalMiles to number type
     let newInterval = parseInt(newIntervalMonths);
-    return this._usersRef.child(uid).child(carKey).wiperBladesMonths.update(newInterval).then( function() {
-      return newInterval; // test results:
-    }, function(error) {
-      console.log(error);
+    // Create object with new interval
+    let updatedInterval = { wiperBladesMonths: newInterval };
+    // Update database with new interval for oil changes
+    return firebase.database().ref('/users/' + uid).child(carKey).child('maintenanceInterval').update(updatedInterval).then( function() {
+      return updatedInterval;
+    }, function(err) {
+      console.log(err);
     });
   },
-  // Update interval for brake inspections
+  /**
+   *  Update interval for brake inspections
+   *    Test Results: Passing
+   */
   updateIntervalBrakeInspection(uid, carKey, newIntervalMonths) {
-    console.log(`firebase-db updateIntervalBrakeInspection() was just called`);
+    // Convert newIntervalMiles to number type
     let newInterval = parseInt(newIntervalMonths);
-    return this._usersRef.child(uid).child(carKey).brakeInspectionMonths.update(newInterval).then( function() {
-      return newInterval; // test results:
-    }, function(error) {
-      console.log(error);
+    // Create object with new interval
+    let updatedInterval = { brakeInspectionMonths: newInterval };
+    // Update database with new interval for oil changes
+    return firebase.database().ref('/users/' + uid).child(carKey).child('maintenanceInterval').update(updatedInterval).then( function() {
+      return updatedInterval;
+    }, function(err) {
+      console.log(err);
     });
   },
+
+
+
+
+
+
+
+
+
+
+
   // Update mileage of last oil change
   updateLastOilChange(uid, carKey, mileage) {
     console.log(`firebase-db updateLastOilChange() was just called`);
