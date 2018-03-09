@@ -224,20 +224,9 @@ const db = {
       console.log(err);
     });
   },
-
-
-
-
-
-
-
-
-
-
-
   /**
    *  Update Unix time of last car inspection
-   *    Test Results: 
+   *    Test Results: Passing
    */
   updateLastCarInspection(uid, carKey, dateUnixTime) {
     // Convert dateUnixTime to number type
@@ -253,7 +242,7 @@ const db = {
   },
   /**
    *  Update Unix time of last wiper blades
-   *    Test Results: 
+   *    Test Results: Passing
    */
   updateLastWiperBlades(uid, carKey, dateUnixTime) {
     // Convert dateUnixTime to number type
@@ -267,6 +256,15 @@ const db = {
       console.log(err);
     });
   },
+
+
+
+
+
+
+
+
+
   /**
    *  Update Unix time of last brake inspection
    *    Test Results: 
