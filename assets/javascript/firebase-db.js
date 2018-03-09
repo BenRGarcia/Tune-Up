@@ -144,39 +144,41 @@ const db = {
       console.log(error);
     });
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // Update interval for car inspections
+  /**
+   *  Update interval for car inspections
+   *    Test Results: Passing
+   */
   updateIntervalCarInspection(uid, carKey, newIntervalMonths) {
-    console.log(`firebase-db updateIntervalCarInspection() was just called`);
+    // Convert newIntervalMiles to number type
     let newInterval = parseInt(newIntervalMonths);
-    return this._usersRef.child(uid).child(carKey).carInspectionMonths.update(newInterval).then( function() {
-      return newInterval; // test results:
+    // Create object with new interval
+    let updatedInterval = { carInspectionMonths: newInterval };
+    // Update database with new interval for oil changes
+    return firebase.database().ref('/users/' + uid).child(carKey).child('maintenanceInterval').update(updatedInterval).then( function() {
+      return updatedInterval;
     }, function(error) {
       console.log(error);
     });
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // Update interval for wiper blades
   updateIntervalWiperBlades(uid, carKey, newIntervalMonths) {
     console.log(`firebase-db updateIntervalWiperBlades() was just called`);
