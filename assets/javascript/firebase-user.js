@@ -1,6 +1,6 @@
 /**
  *  Retrieve and store uid and displayName on load
- */
+**/
 
 // Add realtime listener
 initApp = function() {
