@@ -13,19 +13,6 @@ const googleApi = {
   map: null,
   service: null,
   
-
- //adds circle to current location with a radius of 10,000 meters
-  circleOptions: {
-    strokeColor: "#0000FF",
-    strokeOpacity: 0.8,
-    strokeWeight: 1.5,
-    fillColor: "#0000FF",
-    fillOpacity: 0.35,
-    map: this.map,
-    center: this.currentLocation,
-    radius: 10000
-  },
-  
   //grabs search results and adds a marker to each
   handleSeachResults : 
     function(results, status){
@@ -41,10 +28,10 @@ const googleApi = {
 },
   //searchs for location inside the bounds of the mapview
   search: 
-  function(keyword){
+  function(){
     let request = {
       bounds: map.getBounds(),
-      query: keyword,
+      query: "Auto",
       openNow: true
   }
   console.log(request, "search 1");
@@ -70,7 +57,7 @@ const googleApi = {
       //creates marker for current location
       var marker = new google.maps.Marker({
           position: currentLocation,
-          map: map,
+          map: map
       });
      
       service = new google.maps.places.PlacesService(map);
@@ -79,12 +66,23 @@ const googleApi = {
       google.maps.event.addListenerOnce(map,'bounds_changed', googleApi.search);
         
 
-      var circle = new google.maps.Circle(googleApi.circleOptions);
+      //adds circle to current location with a radius of 10,000 meters
+      var circleOptions = {
+        strokeColor: "#0000FF",
+        strokeOpacity: 0.8,
+        strokeWeight: 1.5,
+        fillColor: "#0000FF",
+        fillOpacity: 0.35,
+        map: map,
+        center: currentLocation,
+        radius: 10000
+      };
+      var circle = new google.maps.Circle(circleOptions);
     }
 };
 
 $(document).ready(function(){
   navigator.geolocation.getCurrentPosition(googleApi.initialize);
-  console.log(googleApi.circleOptions.map, "circleMap");
-console.log(googleApi.circleOptions.location, "circleLocation");
+  // console.log(googleApi.circleOptions.map, "circleMap");
+  // console.log(googleApi.circleOptions.center, "circleLocation");
 });
