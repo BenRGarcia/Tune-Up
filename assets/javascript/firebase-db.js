@@ -1,5 +1,5 @@
 /*
- *  firebase-db.js to contain all code with respect to the database.
+ *  firebase-db contains all code to interact with the database.
  */
 
 const db = {
@@ -47,8 +47,8 @@ const db = {
     });
   },
   /**
-   * Get the 'last maintenance' object from the db
-   *   Test Results: Passing
+   *  Get the 'last maintenance' object from the db
+   *    Test Results: Passing
    */
   getLastMaintenance(uid, carKey) {
     return firebase.database().ref('/users/' + uid).child(carKey).once('value').then( function(snapshot) {
@@ -58,8 +58,8 @@ const db = {
     });
   },
   /**
-   * Get 'maintenance intervals' for a specific vehicle
-   *   Test Results: Passing
+   *  Get 'maintenance intervals' for a specific vehicle
+   *    Test Results: Passing
    */
   getMaintenanceIntervals(uid, carKey) {
     return firebase.database().ref('/users/' + uid).child(carKey).once('value').then( function(snapshot) {
@@ -69,8 +69,8 @@ const db = {
     });
   },
   /**
-   * Get an object of all of the user's cars (an object of car objects)
-   *   Test Results: Passing
+   *  Get an object of all of the user's cars (an object of car objects)
+   *    Test Results: Passing
    */
   getAllUserCars(uid) {
     return firebase.database().ref('/users/' + uid).once('value').then( function(snapshot) {
@@ -79,40 +79,38 @@ const db = {
       console.log(err);
     });
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  getUsersCar(uid, carKey) {
-    return this._usersRef.child(uid).once('value').then( function(snapshot) {
-      console.log(`firebase-db.js db.getUsersCar() says, "specific car object is:"`);
-      console.log(snapshot.child(carKey).val());
-      return snapshot.child(carKey).val(); // test results:
-    }, function(error) {
-      console.log(error);
+  /**
+   *  Delete a car object
+   *    Test Results: passing
+   */
+  deleteCar(uid, carKey) {
+    let deletedCar = {
+      carKey: null
+    };
+    return firebase.database().ref('/users/' + uid).child(carKey).set(deletedCar).then( function() {
+      return carKey;
+    }, function(err) {
+      console.log(err)
     });
   },
-  /* 
-   *  Methods to add/change data from the firebase db 
-   */
-  
-  // User deletes an existing car object
-  deleteCar(uid, carKey) {
-    console.log(`firebase-db deleteCar() was just called (double check node deletion worked as expected)`);
-    return this._usersRef.child(uid).child(carKey).remove(); // test results:
-  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // Update mileage of a specific vehicle
   updateMileage(uid, carKey, newMileage) {
     console.log(`firebase-db updateMileage() was just called`);
