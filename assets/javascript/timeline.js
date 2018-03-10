@@ -1,3 +1,5 @@
+// timeline code came from https://codepen.io/ritz078/pen/LGRWjE
+
 jQuery(document).ready(function($){
 	var timelines = $('.cd-horizontal-timeline'),
 		eventsMinDistance = 60;
