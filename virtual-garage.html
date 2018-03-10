@@ -131,6 +131,7 @@
       <div id="vehicle-details" class="col s12">
         <p class="shadow text1">VEHICLE DETAILS</p>
         <div class="row">
+          <div class="col s1"></div>
           <div id="column1" class="col s4">
             <h6> MAINTENANCE DATA </h6>
             <form>
@@ -145,10 +146,19 @@
               <label>Wiper Blades</label>
               <input type="date" class="datepicker" id="wiperDate" />
             </form>
+            <div class="row"></div>
+            <div class="row"></div>
+
           </div>
-          <div id="column2" class="col s8">
-            <h6> UPDATE DATA </h6>
+          <div class="col s1"></div>
+          <div id="column2" class="col s5">
+
+            <h6 style="text-align: center"> UPDATE DATA </h6>
             <form>
+              <div class="row">
+                <div class="col s5">
+                  <label > INTERVALS </label>
+                  <br>
               <label>Oil Change (miles)</label>
               <input type="text" id="oilMiles"/>
               <label>Tire Rotation (miles)</label>
@@ -159,16 +169,38 @@
               <input type="text" id="inspectMonths"/>
               <label>Wiper Blades (months)</label>
               <input type="text" id="wiperMonths" />
+            </div>
+                 <div class="col s5">
+                  <label > LAST MAINTENANCE </label>
+                  <br>
+              <label>Oil Change (miles)</label>
+              <input type="text" id="oilMiles"/>
+              <label>Tire Rotation (miles)</label>
+              <input type="text" id="tireMiles"/>
+              <label>Brake Check (miles)</label>
+              <input type="text" id="brakeMiles"/>
+              <label>Inspection (months) </label>
+              <input type="text" id="inspectMonths"/>
+              <label>Wiper Blades (months)</label>
+              <input type="text" id="wiperMonths" />
+            </div>
+
             </form>
+          
+              
           </div>
+                 
         </div>
-        <div class="row" style="text-align: center">
-          <input type="submit" value="submit" id="submit">
-        </div>
+        <br>
+     
       </div>
     </div>
 
     <br>
+    <br>
+    <br>
+    <div class="row"></div>
+    <div class="row"></div>
 
           <div class="row">
             <div id="checklist" class="col s12">
