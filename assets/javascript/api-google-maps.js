@@ -12,7 +12,8 @@ const googleApi = {
    */
   map: null,
   service: null,
-  
+  infoWindow:null,
+
   //grabs search results and adds a marker to each
   handleSeachResults : 
     function(results, status){
@@ -31,8 +32,7 @@ const googleApi = {
   function(){
     let request = {
       bounds: map.getBounds(),
-      query: "Auto",
-      openNow: true
+      query: "Auto"
   }
   console.log(request, "search 1");
   service.textSearch(request, googleApi.handleSeachResults);
@@ -83,6 +83,17 @@ const googleApi = {
 
 $(document).ready(function(){
   navigator.geolocation.getCurrentPosition(googleApi.initialize);
-  // console.log(googleApi.circleOptions.map, "circleMap");
-  // console.log(googleApi.circleOptions.center, "circleLocation");
-});
+  });
+
+//   google.maps.event.addListener(googleApi.marker, 'click', function() {
+//     infoWindow.setContent(googleApi.place.name);
+//     infoWindow.open(googleApi.map, this);
+// });
+//GOOGLE API
+// $("body").on( 'click', googleApi.marker ,function() {
+//  var infoWindow = new google.maps.InfoWindow();
+//   infoWindow.setContent(googleApi.results.formatted_address);
+//   infoWindow.open(map, this);
+// });
+
+
