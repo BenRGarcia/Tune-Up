@@ -87,10 +87,10 @@
         <ul class="collapsible collapsible-accordian">
           <li>
             <h4> Add a new car! </h4>
-            <label> Choose your vehicle make: </label>
+            <label class="side-nav-label"> Choose your vehicle make: </label>
               <div id="js-add-car-make" class="input-field">
                 <select>
-                  <option value="vehicleMake">Choose your vehicle make:</option>
+                 <option value="vehicleMake"></option>
                   <option value="1">Mazda</option>
                   <option value="2">Honda</option>
                   <option value="3">Mercedes</option>
@@ -99,11 +99,10 @@
               </div>
           </li>
           <li>
-            <label> Choose your vehicle model: </label>
+            <label class="side-nav-label"> Choose your vehicle model: </label>
             <div id="js-add-car-model" class="input-field">
               <select>
-                
-                <option value="vehicleMake">Choose your vehicle model:</option>
+                <option value="vehicleModel"></option>
                 <option value="1">Mazda</option>
                 <option value="2">Honda</option>
                 <option value="3">Mercedes</option>
@@ -112,11 +111,11 @@
             </div>
           </li>
           <li>
-            <label> Choose your vehicle year: </label>
+            <label class="side-nav-label"> Choose your vehicle year: </label>
             <div id="js-add-car-year" class="input-field">
               
               <select>
-               <option value="vehicleMake">Choose your vehicle year:</option>
+               <option value="vehicleYear"></option>
                 <option value="1">2016</option>
                 <option value="2">2015</option>
                 <option value="3">2014</option>
@@ -125,9 +124,9 @@
             </div>
           </li>
           <li>
-            <label> Please enter your vehicle's mileage: </label>
+            <label class="side-nav-label"> Please enter your vehicle's mileage: </label>
 
-            <div id="js-add-car-mileage">Please enter your vehicle's mileage:
+            <div id="js-add-car-mileage">
               <input type="text" id="mileageInput">
             </div>
 
@@ -147,22 +146,28 @@
         <div class="row">
           <div class="col s1"></div>
           <div id="column1" class="col s4">
-            <h6 style="text-align: center"> MAINTENANCE DATA </h6>
+            <h5 style="text-align: center"> RECOMMENDED MAINTENANCE DATA </h5>
+            <br>
             <form>
-              <label>Oil Change: </label>
+              <label class="maint-label">Oil Change: </label>
+              <br>
               <br>
               <span id= "js-display-last-oil-change"> </span>
-              <label>Tire Rotation:</label>
+              <label class="maint-label">Tire Rotation:</label>
+              <br>
               <br>
               <span id="js-display-last-tire-rotation"> </span>
               
-              <label>Brakes:</label>
+              <label class="maint-label">Brakes:</label>
+              <br>
               <br>
               <span id="js-display-last-brake-inspection"> </span>
-              <label>Inspection:</label>
+              <label class="maint-label">Inspection:</label>
+              <br>
               <br>
               <span id="js-display-last-car-inspection" ></span>
-              <label>Wiper Blades:</label>
+              <label class="maint-label"> Wiper Blades:</label>
+              <br>
               <br>
               <span id="js-display-last-wiper-blades"></span>
             </form>
@@ -175,26 +180,26 @@
           
           <div id="column2" class="col s5">
 
-            <h6 style="text-align: center"> UPDATE DATA </h6>
+            <h5 style="text-align: center"> UPDATE DATA </h5>
             <form>
               <div class="row">
                 <div class="col s5">
-                  <label > INTERVALS </label>
+                  <label class="update-data" > INTERVALS </label>
                   <br>
-              <label>Oil Change (miles)</label>
+              <label class="update-data">Oil Change (miles)</label>
               <input type="text" id="oilMiles"/>
-              <label>Tire Rotation (miles)</label>
+              <label class="update-data">Tire Rotation (miles)</label>
               <input type="text" id="tireMiles"/>
-              <label>Brake Check (miles)</label>
+              <label class="update-data">Brake Check (miles)</label>
               <input type="text" id="brakeMiles"/>
-              <label>Inspection (months) </label>
+              <label class="update-data">Inspection (months) </label>
               <input type="text" id="inspectMonths"/>
-              <label>Wiper Blades (months)</label>
+              <label class="update-data">Wiper Blades (months)</label>
               <input type="text" id="wiperMonths" />
             </div>
                  <div class="col s5">
 
-                  <label > LAST MAINTENANCE </label>
+                  <label class="update-data" > LAST MAINTENANCE </label>
                   <br>
                   <br>
 
