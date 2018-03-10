@@ -30,6 +30,7 @@ SUGGESTED NAMING CONVENTIONS FOR HTML ID'S
 
 ========= Update Screen with user's data =========
 Display div's for last maintenance data
+$('.js-display-car-details').text();
 $('#js-display-last-oil-change').text();
 $('#js-display-last-tire-rotation').text();
 $('#js-display-last-car-inspection').text();
@@ -89,13 +90,5 @@ $('body').on("click", "#js-update-last-wiper-blades", function() {
 $('body').on("click", ".js-delete-car", function() {
   db.deleteCar(uid, carKey);
 })
-
-
-
-
-
-
-
-
 
 */
