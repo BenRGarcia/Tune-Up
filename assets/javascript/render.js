@@ -1,6 +1,7 @@
 const DOM = {
-  // render 'cars' to the browser
   renderCars(carsObject) {
+    // Make new div
+    let div = $('<div>');
 
     // Ignore empty object
     if (carsObject) {
@@ -16,9 +17,6 @@ const DOM = {
         let make = carsObject[key].make;
         let model = carsObject[key].model;
 
-        // Make new div
-        let div = $('<div>');
-
         // Add attributes and text
         div.data("car-key", carKey);
         div.addClass("js-display-car-details");
@@ -27,11 +25,18 @@ const DOM = {
         // Append div to car display area
         $('.js-display-car-details').append(div);
       }
+      // After all cars rendered
       return carsObject;
     }
-    return carsObject
+
+    // If car object was empty
+    div.text('Click "+" To Add New Car');
+
+    // Append div to car display area
+    $('.js-display-car-details').append(div);
+
+    return carsObject;
   },
-  // render 'lastMaintenance'
   renderLastMaintenance(object) {
 
     // Ignore empty object
@@ -55,14 +60,16 @@ const DOM = {
       let lastWiperBlades     = object.wiperBladesUnixTime;
 
       // Update DOM
-      $('#js-display-last-oil-change').text(lastOilChange);
-      $('#js-display-last-tire-rotation').text(lastTireRotation);
-      $('#js-display-last-car-inspection').text(lastCarInspection);
-      $('#js-display-last-brake-inspection').text(lastBrakeInspection);
-      $('#js-display-last-wiper-blades').text(lastWiperBlades);
+      $('#js-display-last-oil-change').text(lastOilChange             || "-");
+      $('#js-display-last-tire-rotation').text(lastTireRotation       || "-");
+      $('#js-display-last-car-inspection').text(lastCarInspection     || "-");
+      $('#js-display-last-brake-inspection').text(lastBrakeInspection || "-");
+      $('#js-display-last-wiper-blades').text(lastWiperBlades         || "-");
 
+      // After lastMaintenance object rendered
       return object;
     }
+    // If maintenance object was empty
     return object;
   },
   // render 'maintenanceIntervals' to input placeholders
