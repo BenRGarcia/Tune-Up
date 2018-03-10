@@ -11,7 +11,6 @@ $(document).ready(function() {
   $(".button-collapse").sideNav();
   // Initialize collapsible dropdown
   $('.collapsible').collapsible();
-
   $('.button-collapse').sideNav({
     menuWidth: 300, // Default is 300
     edge: 'left', // Choose the horizontal origin
@@ -20,10 +19,59 @@ $(document).ready(function() {
     // onOpen: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is opened
     // onClose: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is closed
   });
-
   $('select').material_select();
-
 });
+
+// Start listener on page load
+window.addEventListener('load', function() {
+  initializeGarage();
+});
+
+$('body').on('click',".js-display-car-details",function(){
+  if (userAuth.getUid){
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key");
+
+    // Call db object's method to return 'maintenanceInterval' object
+    db.getMaintenanceIntervals(uid, carKey).then( function(response) {
+      console.log(response); // 'response' will be the 'maintenanceInterval' object
+      DOM.renderLastMaintenance(response);
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
+
+
+ function initializeGarage(){
+    console.log("Garage has been initialized");
+    if (userAuth.getUid){
+      var uid = userAuth.getUid;
+       // Call db object's method to return an object of all of user's car objects
+      db.getAllUserCars(uid).then( function(response) {
+        console.log(response); // 'response' will be an object of car objects
+        DOM.renderCars(response);
+      }, function(err) {
+        console.log(err); // Errors are logged in the console
+      });
+    }
+ }
+
+ 
+
+
+
+
+
+
+
+
+
+// $(body).on("click"," ",function())
+
+// .attr("data-car-key", carKeyvalue)
+
+ 
 
 
 
