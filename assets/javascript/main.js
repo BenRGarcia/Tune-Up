@@ -9,11 +9,10 @@
 
 $(document).ready(function(){  
 
-  var oilDate = "12/20/1988" 
-// $("#oilDate").val().trim();
-  var newOilDate = moment(oilDate).add(3, 'M');
-  console.log(oilDate, "oilDate");
-  console.log(newOilDate, "newOilDate");
+    var oilDate =  $("#oilDate").val().trim();
+    var newOilDate = moment(oilDate).add(3, 'M');
+    console.log(oilDate, "oilDate");
+    console.log(newOilDate, "newOilDate");
 
   function convertToUnix(){
     var unix = new Date(newOilDate).getTime() / 1000;
@@ -43,4 +42,5 @@ $(document).ready(function(){
   // //create UNIX from a date
   // var date = new Date(moment()).getTime() / 1000;
   // console.log(date, "date to unix")
+
 });
