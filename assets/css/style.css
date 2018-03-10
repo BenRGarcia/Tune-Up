@@ -28,6 +28,8 @@ h1 {
   font-family: copperplate;
 }
 
+
+
 li {
   margin-top: 40px;
   font-weight: bold;
@@ -100,6 +102,7 @@ img {
 label {
     color: white;
 }
+
 h7 {
     background-color: #26a69a;
     color: white;
@@ -112,9 +115,6 @@ h7 {
     
 }
 
-#tune-up {
-    font-style: oblique;
-}
 
 /*}*/
 
