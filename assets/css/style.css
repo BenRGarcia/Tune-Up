@@ -28,6 +28,10 @@ h1 {
   font-family: copperplate;
 }
 
+#column1, #column2 {
+  background-color: grey;
+}
+
 
 
 li {
