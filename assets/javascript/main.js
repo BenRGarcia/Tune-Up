@@ -1,46 +1,25 @@
 /*
-*  main.js to receive user input,
-*  translate to method calls to objects:
-*    googleApi  | (google maps API - local service provider locations)
-*    vehicleApi | (NHTSA API - source info for year/make/model)
-*    db         | (Firebase database)
-*    
-*/
+ *  main.js to receive user input,
+ *  translate to method calls to objects:
+ *    googleApi  | (google maps API - local service provider locations)
+ *    vehicleApi | (NHTSA API - source info for year/make/model)
+ *    db         | (Firebase database)  
+**/
 
-$(document).ready(function(){  
+$(document).ready(function() {
+  // Initialize collapse button
+  $(".button-collapse").sideNav();
+  // Initialize collapsible dropdown
+  $('.collapsible').collapsible();
 
-    var oilDate =  $("#oilDate").val().trim();
-    var newOilDate = moment(oilDate).add(3, 'M');
-    console.log(oilDate, "oilDate");
-    console.log(newOilDate, "newOilDate");
+  $('.button-collapse').sideNav({
+    menuWidth: 300, // Default is 300
+    edge: 'left', // Choose the horizontal origin
+    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    draggable: true, // Choose whether you can drag to open on touch screens,
+    // onOpen: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is opened
+    // onClose: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is closed
+  });
 
-  function convertToUnix(){
-    var unix = new Date(newOilDate).getTime() / 1000;
-    console.log(unix, "newOilDate Unix");
-  }
-
-  convertToUnix();
-
-  // //Add 3 months to current date
-  // var currentDate = moment();
-  // var futureMonth = moment(currentDate).add(3, 'M');
-  // var futureMonthEnd = moment(futureMonth).endOf('month');
-
-  // if(currentDate.date() != futureMonth.date() && futureMonth.isSame(futureMonthEnd.format('YYYY-MM-DD'))) {
-  //   futureMonth = futureMonth.add(1, 'd');
-  // }
-  // console.log(currentDate, "currentDate");
-  // console.log(currentDate.utc().valueOf(), "UTC value");
-  // console.log(futureMonth, "futureDate");
-
-  // //create a date from UNIX timestamp
-  // var unix = moment.unix(1520561224);
-  //   console.log(unix, "unix to date");
-  // var UTC = unix.utc();
-  //   console.log(UTC, "new UTC");
-
-  // //create UNIX from a date
-  // var date = new Date(moment()).getTime() / 1000;
-  // console.log(date, "date to unix")
-
+  $('select').material_select();
 });
