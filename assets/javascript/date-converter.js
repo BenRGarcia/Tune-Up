@@ -1,6 +1,6 @@
 $(document).ready(function(){  
 
-    var oilDate =  $("#oilDate").val().trim();
+    var oilDate =  $("#oilDate").val();
     var newOilDate = moment(oilDate).add(3, 'M');
     console.log(oilDate, "oilDate");
     console.log(newOilDate, "newOilDate");
