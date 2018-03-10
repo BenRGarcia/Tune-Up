@@ -103,6 +103,10 @@ img {
     margin-left: 50%;
     margin-right: 50%;
 }
+
+i {
+  font-size: 20px;
+}
   
 #navbar {
     background-color: #26a69a;
