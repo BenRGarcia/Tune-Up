@@ -86,8 +86,9 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordian">
           <li>
+            <h4> Add a new car! </h4>
             <label> Choose your vehicle make: </label>
-              <div class="input-field">
+              <div id="js-add-car-make" class="input-field">
                 <select>
                   <option value="vehicleMake">Choose your vehicle make:</option>
                   <option value="1">Mazda</option>
@@ -99,7 +100,7 @@
           </li>
           <li>
             <label> Choose your vehicle model: </label>
-            <div class="input-field">
+            <div id="js-add-car-model" class="input-field">
               <select>
                 
                 <option value="vehicleMake">Choose your vehicle model:</option>
@@ -112,7 +113,7 @@
           </li>
           <li>
             <label> Choose your vehicle year: </label>
-            <div class="input-field">
+            <div id="js-add-car-year" class="input-field">
               
               <select>
                <option value="vehicleMake">Choose your vehicle year:</option>
@@ -125,10 +126,13 @@
           </li>
           <li>
             <label> Please enter your vehicle's mileage: </label>
-            <div id="carMileageTitle">Please enter your vehicle's mileage:</div>
-              <div><input type="text" id="mileageInput"></div>
+
+            <div id="js-add-car-mileage">Please enter your vehicle's mileage:
+              <input type="text" id="mileageInput">
+            </div>
+
              <button class="btn"> <i class='large material-icons'>add_circle_outline</i>
-                <div><input type="button" value= "Sign Out"></div>
+                <div id="js-sign-out"><input type="button" value= "Sign Out"></div>
 
           </li>
         </ul>
@@ -145,22 +149,30 @@
           <div id="column1" class="col s4">
             <h6 style="text-align: center"> MAINTENANCE DATA </h6>
             <form>
-              <label>Oil Change</label>
-              <input type="date" class="datepicker" id="oilDate"/>
-              <label>Tire Rotation</label>
-              <input type="date" class="datepicker" id="tireDate" />
-              <label>Brakes</label>
-              <input type="date" class="datepicker" id="brakesDate" />
-              <label>Inspection</label>
-              <input type="date" class="datepicker" id="inspectDate" />
-              <label>Wiper Blades</label>
-              <input type="date" class="datepicker" id="wiperDate" />
+              <label>Oil Change: </label>
+              <br>
+              <span id= "js-display-last-oil-change"> </span>
+              <label>Tire Rotation:</label>
+              <br>
+              <span id="js-display-last-tire-rotation"> </span>
+              
+              <label>Brakes:</label>
+              <br>
+              <span id="js-display-last-brake-inspection"> </span>
+              <label>Inspection:</label>
+              <br>
+              <span id="js-display-last-car-inspection" ></span>
+              <label>Wiper Blades:</label>
+              <br>
+              <span id="js-display-last-wiper-blades"></span>
             </form>
             <div class="row"></div>
             <div class="row"></div>
+            
 
           </div>
           <div class="col s1"></div>
+          
           <div id="column2" class="col s5">
 
             <h6 style="text-align: center"> UPDATE DATA </h6>
@@ -184,25 +196,32 @@
 
                   <label > LAST MAINTENANCE </label>
                   <br>
+                  <br>
 
-              <input type="date" class="datepicker" id="oil-maintenance"/>
+              <input id="" type="date" class="datepicker" id="oil-maintenance"/>
 
-
-               <div class="row"></div>
+              <br>
+               <br>
                <input type="date" class="datepicker" id="tire-maintenance"/>
-                <div class="row"></div>
+                
+
+                <br>
+               <br>
 
               
                <input type="date" class="datepicker" id="brake-maintenance"/>
-                <div class="row"></div>
+                <br>
+               <br>
               
                <input type="date" class="datepicker" id="inspect-maintenance"/>
-                <div class="row"></div>
+                <br>
+               <br>
               
                <input type="date" class="datepicker" id="wiper-maintenance"/>
             </div>
 
             </form>
+            <div class="col s1"></div>
           
               
           </div>
