@@ -1,7 +1,6 @@
 const DOM = {
   // render 'cars' to the browser
   renderCars(carsObject) {
-    // Please pass to me the object of objects returned by db.getAllUserCars()
 
     // If object not empty
     if (carsObject) {
@@ -9,16 +8,27 @@ const DOM = {
       // Iterate over car objects
       for (let key in carsObject) {
 
-        // 
+        // Declare carKey variable
+        let carKey = key;
 
-        // Strip out year, make, model for object
+        // Strip out year, make, model from object
+        let year = carsObject[key].year;
+        let make = carsObject[key].make;
+        let model = carsObject[key].model;
 
+        // Make new div
+        var div = $('<div>');
+
+        // Add attributes and text
+        div.data("car-key", carKey);
+        div.addClass("js-display-car-details");
+        div.text(year, make, model);
+
+        // Append div to car display area
+        $('.js-display-car-details').append(div);
       }
-
+      return div;
     }
-
-
-    // $('.js-display-car-details')
   },
   // render 'lastMaintenance'
   renderLastMaintenance(object) {
