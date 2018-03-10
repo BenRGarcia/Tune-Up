@@ -33,6 +33,11 @@ li {
   font-weight: bold;
 }
 
+#checklist {
+    background-color: #26a69a;
+    
+}
+
 
 .plate {
   width: 410px;
