@@ -30,6 +30,7 @@ h1 {
 
 #column1, #column2 {
   background-color: lightgrey;
+  color: black;
 }
 
 
@@ -104,7 +105,7 @@ img {
     background-color: #26a69a;
 }
 label {
-    color: white;
+    color: black;
 }
 
 h7 {
