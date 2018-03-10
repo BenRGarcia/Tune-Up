@@ -2,7 +2,7 @@ const DOM = {
   // render 'cars' to the browser
   renderCars(carsObject) {
 
-    // If object not empty
+    // Ignore empty object
     if (carsObject) {
 
       // Iterate over car objects
@@ -29,16 +29,41 @@ const DOM = {
       }
       return carsObject;
     }
+    return carsObject
   },
   // render 'lastMaintenance'
   renderLastMaintenance(object) {
-    // Please pass to me the object returned by db.getLastMaintenance()
 
-    // $('#js-display-last-oil-change')
-    // $('#js-display-last-tire-rotation')
-    // $('#js-display-last-car-inspection')
-    // $('#js-display-last-brake-inspection')
-    // $('#js-display-last-wiper-blades')
+    // Ignore empty object
+    if (object) {
+
+      // Convert Unix time to MMDDYYYY format
+      /* 
+       *  Call dateConverter's unixTimeTommddyyyy() method when Melissa completes 
+       *
+       *  In need of conversion: 
+       *    1) carInpectionUnixTime
+       *    2) brakeInspectionUnixTime
+       *    3) wiperBladesUnixTime
+      **/
+
+      // Declare variables
+      let lastOilChange       = object.oilChange;
+      let lastTireRotation    = object.tireRotation;
+      let lastCarInspection   = object.carInpectionUnixTime;
+      let lastBrakeInspection = object.brakeInspectionUnixTime;
+      let lastWiperBlades     = object.wiperBladesUnixTime;
+
+      // Update DOM
+      $('#js-display-last-oil-change').text(lastOilChange);
+      $('#js-display-last-tire-rotation').text(lastTireRotation);
+      $('#js-display-last-car-inspection').text(lastCarInspection);
+      $('#js-display-last-brake-inspection').text(lastBrakeInspection);
+      $('#js-display-last-wiper-blades').text(lastWiperBlades);
+
+      return object;
+    }
+    return object;
   },
   // render 'maintenanceIntervals' to input placeholders
   renderMaintenanceIntervals(object) {
