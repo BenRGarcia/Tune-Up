@@ -143,18 +143,35 @@ h7 {
   width: 100%;
   border-bottom: 3px solid #fff;
 }
+.side-nav-label, .maint-label{
+  font-size: 12px;
+}
+
+
 
 .text1 {
   font-size: 50px;
 }
 
+h6 {
+  font-weight: bold;
+}
+
 .text2 {
   font-size: 50px;
 }
+.update-data {
+  font-size: 11px;
+}
+
+
+
 
 .text3 {
   font-size: 90px;
 }
+
+
 
 li {
     margin-top: 40px;
@@ -164,7 +181,6 @@ li {
 .row {
     left: 10px;
 }
-
 div.firebaseui-container {
   display: hidden;
 }
@@ -182,7 +198,7 @@ div.firebaseui-container {
 
 /* -------------------------------- 
 
-TIMELINE STYLING from 
+Primary style
 
 -------------------------------- */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
@@ -197,7 +213,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Source Sans Pro", sans-serif;
-  color: white;
+  color: #383838;
   background-color: #f8f8f8;
 }
 
@@ -205,6 +221,8 @@ a {
   color: #7b9d6f;
   text-decoration: none;
 }
+
+
 
 /* -------------------------------- 
 
@@ -303,7 +321,7 @@ Main Components
   text-align: center;
   font-size: 1.3rem;
   padding-bottom: 15px;
-  color: white;
+  color: #383838;
   /* fix bug on Safari - text flickering while timeline translates */
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
