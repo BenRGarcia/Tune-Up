@@ -17,7 +17,7 @@ const DOM = {
         let model = carsObject[key].model;
 
         // Make new div
-        var div = $('<div>');
+        let div = $('<div>');
 
         // Add attributes and text
         div.data("car-key", carKey);
@@ -27,7 +27,7 @@ const DOM = {
         // Append div to car display area
         $('.js-display-car-details').append(div);
       }
-      return div;
+      return carsObject;
     }
   },
   // render 'lastMaintenance'
