@@ -1,7 +1,22 @@
 const DOM = {
   // render 'cars' to the browser
-  renderCars(object) {
+  renderCars(carsObject) {
     // Please pass to me the object of objects returned by db.getAllUserCars()
+
+    // If object not empty
+    if (carsObject) {
+
+      // Iterate over car objects
+      for (let key in carsObject) {
+
+        // 
+
+        // Strip out year, make, model for object
+
+      }
+
+    }
+
 
     // $('.js-display-car-details')
   },
