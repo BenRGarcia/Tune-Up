@@ -28,6 +28,14 @@ $(document).ready(function() {
 
 SUGGESTED NAMING CONVENTIONS FOR HTML ID'S
 
+========= Update Screen with user's data =========
+Display div's for last maintenance data
+$('#js-display-last-oil-change').text();
+$('#js-display-last-tire-rotation').text();
+$('#js-display-last-car-inspection').text();
+$('#js-display-last-brake-inspection').text();
+$('#js-display-last-wiper-blades').text();
+
 ============== Sign Out ==============
 $('#js-sign-out').click( function() {
   userAuth.signOut();
