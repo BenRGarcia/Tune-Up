@@ -72,14 +72,29 @@ const DOM = {
     // If maintenance object was empty
     return object;
   },
-  // render 'maintenanceIntervals' to input placeholders
   renderMaintenanceIntervals(object) {
-    // Please pass to me the object returned by db.getMaintenanceIntervals()
 
-    // $('#js-update-interval-oil-change')
-    // $('#js-update-interval-tire-rotation')
-    // $('#js-update-interval-car-inspection')
-    // $('#js-update-interval-brake-inspection')
-    // $('#js-update-interval-wiper-blades')
+    // Ignore empty object
+    if (object) {
+
+      // Declare variables
+      let intOilChange       = object.oilChange;
+      let intTireRotation    = object.tireRotation;
+      let intCarInspection   = object.carInspectionMonths;
+      let intBrakeInspection = object.brakeInspectionMonths;
+      let intWiperBlades     = object.wiperBladesMonths;
+
+      // Update DOM input placeholder text
+      $('#js-update-interval-oil-change').attr("placeholder", intOilChange);
+      $('#js-update-interval-tire-rotation').attr("placeholder", intTireRotation);
+      $('#js-update-interval-car-inspection').attr("placeholder", intCarInspection);
+      $('#js-update-interval-brake-inspection').attr("placeholder", intBrakeInspection);
+      $('#js-update-interval-wiper-blades').attr("placeholder", intWiperBlades);
+
+      // After maintenanceInterval object rendered
+      return object;
+    }
+    // If maintenance object was empty
+    return object;
   }
 };
