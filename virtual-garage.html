@@ -15,6 +15,7 @@
   <script src="./assets/javascript/firebase-user.js"></script>
   <!-- Firebase Database -->
   <script src="./assets/javascript/firebase-db.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Firebase Authentication CSS -->
   <link 
     type="text/css" 
@@ -85,6 +86,7 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordian">
           <li>
+            <label> Choose your vehicle make: </label>
               <div class="input-field">
                 <select>
                   <option value="vehicleMake">Choose your vehicle make:</option>
@@ -96,8 +98,10 @@
               </div>
           </li>
           <li>
+            <label> Choose your vehicle model: </label>
             <div class="input-field">
               <select>
+                
                 <option value="vehicleMake">Choose your vehicle model:</option>
                 <option value="1">Mazda</option>
                 <option value="2">Honda</option>
@@ -107,9 +111,11 @@
             </div>
           </li>
           <li>
+            <label> Choose your vehicle year: </label>
             <div class="input-field">
+              
               <select>
-                <option value="vehicleMake">Choose your vehicle year:</option>
+               <option value="vehicleMake">Choose your vehicle year:</option>
                 <option value="1">2016</option>
                 <option value="2">2015</option>
                 <option value="3">2014</option>
@@ -118,9 +124,10 @@
             </div>
           </li>
           <li>
+            <label> Please enter your vehicle's mileage: </label>
             <div id="carMileageTitle">Please enter your vehicle's mileage:</div>
               <div><input type="text" id="mileageInput"></div>
-              <div><input type="submit" id="submit"></div>
+             <button class="btn"> <i class='large material-icons'>add_circle_outline</i>
                 <div><input type="button" value= "Sign Out"></div>
 
           </li>
@@ -174,18 +181,25 @@
               <input type="text" id="wiperMonths" />
             </div>
                  <div class="col s5">
+
                   <label > LAST MAINTENANCE </label>
                   <br>
-              <label>Oil Change (miles)</label>
-              <input type="text" id="oilMiles"/>
-              <label>Tire Rotation (miles)</label>
-              <input type="text" id="tireMiles"/>
-              <label>Brake Check (miles)</label>
-              <input type="text" id="brakeMiles"/>
-              <label>Inspection (months) </label>
-              <input type="text" id="inspectMonths"/>
-              <label>Wiper Blades (months)</label>
-              <input type="text" id="wiperMonths" />
+
+              <input type="date" class="datepicker" id="oil-maintenance"/>
+
+
+               <div class="row"></div>
+               <input type="date" class="datepicker" id="tire-maintenance"/>
+                <div class="row"></div>
+
+              
+               <input type="date" class="datepicker" id="brake-maintenance"/>
+                <div class="row"></div>
+              
+               <input type="date" class="datepicker" id="inspect-maintenance"/>
+                <div class="row"></div>
+              
+               <input type="date" class="datepicker" id="wiper-maintenance"/>
             </div>
 
             </form>
@@ -207,20 +221,24 @@
 
           <div class="row">
             <div id="checklist" class="col s12">
-                <p class="shadow text1">TO-DO TIMELINE</p> 
-                <form id="form"></form>                
+                <p class="shadow text1">TO-DO LIST</p> 
+                <form id="form"></form>
+                
+                
             </div>
         
         </div>
-  <!-- TIMELINE -->
+        <!-- TIMELINE -->
         <section class="cd-horizontal-timeline">
           <div class="timeline">
             <div class="events-wrapper">
               <div class="events">
-                <ol id="js-timeline-dates">
-                  <!-- <li><a href="#0" data-date="16/01/2014" class="selected"></a></li>
-                  <li><a href="#0" data-date="28/02/2014"></a></li> -->
-                  
+                <ol>
+                  <li><a href="#0" data-date="16/01/2014" class="selected">16 Jan</a></li>
+                  <li><a href="#0" data-date="28/02/2014">28 Feb</a></li>
+                  <li><a href="#0" data-date="20/04/2014">20 Mar</a></li>
+                  <li><a href="#0" data-date="20/05/2014">20 May</a></li>
+                  <li><a href="#0" data-date="09/07/2014">09 Jul</a></li>
                 </ol>
         
                 <span class="filling-line" aria-hidden="true"></span>
@@ -228,38 +246,38 @@
             </div> <!-- .events-wrapper -->
               
             <ul class="cd-timeline-navigation">
-              <li><a href="#0" class="prev inactive"></a></li>
-              <li><a href="#0" class="next"></a></li>
+              <li><a href="#0" class="prev inactive">Prev</a></li>
+              <li><a href="#0" class="next">Next</a></li>
             </ul> <!-- .cd-timeline-navigation -->
           </div> <!-- .timeline -->
         
           <div class="events-content">
-            <ul>
+            <ol>
               <li class="selected" data-date="16/01/2014">
-                <h2 id="js-timeline-title-oil-change">OIL CHANGE</h2>
-                <em id="js-timeline-date-oil-change">12/20/1988</em>
+                <h2 id="js-timeline-title-oil-change"></h2>
+                <em id="js-timeline-date-oil-change"></em>
               </li>
         
               <li data-date="28/02/2014">
-                <h2 id="js-timeline-title-tire-rotation">TIRE ROTATION</h2>
-                <em id="js-timeline-date-tire-rotation"></em>
+                <h2 id="js-timeline-title-tire-change"></h2>
+                <em id="js-timeline-date-tire-change"></em>
               </li>
         
               <li data-date="20/04/2014">
-                <h2 id="js-timeline-title-car-inspection">CAR INSPECTION</h2>
+                <h2 id="js-timeline-title-car-inspection"></h2>
                 <em id="js-timeline-date-car-inspection"></em>
               </li>
         
               <li data-date="20/05/2014">
-                <h2 id="js-timeline-title-brake-inspection">BRAKE INSPECTION</h2>
+                <h2 id="js-timeline-title-brake-inspection"></h2>
                 <em id="js-timeline-date-brake-inspection"></em>
               </li>
         
               <li data-date="09/07/2014">
-                <h2 id="js-timeline-title-wiper-blades-change">CHECK WIPER BLADES</h2>
+                <h2 id="js-timeline-title-wiper-blades-change"></h2>
                 <em id="js-timeline-date-wiper-blades-change"></em>
               </li>
-            </ul>
+            </ol>
           </div> <!-- .events-content -->
         </section>
     <!--=================-->

@@ -84,11 +84,15 @@ li {
 .script span {
   background-color: #222;
   padding: 0 0.3em;
-
+}
+#carMileageTitle {
+  font-size: 10px;
+}
+ 
 
 
 }
-.dropdown {
+.dropdown{
     font-size: 10px;
 }
 img {
@@ -99,12 +103,18 @@ img {
     margin-left: 50%;
     margin-right: 50%;
 }
+
+i {
+  font-size: 20px;
+}
   
 #navbar {
     background-color: #26a69a;
 }
 label {
     color: black;
+    font-weight: bold;
+
 }
 
 h7 {
