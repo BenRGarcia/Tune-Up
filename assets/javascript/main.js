@@ -22,11 +22,39 @@ $(document).ready(function() {
   });
 
   $('select').material_select();
+
 });
+
+
 
 /*
 
 SUGGESTED NAMING CONVENTIONS FOR HTML ID'S
+
+========= Update Screen with user's data =========
+
+Display div's for last maintenance data:
+
+$('.js-display-car-details').text();
+$('#js-display-last-oil-change').text();
+$('#js-display-last-tire-rotation').text();
+$('#js-display-last-car-inspection').text();
+$('#js-display-last-brake-inspection').text();
+$('#js-display-last-wiper-blades').text();
+
+Display timeline:
+
+$('#js-timeline-title-oil-change').text()
+$('#js-timeline-title-tire-rotation').text()
+$('#js-timeline-title-car-inspection').text()
+$('#js-timeline-title-brake-inspection').text()
+$('#js-timeline-title-wiper-blades').text()
+
+$('#js-timeline-date-oil-change').text()
+$('#js-timeline-date-tire-rotation').text()
+$('#js-timeline-date-car-inspection').text()
+$('#js-timeline-date-brake-inspection').text()
+$('#js-timeline-date-wiper-blades').text()
 
 ============== Sign Out ==============
 $('#js-sign-out').click( function() {
@@ -81,13 +109,5 @@ $('body').on("click", "#js-update-last-wiper-blades", function() {
 $('body').on("click", ".js-delete-car", function() {
   db.deleteCar(uid, carKey);
 })
-
-
-
-
-
-
-
-
 
 */
