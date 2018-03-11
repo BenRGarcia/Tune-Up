@@ -22,10 +22,23 @@ const googleApi = {
       for (var i = 0; i < results.length; i++){
         let marker = new google.maps.Marker({
           position: results[i].geometry.location,
-          map: map,
+          map: map
        });
+      } 
+       // create info window
+    if (googleApi.marker){
+      var infowindow = new google.maps.InfoWindow({
+            content: "NAME"
+        });
+        // show info window when marker is clicked
+        google.maps.event.addListener(googleApi.marker, 'click', function() {
+            // console.log("open info window");
+            // infowindow.open(map, this.marker);
+            alert("hello!");
+        });
+        } 
       }
-    }
+   
 },
   //searchs for location inside the bounds of the mapview
   search: 
@@ -57,7 +70,7 @@ const googleApi = {
       //creates marker for current location
       var marker = new google.maps.Marker({
           position: currentLocation,
-          map: map
+          map: map,
       });
      
       service = new google.maps.places.PlacesService(map);
