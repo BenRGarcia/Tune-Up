@@ -80,8 +80,8 @@ $('body').on('click',".js-last-maintenance-interval",function(){
 
     // Call db object's method to return 'maintenanceInterval' object
     db.getMaintenanceIntervals(uid, carKey).then( function(response) {
-      console.log(response); // 'response' will be the 'maintenanceInterval' object
       DOM.renderMaintenanceIntervals(response);
+      console.log(response); // 'response' will be the 'maintenanceInterval' object      
     }, function(err) {
       console.log(err); // Errors are logged in the console
     });
@@ -96,13 +96,26 @@ $('body').on('click',".js-get-all-cars",function(){
 
     // Call db object's method to return 'maintenanceInterval' object
     db.getAllUserCars(uid).then( function(response) {
+      // DOM.renderMaintenanceIntervals(response);
       console.log(response);// 'response' will be an object of car objects
-    }, function(err) {
-      DOM.renderMaintenanceIntervals(response);
     }, function(err) {
       console.log(err); // Errors are logged in the console
     });
   }
+});
+
+//DELETE USER'S CAR
+$('body').on('click','#js-delete-car',function(){
+  var uid = userAuth.getUid;
+  var carKey = $(this).data("data-car-key");
+   
+  // Call db object's method to delete a car
+  db.deleteCar(uid, carKey).then( function(response) {
+    // DOM.
+    console.log(response); // 'response' is the deleted car's carKey
+  }, function(err) {
+    console.log(err); // Errors are logged in the console
+  });
 });
 
 
