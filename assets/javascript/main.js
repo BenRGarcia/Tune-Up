@@ -28,6 +28,7 @@ window.addEventListener('load', function() {
   initializeGarage();
 });
 
+//DISPLAY CAR DETAILS
 $('body').on('click',".js-display-car-details",function(){
   if (userAuth.getUid){
     var uid = userAuth.getUid;
@@ -42,6 +43,36 @@ $('body').on('click',".js-display-car-details",function(){
     });
   }
 });
+
+//CREATE NEW CAR
+$('body').on('click',"#js-new-car-add",function(){
+  if (userAuth.getUid){
+    var uid = userAuth.getUid;
+    // Get user input
+    let year = $('#js-new-car-year').val();
+    let make = $('#js-new-car-make').val();
+    let model = $('#js-new-car-model').val();
+    let mileage = $('#js-new-car-mileage').val();
+
+    // Ignore incomplete form submissions
+    if (year && make && model && mileage) {
+    // Reset form inputs to empty strings
+    $('#js-new-car-year').val("");
+    $('#js-new-car-make').val("");
+    $('#js-new-car-model').val("");
+    $('#js-new-car-mileage').val("");
+    }
+    // Call db object's method to post new car to firebase database
+    db.addNewCar(uid, year, make, model, mileage).then( function(response) {
+      DOM.renderLastMaintenance(response);
+      console.log(response); // 'response' will be the new car object created
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
+
+
 
 
  function initializeGarage(){
