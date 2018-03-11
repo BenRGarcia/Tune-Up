@@ -72,6 +72,22 @@ $('body').on('click',"#js-new-car-add",function(){
   }
 });
 
+//RETRIEVE MAINTENANCE INTERVALS
+$('body').on('click',".js-last-maintenance-interval",function(){
+  if (userAuth.getUid){
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key");
+
+    // Call db object's method to return 'maintenanceInterval' object
+    db.getMaintenanceIntervals(uid, carKey).then( function(response) {
+      console.log(response); // 'response' will be the 'maintenanceInterval' object
+      DOM.renderMaintenanceIntervals(response);
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
+
 
 
 
