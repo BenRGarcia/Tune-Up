@@ -118,6 +118,28 @@ $('body').on('click','#js-delete-car',function(){
   });
 });
 
+//UPDATE CARE MILEAGE
+$('body').on('click','#js-update-mileage',function(){
+  // Get user input
+  let newMileage = $('#js-updated-mileage').val();
+  // Ignore empty inputs
+  if (newMileage) {
+    // Reset form input to empty string
+    $('#js-updated-mileage').val("");
+
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key");
+
+    // Call db object's method to update the mileage of a car
+    db.updateMileage(uid, carKey, newMileage).then( function(response) {
+      // DOM.
+      console.log(response); // 'response' is an object of updated mileage
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
+
 
 
 
