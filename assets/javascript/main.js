@@ -188,6 +188,29 @@ $('body').on('click','#js-update-interval-tire',function(){
   }
 });
 
+//UPDATE INTERVAL FOR CAR INSPECTION
+$('body').on('click','#js-update-interval-tire',function(){
+  // Get user input
+  let newInterval = $('#js-updated-interval-inspection').val();
+
+  // Ignore empty inputs
+  if (newInterval) {
+
+    // Reset form input to empty string
+    $('#js-updated-interval-inspection').val("");
+
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key"); 
+
+    // Call db object's method to update the maintenance interval for car inspection
+    db.updateIntervalCarInspection(uid, carKey, newInterval).then( function(response) {
+      DOM.renderMaintenanceIntervals(response);
+      console.log(response); // 'response' is an object of updated interval for car inspection months
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
 
 
 
