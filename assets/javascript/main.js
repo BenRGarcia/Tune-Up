@@ -64,7 +64,7 @@ $('body').on('click',"#js-new-car-add",function(){
     }
     // Call db object's method to post new car to firebase database
     db.addNewCar(uid, year, make, model, mileage).then( function(response) {
-      DOM.renderLastMaintenance(response);
+      DOM.renderCars(response);
       console.log(response); // 'response' will be the new car object created
     }, function(err) {
       console.log(err); // Errors are logged in the console
@@ -96,7 +96,7 @@ $('body').on('click',".js-get-all-cars",function(){
 
     // Call db object's method to return 'maintenanceInterval' object
     db.getAllUserCars(uid).then( function(response) {
-      // DOM.renderMaintenanceIntervals(response);
+      DOM.renderCars(response);
       console.log(response);// 'response' will be an object of car objects
     }, function(err) {
       console.log(err); // Errors are logged in the console
@@ -111,7 +111,7 @@ $('body').on('click','#js-delete-car',function(){
    
   // Call db object's method to delete a car
   db.deleteCar(uid, carKey).then( function(response) {
-    // DOM.
+    DOM.renderCars(response);
     console.log(response); // 'response' is the deleted car's carKey
   }, function(err) {
     console.log(err); // Errors are logged in the console
@@ -132,8 +132,32 @@ $('body').on('click','#js-update-mileage',function(){
 
     // Call db object's method to update the mileage of a car
     db.updateMileage(uid, carKey, newMileage).then( function(response) {
-      // DOM.
+      DOM.renderLastMaintenance(response);
       console.log(response); // 'response' is an object of updated mileage
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
+
+//UPDATE INTERVAL FOR OIL MAINTENANCE
+$('body').on('click','#js-update-interval-oil',function(){
+  // Get user input
+  let newInterval = $('#js-updated-interval-oil').val();
+
+  // Ignore empty inputs
+  if (newInterval) {
+
+    // Reset form input to empty string
+    $('#js-updated-interval-oil').val("");
+
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key");
+   
+    // Call db object's method to update the maintenance interval for oil
+    db.updateIntervalOilChange(uid, carKey, newInterval).then( function(response) {
+      DOM.renderMaintenanceIntervals(response);
+      console.log(response); // 'response' is an object of updated interval for oil
     }, function(err) {
       console.log(err); // Errors are logged in the console
     });
