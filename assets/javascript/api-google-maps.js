@@ -22,7 +22,7 @@ const googleApi = {
       for (var i = 0; i < results.length; i++){
         let marker = new google.maps.Marker({
           position: results[i].geometry.location,
-          map: map,
+          map: map
        });
       }
     }
@@ -57,7 +57,7 @@ const googleApi = {
       //creates marker for current location
       var marker = new google.maps.Marker({
           position: currentLocation,
-          map: map
+          map: map,
       });
      
       service = new google.maps.places.PlacesService(map);
