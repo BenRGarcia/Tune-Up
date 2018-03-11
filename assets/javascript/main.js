@@ -189,7 +189,7 @@ $('body').on('click','#js-update-interval-tire',function(){
 });
 
 //UPDATE INTERVAL FOR CAR INSPECTION
-$('body').on('click','#js-update-interval-tire',function(){
+$('body').on('click','#js-update-interval-inspection',function(){
   // Get user input
   let newInterval = $('#js-updated-interval-inspection').val();
 
@@ -212,6 +212,30 @@ $('body').on('click','#js-update-interval-tire',function(){
   }
 });
 
+//UPDATE INTERVAL FOR WIPER BLADES
+$('body').on('click','#js-update-interval-wipers',function(){
+
+  // Get user input
+  let newInterval = $('#js-updated-interval-wipers').val();
+
+  // Ignore empty inputs
+  if (newInterval) {
+
+    // Reset form input to empty string
+    $('#js-updated-interval-wipers').val("");
+
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key"); 
+
+    // Call db object's method to update the maintenance interval for wiper blades
+    db.updateIntervalWiperBlades(uid, carKey, newInterval).then( function(response) {
+      DOM.renderMaintenanceIntervals(response);
+      console.log(response); // 'response' is an object of updated interval for wiper blades
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
 
 
  function initializeGarage(){
