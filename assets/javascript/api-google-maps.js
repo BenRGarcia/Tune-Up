@@ -24,8 +24,21 @@ const googleApi = {
           position: results[i].geometry.location,
           map: map
        });
+      } 
+       // create info window
+    if (googleApi.marker){
+      var infowindow = new google.maps.InfoWindow({
+            content: "NAME"
+        });
+        // show info window when marker is clicked
+        google.maps.event.addListener(googleApi.marker, 'click', function() {
+            // console.log("open info window");
+            // infowindow.open(map, this.marker);
+            alert("hello!");
+        });
+        } 
       }
-    }
+   
 },
   //searchs for location inside the bounds of the mapview
   search: 
