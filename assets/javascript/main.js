@@ -61,14 +61,14 @@ $('body').on('click',"#js-new-car-add",function(){
     $('#js-new-car-make').val("");
     $('#js-new-car-model').val("");
     $('#js-new-car-mileage').val("");
-    }
     // Call db object's method to post new car to firebase database
     db.addNewCar(uid, year, make, model, mileage).then( function(response) {
       DOM.renderCars(response);
       console.log(response); // 'response' will be the new car object created
     }, function(err) {
       console.log(err); // Errors are logged in the console
-    });
+      });
+    }
   }
 });
 
@@ -156,6 +156,30 @@ $('body').on('click','#js-update-interval-oil',function(){
    
     // Call db object's method to update the maintenance interval for oil
     db.updateIntervalOilChange(uid, carKey, newInterval).then( function(response) {
+      DOM.renderMaintenanceIntervals(response);
+      console.log(response); // 'response' is an object of updated interval for oil
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
+
+//UPDATE INTERVAL FOR TIRE ROTATION
+$('body').on('click','#js-update-interval-tire',function(){
+  // Get user input
+  let newInterval = $('#js-updated-interval-tire').val();
+
+  // Ignore empty inputs
+  if (newInterval) {
+
+    // Reset form input to empty string
+    $('#js-updated-interval-tire').val("");
+
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key"); 
+
+    // Call db object's method to update the maintenance interval for oil
+    db.updateIntervalTireRotation(uid, carKey, newInterval).then( function(response) {
       DOM.renderMaintenanceIntervals(response);
       console.log(response); // 'response' is an object of updated interval for oil
     }, function(err) {
