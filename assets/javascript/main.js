@@ -323,7 +323,7 @@ $('body').on('click','#js-last-inspection',function(){
     $('#js-last-inspection-date').val("");
 
     // Use moment.js to convert to Unix Time
-    let unixDate; // = 'date' converted to a unix date with moment.js
+    let unixDate = dateConverter.mmddyyyyToUnixTime(date); // = 'date' converted to a unix date with moment.js
 
     var uid = userAuth.getUid;
     var carKey = $(this).data("data-car-key"); 
@@ -350,7 +350,7 @@ $('body').on('click','#js-last-wiper',function(){
     $('#js-last-wiper-date').val("");
 
     // Use moment.js to convert to Unix Time
-    let unixDate; // = 'date' converted to a unix date with moment.js
+    let unixDate = dateConverter.mmddyyyyToUnixTime(date); // = 'date' converted to a unix date with moment.js
 
     var uid = userAuth.getUid;
     var carKey = $(this).data("data-car-key"); 
@@ -378,7 +378,7 @@ $('body').on('click','#js-last-brake',function(){
     $('#js-last-brake-date').val("");
 
     // Use moment.js to convert to Unix Time
-    let unixDate; // = 'date' converted to a unix date with moment.js
+    let unixDate = dateConverter.mmddyyyyToUnixTime(date); // = 'date' converted to a unix date with moment.js
 
     var uid = userAuth.getUid;
     var carKey = $(this).data("data-car-key"); 

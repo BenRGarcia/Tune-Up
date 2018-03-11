@@ -44,13 +44,22 @@ const DOM = {
 
       // Convert Unix time to MMDDYYYY format
       /* 
-       *  Call dateConverter's unixTimeTommddyyyy() method when Melissa completes 
+       *  Call dateConverter's unixTimeTommddyyyy() method 
        *
        *  In need of conversion: 
        *    1) carInpectionUnixTime
        *    2) brakeInspectionUnixTime
        *    3) wiperBladesUnixTime
+       * 
       **/
+     let inspectionDate = $('#js-last-inspection-date').val();
+     let carInpectionUnixTime = dateConverter.unixTimeTommddyyyy(inspectionDate);
+
+     let brakeDate = $('#js-last-brake-date').val();
+     let brakeInpectionUnixTime = dateConverter.unixTimeTommddyyyy(brakeDate);
+
+     let wiperBladeDate = $('#js-last-wiper-date').val();
+     let wiperBladesUnixTime = dateConverter.unixTimeTommddyyyy(wiperBladeDate);
 
       // Declare variables
       let lastOilChange       = object.oilChange;
