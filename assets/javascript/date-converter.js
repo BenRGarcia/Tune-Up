@@ -1,17 +1,37 @@
-$(document).ready(function(){  
+const dateConverter = {
 
-    var oilDate =  $("#oilDate").val();
-    var newOilDate = moment(oilDate).add(3, 'M');
-    console.log(oilDate, "oilDate");
-    console.log(newOilDate, "newOilDate");
+  mmddyyyyToUnixTime : 
+   function(mmddyyyy){
+    var date = "12/20/1988"
+    var unixTime = new Date(date).getTime() / 1000;
+    console.log(unixTime, "Convert to Unix");
+    // return unixTime;
+  },
 
-  function convertToUnix(){
-    var unix = new Date(newOilDate).getTime() / 1000;
-    console.log(unix, "newOilDate Unix");
+  unixTimeTommddyyyy :
+    function(unixTime) {
+      var unix = moment.unix(598597200)._d;
+      var unixFormat = moment(unix).format("MM/DD/YYYY");
+        console.log(unixFormat, "Convert to Date");
+    // return mmddyyyy;
   }
+};
 
-  convertToUnix();
+$(document).ready(function(){
+  dateConverter.mmddyyyyToUnixTime();
+  dateConverter.unixTimeTommddyyyy();
+});
 
+
+// $(document).ready(function(){  
+
+//     var oilDate =  $("#oilDate").val();
+//     var newOilDate = moment(oilDate).add(3, 'M');
+//     console.log(oilDate, "oilDate");
+//     console.log(newOilDate, "newOilDate");
+
+  
+//   }
   // //Add 3 months to current date
   // var currentDate = moment();
   // var futureMonth = moment(currentDate).add(3, 'M');
@@ -34,4 +54,4 @@ $(document).ready(function(){
   // var date = new Date(moment()).getTime() / 1000;
   // console.log(date, "date to unix")
 
-});
+// });
