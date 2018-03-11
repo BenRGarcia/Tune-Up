@@ -59,7 +59,7 @@ const googleApi = {
       map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
       console.log(map, "map");
 
-      var image = '../assets/images/youAreHere.jpg';
+      var image = 'assets/images/youAreHere.jpg';
       //creates marker for current location
       var marker = new google.maps.Marker({
           position: currentLocation,
