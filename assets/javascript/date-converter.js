@@ -2,25 +2,20 @@ const dateConverter = {
 
   mmddyyyyToUnixTime : 
    function(mmddyyyy){
-    var date = "12/20/1988"
+    var date = mmddyyyy;
     var unixTime = new Date(date).getTime() / 1000;
     console.log(unixTime, "Convert to Unix");
-    // return unixTime;
+    return unixTime;
   },
 
   unixTimeTommddyyyy :
     function(unixTime) {
-      var unix = moment.unix(598597200)._d;
+      var unix = moment.unix(unitTime)._d;
       var unixFormat = moment(unix).format("MM/DD/YYYY");
         console.log(unixFormat, "Convert to Date");
-    // return mmddyyyy;
+    return mmddyyyy;
   }
 };
-
-$(document).ready(function(){
-  dateConverter.mmddyyyyToUnixTime();
-  dateConverter.unixTimeTommddyyyy();
-});
 
 
 // $(document).ready(function(){  
