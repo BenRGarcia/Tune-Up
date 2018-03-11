@@ -53,13 +53,16 @@ const DOM = {
        * 
       **/
      let inspectionDate = $('#js-last-inspection-date').val();
-     let carInpectionUnixTime = dateConverter.unixTimeTommddyyyy(inspectionDate);
-
      let brakeDate = $('#js-last-brake-date').val();
-     let brakeInpectionUnixTime = dateConverter.unixTimeTommddyyyy(brakeDate);
-
      let wiperBladeDate = $('#js-last-wiper-date').val();
+
+     let carInpectionUnixTime = dateConverter.unixTimeTommddyyyy(inspectionDate);
+     let brakeInpectionUnixTime = dateConverter.unixTimeTommddyyyy(brakeDate);
      let wiperBladesUnixTime = dateConverter.unixTimeTommddyyyy(wiperBladeDate);
+
+     let carInspectionTimeline = carInpectionUnixTime.data("date");
+     let brakeInspectionTimeline = brakeInpectionUnixTime.data("date");
+     let wiperBladeTimeline = wiperBladesUnixTime.data("date");
 
       // Declare variables
       let lastOilChange       = object.oilChange;
@@ -69,11 +72,16 @@ const DOM = {
       let lastWiperBlades     = object.wiperBladesUnixTime;
 
       // Update DOM
-      $('#js-display-last-oil-change').text(lastOilChange             || "-");
-      $('#js-display-last-tire-rotation').text(lastTireRotation       || "-");
-      $('#js-display-last-car-inspection').text(lastCarInspection     || "-");
-      $('#js-display-last-brake-inspection').text(lastBrakeInspection || "-");
-      $('#js-display-last-wiper-blades').text(lastWiperBlades         || "-");
+      $('#js-display-last-oil-change').text(lastOilChange                   || "-");
+      $('#js-display-last-tire-rotation').text(lastTireRotation             || "-");
+      $('#js-display-last-car-inspection').text(lastCarInspection           || "-");
+      $('#js-display-last-brake-inspection').text(lastBrakeInspection       || "-");
+      $('#js-display-last-wiper-blades').text(lastWiperBlades               || "-");
+      $('.events').append(carInspectionTimeline).text("CAR ISNPECTION"      || "-");
+      $('.events').append(brakeInspectionTimeline).text("BRAKE INSPECTION"  || "-");
+      $('.events').append(wiperBladeTimeline).text("CHECK WIPER BLADE"      || "-");
+      
+
 
       // After lastMaintenance object rendered
       return object;
