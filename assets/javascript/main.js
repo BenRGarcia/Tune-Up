@@ -88,6 +88,23 @@ $('body').on('click',".js-last-maintenance-interval",function(){
   }
 });
 
+//RETRIEVE ALL CARS 
+$('body').on('click',".js-get-all-cars",function(){
+  if (userAuth.getUid){
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key");
+
+    // Call db object's method to return 'maintenanceInterval' object
+    db.getAllUserCars(uid).then( function(response) {
+      console.log(response);// 'response' will be an object of car objects
+    }, function(err) {
+      DOM.renderMaintenanceIntervals(response);
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
+
 
 
 
