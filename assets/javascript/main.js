@@ -262,6 +262,31 @@ $('body').on('click','#js-update-interval-brakes',function(){
   }
 });
 
+//UPDATE LAST MAINTENANCE FOR OIL
+$('body').on('click','#js-update-interval-brakes',function(){
+  // Get user input
+  let mileage = $('#js-last-oil-mileage').val();
+
+  // Ignore empty inputs
+  if (mileage) {
+
+    // Reset form input to empty string      
+    $('#js-last-oil-mileage').val("");
+
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key"); 
+
+    // Call db object's method to update the last maintenance of oil
+    db.updateLastOilChange(uid, carKey, mileage).then( function(response) {
+      DOM.renderLastMaintenance(response);
+      console.log(response); // 'response' is an object of last maintenance of oil
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
+
+
  function initializeGarage(){
     console.log("Garage has been initialized");
     if (userAuth.getUid){
