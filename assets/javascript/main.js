@@ -338,6 +338,63 @@ $('body').on('click','#js-last-inspection',function(){
   }
 });
 
+//UPDATE LAST MAINTENANCE FOR WIPER BLADES
+$('body').on('click','#js-last-wiper',function(){
+  // Get user input
+  let date = $('#js-last-wiper-date').val();
+
+  // Ignore empty input
+  if (date) {
+
+    // Reset form input to empty string
+    $('#js-last-wiper-date').val("");
+
+    // Use moment.js to convert to Unix Time
+    let unixDate; // = 'date' converted to a unix date with moment.js
+
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key"); 
+
+    // Call db object's method to update the last maintenance of wiper blades
+    db.updateLastWiperBlades(uid, carKey, unixDate).then( function(response) {
+      DOM.renderLastMaintenance(response);
+      console.log(response); // 'response' is an object of last maintenance of wiper blades
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
+
+//UPDATE LAST MAINTENANCE FOR BRAKES
+$('body').on('click','#js-last-brake',function(){
+
+  // Get user input
+  let date = $('#js-last-brake-date').val();
+
+  // Ignore empty input
+  if (date) {
+
+    // Reset form input to empty string
+    $('#js-last-brake-date').val("");
+
+    // Use moment.js to convert to Unix Time
+    let unixDate; // = 'date' converted to a unix date with moment.js
+
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key"); 
+
+    // Call db object's method to update the last maintenance of brake inspection
+    db.updateLastBrakeInspection(uid, carKey, unixDate).then( function(response) {
+      DOM.renderLastMaintenance(response);
+      console.log(response); // 'response' is an object of last maintenance of brake inspection
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
+
+
+
 
  function initializeGarage(){
     console.log("Garage has been initialized");
