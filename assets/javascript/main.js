@@ -286,6 +286,31 @@ $('body').on('click','#js-update-interval-brakes',function(){
   }
 });
 
+//UPDATE LAST MAINTENANCE FOR TIRES
+$('body').on('click','#js-last-tire',function(){
+
+  // Get user input
+  let mileage = $('#js-last-tire-mileage').val();
+
+  // Ignore empty input
+  if (mileage) {
+
+    // Reset form input to empty string   
+    $('#js-last-tire-mileage').val("");
+
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key"); 
+
+    // Call db object's method to update the last maintenance of tire rotation
+    db.updateLastTireRotation(uid, carKey, mileage).then( function(response) {
+      DOM.renderLastMaintenance(response);
+      console.log(response); // 'response' is an object of last maintenance of tire rotation
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
+
 
  function initializeGarage(){
     console.log("Garage has been initialized");
