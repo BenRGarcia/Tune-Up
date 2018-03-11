@@ -237,6 +237,30 @@ $('body').on('click','#js-update-interval-wipers',function(){
   }
 });
 
+//UPDATE INTERVAL FOR BRAKES
+$('body').on('click','#js-update-interval-brakes',function(){
+
+  // Get user input
+  let newInterval = $('#js-updated-interval-brakes').val();
+
+  // Ignore empty inputs
+  if (newInterval) {
+
+    // Reset form input to empty string
+    $('#js-updated-interval-brakes').val("");
+
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key"); 
+
+    // Call db object's method to update the maintenance interval for brake inspections
+    db.updateIntervalBrakeInspection(uid, carKey, newInterval).then( function(response) {
+      DOM.renderMaintenanceIntervals(response);
+      console.log(response); // 'response' is an object of updated interval for brake inspection
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
 
  function initializeGarage(){
     console.log("Garage has been initialized");
