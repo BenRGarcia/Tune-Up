@@ -311,6 +311,33 @@ $('body').on('click','#js-last-tire',function(){
   }
 });
 
+//UPDATE LAST MAINTENANCE FOR CAR INSPECTION
+$('body').on('click','#js-last-inspection',function(){
+  // Get user input
+  let date = $('#js-last-inspection-date').val();
+
+  // Ignore empty inputs
+  if (date) {
+
+    // Reset form input to empty string
+    $('#js-last-inspection-date').val("");
+
+    // Use moment.js to convert to Unix Time
+    let unixDate; // = 'date' converted to a unix date with moment.js
+
+    var uid = userAuth.getUid;
+    var carKey = $(this).data("data-car-key"); 
+
+    // Call db object's method to update the last maintenance of car inspection
+    db.updateLastCarInspection(uid, carKey, unixDate).then( function(response) {
+      DOM.renderLastMaintenance(response);
+      console.log(response); // 'response' is an object of last maintenance of car inspection
+    }, function(err) {
+      console.log(err); // Errors are logged in the console
+    });
+  }
+});
+
 
  function initializeGarage(){
     console.log("Garage has been initialized");
