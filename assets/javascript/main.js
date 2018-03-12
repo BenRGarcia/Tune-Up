@@ -435,7 +435,6 @@ $('body').on('change','#js-update-last-brake-inspection-form',function(event){
   if (selectedCarKey) {
     // Get user input
     let date = $('#js-update-last-brake-inspection').val();
-    console.log(date);
 
     // Ignore empty input
     if (date) {
