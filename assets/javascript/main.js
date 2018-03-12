@@ -75,7 +75,7 @@ $('body').on('click',".js-get-all-cars",function(){
   // Call db object's method to return 'maintenanceInterval' object
   db.getAllUserCars(uid).then( function(response) {
     DOM.renderCars(response);
-    console.log(response);// 'response' will be an object of car objects
+    // console.log(response);// 'response' will be an object of car objects
   }, function(err) {
     console.log(err); // Errors are logged in the console
   });
@@ -430,7 +430,6 @@ $('body').on('change','#js-update-last-wiper-blades-form', function(event){
 
 //UPDATE LAST MAINTENANCE FOR BRAKES
 $('body').on('change','#js-update-last-brake-inspection-form',function(event){
-  console.log('I was called')
 
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
