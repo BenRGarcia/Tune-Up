@@ -13,11 +13,7 @@ const updateTimeline = {
      let addBrakeMonths = dateConverter.addBrakeMonths(brakeDate);
      let addWiperMonths = dateConverter.addWiperMonths(wiperBladeDate);
      let addOilMonths = dateConverter.addOilMonths(oilChangeMileage);
-     let addTireMonths = dateConverter.addTireMonths(tireRotationMileage);
-
-    //  let carInpectionUnixTime = dateConverter.unixTimeTommddyyyy(inspectionDate);
-    //  let brakeInpectionUnixTime = dateConverter.unixTimeTommddyyyy(brakeDate);
-    //  let wiperBladesUnixTime = dateConverter.unixTimeTommddyyyy(wiperBladeDate);    
+     let addTireMonths = dateConverter.addTireMonths(tireRotationMileage);  
 
      let carInspectionTimeline = addCarMonths.attr("data-date",addCarMonths);
      let brakeInspectionTimeline = addBrakeMonths.attr("data-date",addBrakeMonths);
@@ -25,12 +21,7 @@ const updateTimeline = {
      let oilChangeTimeline = addOilMonths.attr("data-date",addOilMonths);
      let tireRotationTimeline = addTireMonths.attr("data-date",addTireMonths);
      
-    //  var list = "timelineDates"
 
-    //  if(!Array.isArray(list)){
-    //         list= [];
-    //     }
-    
     $("#timelineDates").empty();
     $("#timelineDisplay").empty(); 
 
@@ -97,37 +88,6 @@ const updateTimeline = {
         $("#timelineDisplay").append(tDateTireRotationDisplay);
     };
 
-    
-
-         // var insideList = "timelineDates"   
-
-        //  if(!Array.isArray(insideList)){
-        //      insideList = [];
-        //  }
-
-        //  for(var i = 0; i < insideList.length; i++){
-        //     var tDates = ("<li>").
-
-     
-      // Declare variables
-    //   let lastOilChange       = object.oilChange;
-    //   let lastTireRotation    = object.tireRotation;
-    //   let lastCarInspection   = object.carInpectionUnixTime;
-    //   let lastBrakeInspection = object.brakeInspectionUnixTime;
-    //   let lastWiperBlades     = object.wiperBladesUnixTime;
-
-      // Update DOM
-    //   $('#timelineDates').append(carInspectionTimeline);
-    //   $('#timelineDates').append(brakeInspectionTimeline);
-    //   $('#timelineDates').append(wiperBladeTimeline);
-    //   $('#timelineDates').append(oilChangeTimeline);
-    //   $('#timelineDates').append(tireRotationTimeline);
-
-        //CREATE ARRAY, 
-        //PUSH DATA TO ARRAY, 
-        //FOR EACH METHOD THAT DYNAMICALLY CREATES LI ITEMS FOR TIMELINEDATES ID 
-
-
         //call Id's where the information goes, di
         console.log(object);
 
@@ -154,9 +114,3 @@ const updateTimeline = {
         }
     }
 }
-// one function that updates the timeline
-//render function that displays timeline based on the current data--any intervals and last maintenance dates
-//for each add li items to dom and add content
-
-//  updateTimeline.render(response);
-    //add this to the main.js under DOM.
