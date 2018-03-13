@@ -141,9 +141,62 @@ const DOM = {
   renderMileage(carObject) {
     return $('#js-update-mileage').attr("placeholder", carObject.mileage);
   },
-  renderTimeline(doIneedAnArgument){
-    /*
-     *  Melissa: Code to dynamically render timeline details goes here
-    **/
+  renderTimeline(timelineObject){
+    var counter = 0;
+
+    if (timelineObject) {
+      for (let propertyName in timelineObject) {
+  
+        // Render next oil change to DOM
+        // Step 1 create horizontal timeline
+        let li = $('<li>');
+        let a = $('<a>');
+
+        // Give appropriate attributes
+        a.attr("href", "#0");
+        a.attr('data-date', timelineObject.propertyName);
+      
+        // Nest <a> inside <li>
+        li.append(a);
+      
+      // Step 2 create timeline text description
+        /* follow same pattern from above */
+        let displayLi = $('<li>');
+  
+        displayLi.attr("data-date", timelineObject.propertyName);
+        
+        if(propertyName === "oil"){
+          displayLi.text("OIL CHANGE");
+        }
+        if(propertyName === "tire"){
+          displayLi.text("TIRE ROTATION");
+        }
+        if(propertyName === "inspection"){
+          displayLi.text("CAR INSPECTION");
+        }
+        if(propertyName === "brake"){
+          displayLi.text("OIL CHANGE");
+        }
+        if(propertyName === "wiper"){
+          displayLi.text("OIL CHANGE");
+        }
+
+        // visual horizontal timeline
+        $('#timelineDates').append(li);
+
+        // timeline text description
+        $('#timelineDisplay').append(displayLi);
+    
+        // Only add class="selected" if the first item appended
+        if (counter == 0) {
+          // add class="selected" to element
+          a.attr("class", "selected");
+        }
+        // Increment counter
+        counter++;
+      }
+      // reset counter
+      counter = 0;
+    }
   }
 };
