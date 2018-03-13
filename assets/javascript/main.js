@@ -23,7 +23,7 @@ function initializeGarage() {
       });
     } else {
       // User not signed in, redirect to home page
-      window.location.replace("https://benrgarcia.github.io/Tune-Up-Production/")
+      window.location.replace("https://benrgarcia.github.io/Tune-Up/")
     }
   });
 }
@@ -31,7 +31,7 @@ function initializeGarage() {
 // When user signs out
 $('#js-sign-out').click( function() {
   userAuth.signOut();
-  window.location.replace("https://benrgarcia.github.io/Tune-Up-Production/");
+  window.location.replace("https://benrgarcia.github.io/Tune-Up/");
 });
 
 //DISPLAY CAR DETAILS
