@@ -5,14 +5,9 @@ https://developers.google.com/maps/documentation/javascript/examples/place-searc
 */
 const googleApi = {
   apiKey: "AIzaSyB0YC_GpZvlge7TTOgdNhujspZ8yjdbvQU",
-  /* 
-   *  All google api properties/methods 
-   *  go inside this object 
-   * 
-   */
+  
   map: null,
   service: null,
-  infoWindow:null,
 
   //grabs search results and adds a marker to each
   handleSeachResults : 
@@ -78,27 +73,5 @@ $(document).ready(function(){
   navigator.geolocation.getCurrentPosition(googleApi.initialize);
   });
 
-  // var contentString = "hello!!";
 
-  //   var infowindow = new google.maps.InfoWindow({
-  //     content: contentString
-  //   });
-
-  // marker.addListener('click', function() {
-  //   infowindow.open(map, marker);
-  // });
-
-
-    //adds circle to current location with a radius of 10,000 meters
-    // var circleOptions = {
-    //   strokeColor: "#0000FF",
-    //   strokeOpacity: 0.8,
-    //   strokeWeight: 1.5,
-    //   fillColor: "#0000FF",
-    //   fillOpacity: 0.35,
-    //   map: map,
-    //   center: currentLocation,
-    //   radius: 10000
-    // };
-    // var circle = new google.maps.Circle(circleOptions);
 
