@@ -12,7 +12,6 @@ const googleApi = {
   //grabs search results and adds a marker to each
   handleSeachResults : 
     function(results, status){
-    console.log(results, "searchresults");
 
     if (status == google.maps.places.PlacesServiceStatus.OK){
       for (var i = 0; i < results.length; i++){
@@ -34,15 +33,13 @@ const googleApi = {
       bounds: map.getBounds(),
       query: "Auto"
   }
-  console.log(request, "search 1");
   service.textSearch(request, googleApi.handleSeachResults);
   
 },
   //finds currentLcation and creates a map for it
   initialize:
   function(location){
-      console.log(location, "location");
-
+    
       var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
 
       var mapOptions = {
@@ -52,7 +49,6 @@ const googleApi = {
       };
       //displays map to DOM
       map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-      console.log(map, "map");
 
       var image = 'assets/images/youAreHere.jpg';
       //creates marker for current location

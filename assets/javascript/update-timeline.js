@@ -1,26 +1,182 @@
-const updateTimeline = {
+const maintenanceTimeline = {
+    monthMiles: 1000,
+    calculateNext: function(carObject){
 
-    render: function(db){
+        let maintenanceObject = {};
+
+        console.log(carObject); 
+        //last maintenance calls
+        let oilLast = carObject.lastMaintenance.oilChange;
+        let tireLast = carObject.lastMaintenance.tireRotation;
+        let brakeLast = carObject.lastMaintenance.brakeInspectionUnixTime;
+        let inspectionLast = carObject.lastMaintenance.carInspectionUnixTime;
+        let wiperLast = carObject.lastMaintenance.wiperBladesUnixTime;
+        
+        //interval calls
+        let oilInterval = carObject.maintenanceInterval.oilChange;
+        let tireInterval = carObject.maintenanceInterval.tireRotation;
+        let brakeInterval = carObject.maintenanceInterval.brakeInspectionMonths;
+        let inspectionInterval = carObject.maintenanceInterval.carInspectionMonths;
+        let wiperInterval = carObject.maintenanceInterval.wiperBladesMonths;
+
+        let currentMileage =carObject.mileage;
+        
+
+
+ /*
+     *  Compute Date Math Stuff, Add properties to object if truthy
+    // **/
+    // If not falsey
+    if (oilLast) {
+        // Compute Miles Oil Change
+        let diff = currentMileage - oilLast;
+        let oilDiff = oilInterval - diff;
+        let oilDivide = oilDiff / this.monthMiles;
+        let oilMath = moment().add(oilDivide, 'M');
+        let oilDefine = oilMath._d;
+        let nextOil = moment(oilMath).format("MM/DD/YYYY");
+        console.log(nextOil, "NEXT OIL");
+        // Add property to maintenance object
+        maintenanceObject.oil = nextOil;
+      }
+  
+    //   // If not falsey
+      if (tireLast) {
+        // Compute Miles Tire Change
+        let diff = currentMileage - tireLast;
+        let tireDiff = tireInterval - diff;
+        let tireDivide = tireDiff / this.monthMiles;
+        let tireMath = moment().add(tireDivide, 'M');
+        let tireDefine = tireMath._d;
+        let nextTire = moment(tireMath).format("MM/DD/YYYY");
+        console.log(nextTire, "NEXT TIRE");
+        // Add property to maintenance object
+        maintenanceObject.tire = nextTire;
+      }
+  
+      // If not falsey
+      if (brakeLast) {
+        // Compute Months Brake Change
+        let brakeLastUnix = dateConverter.unixTimeTommddyyyy(brakeLast);
+        let nextBrakeMath = moment(brakeLastUnix).add(brakeInterval, 'M');
+        let nextBrakeDefine = nextBrakeMath._d;
+        let nextBrake = moment(nextBrakeDefine).format("MM/DD/YYYY");
+        console.log(nextBrake, "NEXT BRAKE");
+        // Add property to maintenance object
+        maintenanceObject.brake = nextBrake;
+      }
+  
+      // If not falsey
+      if (inspectionLast) {
+        // Compute Months Inspection Change
+        let inspectionLastUnix = dateConverter.unixTimeTommddyyyy(inspectionLast);
+        let nextInspectionMath = moment(inspectionLastUnix).add(inspectionInterval, 'M');
+        let nextInspectionDefine = nextInspectionMath._d;
+        let nextInspection = moment(nextInspectionDefine).format("MM/DD/YYYY");
+        console.log(nextInspection, "NEXT INSPECTION");
+        // Add property to maintenance object
+        maintenanceObject.inspection = nextInspection;
+      }
+  
+      // If not falsey
+      if (wiperLast) {
+        // Compute Months Wiper Change
+        let wiperLastUnix = dateConverter.unixTimeTommddyyyy(wiperLast);
+        let nextWiperMath = moment(wiperLastUnix).add(wiperInterval, 'M');
+        let nextWiperDefine = nextWiperMath._d;
+        let nextWiper = moment(nextWiperDefine).format("MM/DD/YYYY");
+        console.log(nextWiper, "NEXT WIPER");
+        // Add property to maintenance object
+        maintenanceObject.wiper = nextWiper;
+      }
+  
+      console.log(maintenanceObject);
+      return maintenanceObject;
+        
+
+        return maintenanceObject;
+
+    }
+}
+
+
 
     
-     let inspectionDate = $('#js-display-last-car-inspection').val();
-     let brakeDate = $('#js-display-last-brake-inspection').val();
-     let wiperBladeDate = $('#js-display-last-wiper-blades').val();
-     let oilChangeMileage = $('#js-display-last-oil-change').val();
-     let tireRotationMileage = $('#js-display-last-tire-rotation').val();
 
-     console.log(inspectionDate,"Inspect date");
-     console.log(brakeDate,"brake date");
-     console.log(wiperBladeDate,"wiper blade date");
-     console.log(oilChangeMileage,"oil mileage");
-     console.log(tireRotationMileage,"tire rotation mileage");
+        // addCarMonths :
+        // function(mmddyyyy){
+        //   var date = mmddyyyy;
+        //   var interval = $("#js-update-interval-car-inspection").val();
+        //   var newDate = moment(date).add(interval, 'M');
+    
+        //   console.log(newDate, "Next Car Inspection");
+    
+        //   return newDate;
+        // },
+    
+        // addBrakeMonths :
+        // function(mmddyyyy){
+        //   var date = mmddyyyy;
+        //   var interval = $("#js-update-interval-brake-inspection").val();
+        //   var newDate = moment(date).add(interval, 'M');
+    
+        //   console.log(newDate, "Next Brake Inspection");
+    
+        //   return newDate;
+        // },
+    
+        // addWiperMonths :
+        // function(mmddyyyy){
+        //   var date = mmddyyyy;
+        //   var interval = $("#js-update-interval-wiper-blades").val();
+        //   var newDate = moment(date).add(interval, 'M');
+    
+        //   console.log(newDate, "Next Wiper Blades");
+    
+        //   return newDate;
+        // },
+    
+        // //this doesn't make sense because we don't know the last date of their oil change. 
+        // //would it be easier to change oil and tire rotation into months?
+    
+        // addOilMonths:
+        // function(miles){
+        //   var miles = $("#js-update-interval-oil-change").val();
+        //   var divideMiles = miles/1000;
+        //   var nextOilChange = moment().add(divideMiles, 'M');
+        //   console.log(miles, "miles");
+        //   console.log(divideMiles, "divide miles");
+        //   console.log(nextOilChange._d, "next Oil Change");
+        // },
+    
+        // addTireMonths:
+        // function(miles){
+        //   var miles = $("#js-update-last-tire-rotation");
+        //   var divideMiles = (miles) / 1000;
+        //   var nextTireRotations = moment().add(divideMiles, 'M');
+    
+        //   console.log(nextTireRotations._d, "next Tire Rotation")
+        // }
+
+
+    //  let inspectionDate = $('#js-display-last-car-inspection').val();
+    //  let brakeDate = $('#js-display-last-brake-inspection').val();
+    //  let wiperBladeDate = $('#js-display-last-wiper-blades').val();
+    //  let oilChangeMileage = $('#js-display-last-oil-change').val();
+    //  let tireRotationMileage = $('#js-display-last-tire-rotation').val();
+
+    //  console.log(inspectionDate,"Inspect date");
+    //  console.log(brakeDate,"brake date");
+    //  console.log(wiperBladeDate,"wiper blade date");
+    //  console.log(oilChangeMileage,"oil mileage");
+    //  console.log(tireRotationMileage,"tire rotation mileage");
      
 
-     let addCarMonths = dateConverter.addCarMonths(inspectionDate);
-     let addBrakeMonths = dateConverter.addBrakeMonths(brakeDate);
-     let addWiperMonths = dateConverter.addWiperMonths(wiperBladeDate);
-     let addOilMonths = dateConverter.addOilMonths(oilChangeMileage);
-     let addTireMonths = dateConverter.addTireMonths(tireRotationMileage);  
+    //  let addCarMonths = dateConverter.addCarMonths(inspectionDate);
+    //  let addBrakeMonths = dateConverter.addBrakeMonths(brakeDate);
+    //  let addWiperMonths = dateConverter.addWiperMonths(wiperBladeDate);
+    //  let addOilMonths = dateConverter.addOilMonths(oilChangeMileage);
+    //  let addTireMonths = dateConverter.addTireMonths(tireRotationMileage);  
 
     //  let carInspectionTimeline = addCarMonths.attr("data-date",addCarMonths);
     //  let brakeInspectionTimeline = addBrakeMonths.attr("data-date",addBrakeMonths);
@@ -119,5 +275,4 @@ const updateTimeline = {
     //         wiperBlades = dateConverter.unixTimeTommddyyyy(object.wiperBladesUnixTime);
     //         }
     //     }
-    }
-}
+ 
