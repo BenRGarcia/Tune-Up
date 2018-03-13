@@ -21,6 +21,8 @@ const maintenanceTimeline = {
 
         let currentMileage =carObject.mileage;
 
+        console.log(oilLast, "oilLast");
+
  /*
      *  Compute Date Math Stuff, Add properties to object if truthy
     // **/
