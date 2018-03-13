@@ -4,7 +4,7 @@ https://developers.google.com/maps/documentation/javascript/
 https://developers.google.com/maps/documentation/javascript/examples/place-search
 */
 const googleApi = {
-  apiKey: "AIzaSyB0YC_GpZvlge7TTOgdNhujspZ8yjdbvQU",
+  apiKey: "AIzaSyBFdv8PR3M0FCYXL0CeJJPVOh8pF0VGb20",
   
   map: null,
   service: null,
