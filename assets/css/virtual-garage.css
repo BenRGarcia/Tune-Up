@@ -1,4 +1,31 @@
 /* Ben's CSS */
+
+body {
+    background-image: url("../images/indoorcar.jpg");
+/*    background-repeat: no-repeat;*/
+    background-attachment: fixed;
+    background-size: cover;
+        
+}
+h1{
+    font-family: 'Permanent Marker', cursive;
+    font size: 60px;
+    color:brown;
+    background-color: antiquewhite;
+}
+#header {
+    background-color: antiquewhite;
+}
+
+h4, h7, h5 {
+    
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    color: firebrick;
+  
+}
 .mb-1 {
   margin-bottom: .25rem !important;
 }
@@ -19,4 +46,30 @@
   bottom: 4px;
   left: 25%;
   right: 25%;
+    
+}
+#add-new-car, #garage, #maint-data, #update-data {
+   
+    border-style:solid; 
+    background-color: antiquewhite;
+   
+    
+}
+
+
+
+#maint-data {
+    padding: 60px;
+    
+}
+
+
+#maint-header {
+
+    margin-top: 0px;
+}
+
+#wrench {
+left: 50%
+   
 }

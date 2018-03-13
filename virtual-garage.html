@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="./assets/css/timeline.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/virtual-garage.css" media="screen,projection">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Permanent+Marker" rel="stylesheet">
+    
 </head>
 <body>
   <div class="container center">
@@ -39,9 +41,12 @@
       <!--===========================-->
       <!--======= Row 1 Col 1 =======-->
       <!--===========================-->
-      <div class="col s12">
-        <h1>Virtual Garage</h1>
-        <h4>Welcome, <span id="js-user-name"></span>!</h4>
+        
+        
+      <div id="header" class="col s12">
+        <h1>Virtual Garage <img id="image"src="./assets/images/logo.png" height="50" width="70"></h1>
+        <h4>Welcome, <span id="js-user-name"></span>! </h4>
+          
       </div>
     </div><!-- End 'Page Title' -->
 
@@ -53,8 +58,18 @@
       <!--===========================-->
       <!--======= Row 2 Col 1 =======-->
       <!--===========================-->
+         <div id="garage" class="col s12 l5 m12">
+        <h4>Your Garage</h4>
+               <h7> Click on a car in your garage to display its recommended maintenance data.</h7>
+        <ul id="js-garage" class="collection">
+          <!-- Cars in virtual garage append here -->
+        </ul>
+               <button id="show-add-a-car"> Add a vehicle to garage</button>
+      </div>
+        <div id="car-div" class="col s1 l1"></div>
+        
       <!-- Add new car form -->
-      <div class="col s12 l6 pb-2 mb-1">
+      <div id="add-new-car" class="col s12 l6 pb-2 mb-1">
         <h4>Add New Car</h4>
         <form>
           <!-- Choose Year -->
@@ -118,17 +133,18 @@
             <i class="material-icons">add</i>
           </button>
         </form>
-      </div><!-- End 'Add new car form' -->
+      </div>
+         <div class="col s12 m12 l3">
+          <img id="wrench"src="./assets/images/wrench.jpg" >
+          
+          </div>
+        
+        <!-- End 'Add new car form' -->
       <!--===========================-->
       <!--======= Row 2 Col 2 =======-->
       <!--===========================-->
       <!-- User's Garage of Cars -->
-      <div class="col s12 l6">
-        <h4>Your Garage</h4>
-        <ul id="js-garage" class="collection">
-          <!-- Cars in virtual garage .append() here -->
-        </ul>
-      </div>
+     
     </div><!-- End 'Add New Car + User Car Display' -->
 
 <!--========================================================================-->
@@ -140,7 +156,7 @@
       <!--======= Row 3 Col 1 =======-->
       <!--===========================-->
       <!-- Maintenance Data -->
-      <div class="col s12 l5 mb-1">
+      <div id="maint-data" class="col s12 l5 mb-1 m6">
         <h4>Maintenance Data</h4>
         <table>
           <tbody>
@@ -171,7 +187,9 @@
       <!--======= Row 3 Col 2 =======-->
       <!--===========================-->
       <!-- Update Data -->
-      <div class="col s12 l7">
+        <div class="col s1 l1 m1"></div>
+        
+      <div id="update-data" class="col s12 m6 l6">
         <h4>Update Data</h4>
         <h6>Hit ENTER to submit data</h6>
         <!-- Current Mileage Input -->
@@ -279,7 +297,7 @@
                 </ul> <!-- .cd-timeline-navigation -->
               </div> <!-- .timeline -->
               <div class="events-content">
-                <ul id="timelineDisplay"></ul></ul>
+                <ul id="timelineDisplay"></ul>
               </div> <!-- .events-content -->
             </section>
           </div>
@@ -331,5 +349,17 @@
   <script src="./assets/javascript/add-new-car.js"></script>
   <!-- Custom JS -->
   <script src="./assets/javascript/main.js"></script>
+        <script>
+        $(document).ready(function() {
+            $("#add-new-car").hide();
+        })
+        
+        $("#show-add-a-car").click(function(){
+            $("#add-new-car").show();
+            $("#wrench").hide();
+            
+            
+        });
+    </script>
 </body>
 </html>
