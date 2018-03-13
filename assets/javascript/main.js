@@ -23,7 +23,9 @@ function initializeGarage() {
       });
     } else {
       // User not signed in, redirect to home page
-      window.location.replace("https://benrgarcia.github.io/Tune-Up/")
+      // Leave this here so I know to reset auth later -- Ben 3/13/2018
+      console.log("User is not signed in");
+      // window.location.replace("https://benrgarcia.github.io/Tune-Up/")
     }
   });
 }
