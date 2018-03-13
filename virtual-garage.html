@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="./assets/css/timeline.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/virtual-garage.css" media="screen,projection">
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Limelight|Permanent+Marker" rel="stylesheet">
     
 </head>
 <body>
@@ -42,13 +42,15 @@
     <div class="row">
       <div class="col s12">
         <h1>Virtual Garage</h1>
-        <h4>Welcome, <span id="js-user-name"></span>!</h4>
+        <h4 id="welcome">Welcome, <span id="js-user-name"></span>!</h4>
+          <br>
+          <img src="./assets/images/logo.png" height="80" width="110">
       </div>
     </div><!-- End 'Page Title' -->
 
     <!-- Add New Car + User Car Display -->
     <div class="row">
-      <div id="add-new-car" class="col s6 l6 pb-2 mb-1">
+      <div id="add-new-car" class="col s12 l4 pb-2 mb-1">
         <h4>Add New Car</h4>
         <form>
           <!-- Choose Year -->
@@ -113,19 +115,8 @@
           </button>
         </form>
       </div>
-      <!-- User's Garage of Cars -->
-      <div id="garage" class="col s6 l6">
-        <h4>Your Garage</h4>
-        <ul id="js-garage" class="collection">
-          <!-- Cars in virtual garage append here -->
-        </ul>
-      </div>
-    </div><!-- End 'Add New Car + User Car Display' -->
-
-    <!-- Maintenance Data + Update Data -->
-    <div class="row">
-      <!-- Maintenance Data -->
-      <div id="maint-data" class="col s12 l5 mb-1">
+        <div class="col s2"></div>
+        <div id="maint-data" class="col s12 l6 mb-1">
         <h4>Maintenance Data</h4>
         <table>
           <tbody>
@@ -152,8 +143,22 @@
           </tbody>
         </table>
       </div>
-      <!-- Update Data -->
-      <div class="col s12 l7">
+      
+        <div class="col l2"></div>
+        
+      <!-- User's Garage of Cars -->
+     
+    </div><!-- End 'Add New Car + User Car Display' -->
+      <div class="row">
+           <div id="garage" class="col s12 l4">
+        <h4>Your Garage</h4>
+        <ul id="js-garage" class="collection">
+          <!-- Cars in virtual garage append here -->
+        </ul>
+      </div>
+          <div class="col l2"></div>
+          
+            <div id="update-data" class="col s12 l6">
         <h4>Update Data</h4>
         <!-- Current Mileage Input -->
         <form id="js-update-mileage-form" class="left-align">
@@ -231,6 +236,15 @@
           </div>
         </div>
       </div>
+      </div>
+
+    <!-- Maintenance Data + Update Data -->
+    <div class="row">
+      <!-- Maintenance Data -->
+      
+        <div class="col l2"></div>
+      <!-- Update Data -->
+    
     </div><!-- End 'Maintenance Data + Update Data' -->
 
     <!-- To Do Timeline -->

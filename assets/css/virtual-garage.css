@@ -6,8 +6,16 @@ body {
     background-attachment: fixed;
         
 }
-h1 {
+h1{
     font-family: 'Permanent Marker', cursive;
+    font size: 60px;
+}
+img {
+    
+}
+
+h4 {
+    font-family: 'Limelight', cursive;
 }
 .mb-1 {
   margin-bottom: .25rem !important;
@@ -30,4 +38,12 @@ h1 {
   left: 25%;
   right: 25%;
 }
+#add-new-car, #garage, #maint-data, #update-data {
+    background-color: antiquewhite;
+    border-style:solid; 
+}
 
+#maint-data {
+    padding: 37px;
+    
+}
