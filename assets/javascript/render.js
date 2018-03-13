@@ -130,6 +130,8 @@ const DOM = {
     $('#js-display-last-car-inspection').text("-");
     $('#js-display-last-brake-inspection').text("-");
     $('#js-display-last-wiper-blades').text("-");
+
+    $('#js-update-mileage').attr("placeholder", "-");
   },
   renderDropDownModels(modelArray) {
     // Empty previous models if they exist
