@@ -311,6 +311,7 @@ $('body').on('submit','#js-update-last-oil-change-form',function(event){
         // DOM.renderLastMaintenance(response);
         db.getLastMaintenance(uid, carKey).then( function(response) {
           DOM.renderLastMaintenance(response);
+          updateTimeline.render(response);
         }, function(err){
           console.log(err);
         });
@@ -345,6 +346,7 @@ $('body').on('submit','#js-update-last-tire-rotation-form',function(event){
         // DOM.renderLastMaintenance(response);
         db.getLastMaintenance(uid, carKey).then( function(response) {
           DOM.renderLastMaintenance(response);
+          updateTimeline.render(response);          
         }, function(err){
           console.log(err);
         });
@@ -381,6 +383,7 @@ $('body').on('change','#js-update-last-car-inspection-form',function(event){
         // DOM.renderLastMaintenance(response);
         db.getLastMaintenance(uid, carKey).then( function(response) {
           DOM.renderLastMaintenance(response);
+          updateTimeline.render(response);          
         }, function(err){
           console.log(err);
         });
@@ -417,6 +420,7 @@ $('body').on('change','#js-update-last-wiper-blades-form', function(event){
         // DOM.renderLastMaintenance(response);
         db.getLastMaintenance(uid, carKey).then( function(response) {
           DOM.renderLastMaintenance(response);
+          updateTimeline.render(response);          
         }, function(err){
           console.log(err);
         });
@@ -453,6 +457,7 @@ $('body').on('change','#js-update-last-brake-inspection-form',function(event){
         // DOM.renderLastMaintenance(response);
         db.getLastMaintenance(uid, carKey).then( function(response) {
           DOM.renderLastMaintenance(response);
+          updateTimeline.render(response);          
         }, function(err){
           console.log(err);
         });
