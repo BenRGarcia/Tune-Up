@@ -44,7 +44,7 @@ $('body').on('click',".js-car-in-garage",function(){
 
   // Call db object's method to return 'maintenanceInterval' object
   db.getLastMaintenance(uid, carKey).then( function(response) {
-    // console.log(response); // 'response' will be the 'maintenanceInterval' object
+    console.log(response); // 'response' will be the 'maintenanceInterval' object
     DOM.renderLastMaintenance(response);
   }, function(err) {
     console.log(err); // Errors are logged in the console
@@ -357,7 +357,7 @@ $('body').on('submit','#js-update-last-tire-rotation-form',function(event){
 });
 
 //UPDATE LAST MAINTENANCE FOR CAR INSPECTION
-$('body').on('input','#js-update-last-car-inspection-form',function(event){
+$('body').on('change','#js-update-last-car-inspection-form',function(event){
 
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
@@ -393,7 +393,7 @@ $('body').on('input','#js-update-last-car-inspection-form',function(event){
 });
 
 //UPDATE LAST MAINTENANCE FOR WIPER BLADES
-$('body').on('input','#js-update-last-wiper-blades-form', function(event){
+$('body').on('change','#js-update-last-wiper-blades-form', function(event){
 
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
@@ -429,7 +429,7 @@ $('body').on('input','#js-update-last-wiper-blades-form', function(event){
 });
 
 //UPDATE LAST MAINTENANCE FOR BRAKES
-$('body').on('input','#js-update-last-brake-inspection-form',function(event){
+$('body').on('change','#js-update-last-brake-inspection-form',function(event){
 
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
