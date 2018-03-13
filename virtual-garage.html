@@ -21,7 +21,7 @@
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Materialize CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css">
   <!-- Google Maps CSS -->
   <link rel="stylesheet" href="./assets/css/google-maps.css">
   <!-- Timeline CSS -->
@@ -30,9 +30,6 @@
   <link rel="stylesheet" href="./assets/css/virtual-garage.css" media="screen,projection">
 </head>
 <body>
-  <!--=================-->
-  <!-- Code below here -->
-  <!--=================-->
   <div class="container center">
 
     <!-- Page Title -->
@@ -114,7 +111,7 @@
       <div class="col s12 l6">
         <h4>Your Garage</h4>
         <ul id="js-garage" class="collection">
-          <!-- Cars in virtual garage append here -->
+          <!-- Cars in virtual garage .append() here -->
         </ul>
       </div>
     </div><!-- End 'Add New Car + User Car Display' -->
@@ -233,67 +230,59 @@
     <!-- To Do Timeline -->
     <div class="row">
       <div class="col s12">
-        <h1 id="todoTimeline">TO-DO TIMELINE</h1>
+        
         <div class="row">
+
           <div id="checklist" class="col s12">
-              <p class="shadow text1">TO-DO LIST</p> 
-               <section class="cd-horizontal-timeline">
-        <div class="timeline">
-          <div class="events-wrapper">
-            <div class="events">
-              <ul id="timelineDates">
-                <li><a href="#0" data-date="" class="selected"></a></li>
-                <li><a href="#0" data-date=""></a></li>
-                <li><a href="#0" data-date=""></a></li>
-                <li><a href="#0" data-date=""></a></li>
-                <li><a href="#0" data-date=""></a></li>
-              </ul>
-      
-              <span class="filling-line" aria-hidden="true"></span>
-            </div> <!-- .events -->
-          </div> <!-- .events-wrapper -->
-            
-          <ul class="cd-timeline-navigation">
-            <li><a href="#0" class="prev inactive">Prev</a></li>
-            <li><a href="#0" class="next">Next</a></li>
-          </ul> <!-- .cd-timeline-navigation -->
-        </div> <!-- .timeline -->
-      
-        <div class="events-content">
-          <ul id="timelineDisplay">
-            <li class="selected" data-date="">
-              <h2 id="js-timeline-title-oil-change">OIL CHANGE</h2>
-              <em id="js-timeline-date-oil-change"></em>
-            </li>
-      
-            <li data-date="">
-              <h2 id="js-timeline-title-tire-change"></h2>
-              <em id="js-timeline-date-tire-change"></em>
-            </li>
-      
-            <li data-date="">
-              <h2 id="js-timeline-title-car-inspection">/h2>
-              <em id="js-timeline-date-car-inspection"></em>
-            </li>
-      
-            <li data-date="">
-              <h2 id="js-timeline-title-brake-inspection"></h2>
-              <em id="js-timeline-date-brake-inspection"></em>
-            </li>
-      
-            <li data-date="">
-              <h2 id="js-timeline-title-wiper-blades-change"></h2>
-              <em id="js-timeline-date-wiper-blades-change"></em>
-            </li>
-          </ul>
-        </div> <!-- .events-content -->
-      </section>
-              
-              
+            <h1 id="todoTimeline">TO-DO TIMELINE</h1>
+            <p class="shadow text1">TO-DO LIST</p>
+            <section class="cd-horizontal-timeline">
+              <div class="timeline">
+                <div class="events-wrapper">
+                  <div class="events">
+                    <ul id="timelineDates">
+                      <li><a href="#0" data-date="" class="selected"></a></li>
+                      <li><a href="#0" data-date=""></a></li>
+                      <li><a href="#0" data-date=""></a></li>
+                      <li><a href="#0" data-date=""></a></li>
+                      <li><a href="#0" data-date=""></a></li>
+                    </ul>
+                    <span class="filling-line" aria-hidden="true"></span>
+                  </div> <!-- .events -->
+                </div> <!-- .events-wrapper -->
+                <ul class="cd-timeline-navigation">
+                  <li><a href="#0" class="prev inactive">Prev</a></li>
+                  <li><a href="#0" class="next">Next</a></li>
+                </ul> <!-- .cd-timeline-navigation -->
+              </div> <!-- .timeline -->
+              <div class="events-content">
+                <ul id="timelineDisplay">
+                  <li class="selected" data-date="">
+                    <h2 id="js-timeline-title-oil-change">OIL CHANGE</h2>
+                    <em id="js-timeline-date-oil-change"></em>
+                  </li>
+                  <li data-date="">
+                    <h2 id="js-timeline-title-tire-change"></h2>
+                    <em id="js-timeline-date-tire-change"></em>
+                  </li>
+                  <li data-date="">
+                    <h2 id="js-timeline-title-car-inspection">/h2>
+                    <em id="js-timeline-date-car-inspection"></em>
+                  </li>
+                  <li data-date="">
+                    <h2 id="js-timeline-title-brake-inspection"></h2>
+                    <em id="js-timeline-date-brake-inspection"></em>
+                  </li>
+                  <li data-date="">
+                    <h2 id="js-timeline-title-wiper-blades-change"></h2>
+                    <em id="js-timeline-date-wiper-blades-change"></em>
+                  </li>
+                </ul>
+              </div> <!-- .events-content -->
+            </section>
           </div>
-      
-      </div>
-      <!-- TIMELINE -->
+        </div><!-- End 'To Do Timeline' -->
+
       </div>
     </div>
 
@@ -317,7 +306,7 @@
   <!-- Moment JS CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
   <!-- Materialize JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js"></script>
   <!-- NHTSA JS/API -->
   <script src="./assets/javascript/api-nhtsa.js"></script>
   <!-- Google Maps JS -->
@@ -336,4 +325,3 @@
   <script src="./assets/javascript/main.js"></script>
 </body>
 </html>
-g

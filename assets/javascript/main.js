@@ -1,7 +1,7 @@
 // After page loads
 $(function() {
   // Initialize Materialize CSS drop downs
-  $('select').material_select();
+  $('select').formSelect();
   // Get user cars from database, render to DOM
   initializeGarage();
 });
@@ -23,7 +23,9 @@ function initializeGarage() {
       });
     } else {
       // User not signed in, redirect to home page
-      window.location.replace("https://benrgarcia.github.io/Tune-Up-Production/")
+      // Leave this here so I know to reset auth later -- Ben 3/13/2018
+      console.log("User is not signed in");
+      // window.location.replace("https://benrgarcia.github.io/Tune-Up/")
     }
   });
 }
@@ -31,7 +33,7 @@ function initializeGarage() {
 // When user signs out
 $('#js-sign-out').click( function() {
   userAuth.signOut();
-  window.location.replace("https://benrgarcia.github.io/Tune-Up-Production/");
+  window.location.replace("https://benrgarcia.github.io/Tune-Up/");
 });
 
 //DISPLAY CAR DETAILS
