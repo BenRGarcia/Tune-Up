@@ -1,7 +1,7 @@
 // After page loads
 $(function() {
   // Initialize Materialize CSS drop downs
-  $('select').material_select();
+  $('select').formSelect();
   // Get user cars from database, render to DOM
   initializeGarage();
 });

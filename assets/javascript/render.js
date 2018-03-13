@@ -135,7 +135,7 @@ const DOM = {
         $('#js-add-car-model').append(option);
       }
       // Materialize CSS method to re-render dropdown options
-      $('select').material_select();
+      $('select').formSelect();
     }
   },
   renderMileage(carObject) {

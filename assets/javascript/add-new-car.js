@@ -11,7 +11,7 @@ $( function() {
     // Remove disabled class from car make
     $('#js-add-car-make').removeAttr("disabled");
     // Materialize CSS method to re-render dropdown options
-    $('select').material_select();
+    $('select').formSelect();
 
     // If both make and year selected
     if ($(this).val() && $('#js-add-car-make').val()) {
@@ -31,7 +31,7 @@ $( function() {
   $('body').on('change',"#js-add-car-make",function(event){
     // Remove disabled class from car model
     $('#js-add-car-model').removeAttr("disabled");
-    $('select').material_select();
+    $('select').formSelect();
 
     // If both make and year selected
     if ($(this).val() && $('#js-add-car-year').val()) {
@@ -51,7 +51,7 @@ $( function() {
   $('body').on('change', '#js-add-car-model', function(event) {
     // Remove disabled class from car mileage
     $('#js-add-car-mileage').removeAttr("disabled");
-    $('select').material_select();
+    $('select').formSelect();
   });
 
   // When user submits form
@@ -81,7 +81,7 @@ $( function() {
       $('#js-add-car-mileage').attr("disabled", "disabled");
 
       // Materialize CSS method to re-render dropdown options
-      $('select').material_select();
+      $('select').formSelect();
 
       // Call db object's method to post new car to firebase database
       db.addNewCar(uid, year, make, model, mileage).then( function(response) {
