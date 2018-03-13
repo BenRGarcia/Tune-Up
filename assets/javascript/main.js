@@ -48,8 +48,6 @@ $('body').on('click',".js-car-in-garage",function(){
   db.getLastMaintenance(uid, carKey).then( function(response) {
     // console.log(response); // 'response' will be the 'maintenanceInterval' object
     DOM.renderLastMaintenance(response);
-    console.log(response, "DOM RESPONSE");
-    updateTimeline.render(response);
   }, function(err) {
     console.log(err); // Errors are logged in the console
   });
@@ -66,6 +64,8 @@ $('body').on('click',".js-car-in-garage",function(){
   db.getAllUserCars(uid, carKey).then( function(response) {
     // console.log(response[selectedCarKey]); // 'response' will be the 'car objects' object
     DOM.renderMileage(response[selectedCarKey]);
+    var timelineObject = maintenanceTimeline.calculateNext(response[selectedCarKey]);  
+    DOM.renderTimeline(timelineObject);
   }, function(err) {
     console.log(err); // Errors are logged in the console
   });
