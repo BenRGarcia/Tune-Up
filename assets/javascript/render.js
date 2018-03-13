@@ -117,6 +117,20 @@ const DOM = {
     // If maintenance object was empty
     return object;
   },
+  renderBlankData() {
+    // Update DOM input placeholder text
+    $('#js-update-interval-oil-change').attr("placeholder", "3000");
+    $('#js-update-interval-tire-rotation').attr("placeholder", "6000");
+    $('#js-update-interval-car-inspection').attr("placeholder", "12 months");
+    $('#js-update-interval-brake-inspection').attr("placeholder", "12 months");
+    $('#js-update-interval-wiper-blades').attr("placeholder", "6 months");
+
+    $('#js-display-last-oil-change').text("-");
+    $('#js-display-last-tire-rotation').text("-");
+    $('#js-display-last-car-inspection').text("-");
+    $('#js-display-last-brake-inspection').text("-");
+    $('#js-display-last-wiper-blades').text("-");
+  },
   renderDropDownModels(modelArray) {
     // Empty previous models if they exist
     $('#js-add-car-model').empty();
