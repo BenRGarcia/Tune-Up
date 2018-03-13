@@ -46,6 +46,7 @@ $('body').on('click',".js-car-in-garage",function(){
   db.getLastMaintenance(uid, carKey).then( function(response) {
     // console.log(response); // 'response' will be the 'maintenanceInterval' object
     DOM.renderLastMaintenance(response);
+    console.log(response, "DOM RESPONSE");
     updateTimeline.render(response);
   }, function(err) {
     console.log(err); // Errors are logged in the console
@@ -115,7 +116,8 @@ $('body').on('submit','#js-update-mileage-form',function(event){
       // Call db object's method to update the mileage of a car
       db.updateMileage(uid, carKey, newMileage).then( function(response) {
         DOM.renderLastMaintenance(response);
-        DOM.renderMileage(response)
+        DOM.renderMileage(response);
+        console.log(response, "update car mileage response");
         // console.log(response); // 'response' is an object of updated mileage
       }, function(err) {
         console.log(err); // Errors are logged in the console
