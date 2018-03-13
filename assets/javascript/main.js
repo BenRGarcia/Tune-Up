@@ -46,6 +46,7 @@ $('body').on('click',".js-car-in-garage",function(){
   db.getLastMaintenance(uid, carKey).then( function(response) {
     // console.log(response); // 'response' will be the 'maintenanceInterval' object
     DOM.renderLastMaintenance(response);
+    updateTimeline.render(response);
   }, function(err) {
     console.log(err); // Errors are logged in the console
   });
@@ -311,7 +312,6 @@ $('body').on('submit','#js-update-last-oil-change-form',function(event){
         // DOM.renderLastMaintenance(response);
         db.getLastMaintenance(uid, carKey).then( function(response) {
           DOM.renderLastMaintenance(response);
-          updateTimeline.render(response);
         }, function(err){
           console.log(err);
         });
@@ -345,8 +345,7 @@ $('body').on('submit','#js-update-last-tire-rotation-form',function(event){
       db.updateLastTireRotation(uid, carKey, mileage).then( function(response) {
         // DOM.renderLastMaintenance(response);
         db.getLastMaintenance(uid, carKey).then( function(response) {
-          DOM.renderLastMaintenance(response);
-          updateTimeline.render(response);          
+          DOM.renderLastMaintenance(response);         
         }, function(err){
           console.log(err);
         });
@@ -382,8 +381,7 @@ $('body').on('change','#js-update-last-car-inspection-form',function(event){
       db.updateLastCarInspection(uid, carKey, unixDate).then( function(response) {
         // DOM.renderLastMaintenance(response);
         db.getLastMaintenance(uid, carKey).then( function(response) {
-          DOM.renderLastMaintenance(response);
-          updateTimeline.render(response);          
+          DOM.renderLastMaintenance(response);          
         }, function(err){
           console.log(err);
         });
@@ -419,8 +417,7 @@ $('body').on('change','#js-update-last-wiper-blades-form', function(event){
       db.updateLastWiperBlades(uid, carKey, unixDate).then( function(response) {
         // DOM.renderLastMaintenance(response);
         db.getLastMaintenance(uid, carKey).then( function(response) {
-          DOM.renderLastMaintenance(response);
-          updateTimeline.render(response);          
+          DOM.renderLastMaintenance(response);         
         }, function(err){
           console.log(err);
         });
@@ -456,8 +453,7 @@ $('body').on('change','#js-update-last-brake-inspection-form',function(event){
       db.updateLastBrakeInspection(uid, carKey, unixDate).then( function(response) {
         // DOM.renderLastMaintenance(response);
         db.getLastMaintenance(uid, carKey).then( function(response) {
-          DOM.renderLastMaintenance(response);
-          updateTimeline.render(response);          
+          DOM.renderLastMaintenance(response);          
         }, function(err){
           console.log(err);
         });
