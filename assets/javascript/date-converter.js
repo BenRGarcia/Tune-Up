@@ -19,6 +19,7 @@ const dateConverter = {
     let mmddyyyy = moment(convertedDate).format("MM/DD/YYYY");
     return mmddyyyy;
   },
+  
   addCarMonths :
     function(mmddyyyy){
       var date = mmddyyyy;
@@ -57,19 +58,20 @@ const dateConverter = {
 
     addOilMonths:
     function(miles){
-      var miles = $("#js-update-last-oil-change");
-      var divideMiles = (miles) / 3;
+      var miles = $("#js-update-interval-oil-change").val();
+      var divideMiles = miles/1000;
       var nextOilChange = moment().add(divideMiles, 'M');
-
-      console.log(nextOilChange, "next Oil Change")
+      console.log(miles, "miles");
+      console.log(divideMiles, "divide miles");
+      console.log(nextOilChange._d, "next Oil Change");
     },
 
     addTireMonths:
     function(miles){
       var miles = $("#js-update-last-tire-rotation");
-      var divideMiles = (miles) / 3;
+      var divideMiles = (miles) / 1000;
       var nextTireRotations = moment().add(divideMiles, 'M');
 
-      console.log(nextTireRotations, "next Tire Rotation")
+      console.log(nextTireRotations._d, "next Tire Rotation")
     }
 };
