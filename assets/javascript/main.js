@@ -95,6 +95,7 @@ $('body').on('click','.js-delete-car',function(){
   // Call db object's method to delete a car
   db.deleteCar(uid, carKey).then( function(response) {
     initializeGarage();
+    DOM.renderBlankData();
     // console.log(response); // 'response' is the deleted car's carKey
   }, function(err) {
     console.log(err); // Errors are logged in the console
