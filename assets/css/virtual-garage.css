@@ -1,4 +1,14 @@
 /* Ben's CSS */
+
+body {
+    background-image: url("../images/metalflooring4.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+        
+}
+h1 {
+    font-family: 'Permanent Marker', cursive;
+}
 .mb-1 {
   margin-bottom: .25rem !important;
 }
@@ -20,3 +30,4 @@
   left: 25%;
   right: 25%;
 }
+

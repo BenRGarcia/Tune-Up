@@ -7,19 +7,20 @@
   <!-- jQuery CDN -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <!-- Firebase CDN -->
-  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<!--  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>-->
   <!-- Firebase Config/Initialization -->
-  <script src="./assets/javascript/firebase-config.js"></script>
+<!--  <script src="./assets/javascript/firebase-config.js"></script>-->
   <!-- Firebase Authentication CDN -->
-  <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+<!--  <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>-->
   <!-- Firebase Authentication -->
-  <script src="./assets/javascript/firebase-user.js"></script>
+<!--  <script src="./assets/javascript/firebase-user.js"></script>-->
   <!-- Firebase Database -->
-  <script src="./assets/javascript/firebase-db.js"></script>
+<!--  <script src="./assets/javascript/firebase-db.js"></script>-->
   <!-- Firebase Authentication CSS -->
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css">
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
   <!-- Materialize CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection">
   <!-- Google Maps CSS -->
@@ -28,6 +29,8 @@
   <link rel="stylesheet" href="./assets/css/timeline.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/virtual-garage.css" media="screen,projection">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    
 </head>
 <body>
   <!--=================-->
@@ -45,7 +48,7 @@
 
     <!-- Add New Car + User Car Display -->
     <div class="row">
-      <div class="col s12 l6 pb-2 mb-1">
+      <div id="add-new-car" class="col s6 l6 pb-2 mb-1">
         <h4>Add New Car</h4>
         <form>
           <!-- Choose Year -->
@@ -111,7 +114,7 @@
         </form>
       </div>
       <!-- User's Garage of Cars -->
-      <div class="col s12 l6">
+      <div id="garage" class="col s6 l6">
         <h4>Your Garage</h4>
         <ul id="js-garage" class="collection">
           <!-- Cars in virtual garage append here -->
@@ -122,7 +125,7 @@
     <!-- Maintenance Data + Update Data -->
     <div class="row">
       <!-- Maintenance Data -->
-      <div class="col s12 l5 mb-1">
+      <div id="maint-data" class="col s12 l5 mb-1">
         <h4>Maintenance Data</h4>
         <table>
           <tbody>
@@ -252,24 +255,24 @@
   <!-- Code above here -->
   <!--=================-->
   <!-- Render JS -->
-  <script src="./assets/javascript/render.js"></script>
+<!--  <script src="./assets/javascript/render.js"></script>-->
   <!-- Moment JS CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>-->
   <!-- Materialize JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
   <!-- NHTSA JS/API -->
-  <script src="./assets/javascript/api-nhtsa.js"></script>
+ <script src="./assets/javascript/api-nhtsa.js"></script>
   <!-- Google Maps JS -->
-  <!-- <script src="./assets/javascript/api-google-maps.js"></script> -->
+ <script src="./assets/javascript/api-google-maps.js"></script>
   <!-- Google Maps API -->
-  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YC_GpZvlge7TTOgdNhujspZ8yjdbvQU&libraries=places"></script> -->
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YC_GpZvlge7TTOgdNhujspZ8yjdbvQU&libraries=places"></script> 
   <!-- Unix date converter code -->
-  <script src="./assets/javascript/date-converter.js"></script>
+ <script src="./assets/javascript/date-converter.js"></script>
   <!-- Timeline JS -->
-  <script src="./assets/javascript/timeline.js"></script>
+<script src="./assets/javascript/timeline.js"></script>
   <!-- Add New Car JS -->
-  <script src="./assets/javascript/add-new-car.js"></script>
+<script src="./assets/javascript/add-new-car.js"></script>
   <!-- Custom JS -->
-  <script src="./assets/javascript/main.js"></script>
+ <script src="./assets/javascript/main.js"></script>
 </body>
 </html>
