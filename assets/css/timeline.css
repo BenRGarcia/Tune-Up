@@ -10,25 +10,6 @@ Primary style
 box-sizing: border-box;
 }
 
-html {
-font-size: 62.5%;
-}
-
-body {
-font-size: 1.6rem;
-font-family: "Source Sans Pro", sans-serif;
-color: white;
-background-color: #f8f8f8;
-}
-
-a {
-color: white;
-text-decoration: none;
-}
-
-h2 {
-color: white;
-}
 
 /* -------------------------------- 
 
