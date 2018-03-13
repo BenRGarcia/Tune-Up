@@ -146,9 +146,7 @@ const DOM = {
 
     if (timelineObject) {
       for (let propertyName in timelineObject) {
-  
-        // Render next oil change to DOM
-        // Step 1 create horizontal timeline
+
         let li = $('<li>');
         let a = $('<a>');
 
@@ -159,8 +157,7 @@ const DOM = {
         // Nest <a> inside <li>
         li.append(a);
       
-      // Step 2 create timeline text description
-        /* follow same pattern from above */
+      // create timeline text description
         let displayLi = $('<li>');
   
         displayLi.attr("data-date", timelineObject.propertyName);
@@ -175,10 +172,10 @@ const DOM = {
           displayLi.text("CAR INSPECTION");
         }
         if(propertyName === "brake"){
-          displayLi.text("OIL CHANGE");
+          displayLi.text("BRAKE INSPECTION");
         }
         if(propertyName === "wiper"){
-          displayLi.text("OIL CHANGE");
+          displayLi.text("WIPER BLADE CHANGE");
         }
 
         // visual horizontal timeline
