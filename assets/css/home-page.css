@@ -45,7 +45,7 @@ html {
   font-family: "Seaweed Script";
   color: #fff;
   text-align: center;
-  font-size: 65px;
+  /*font-size: 65px;*/
   position: relative;
   margin:0;
 }
@@ -66,15 +66,15 @@ html {
 }
 
 .text1 {
-  font-size: 70px;
+  /*font-size: 70px;*/
 }
 
 .text2 {
-  font-size: 60px;
+  /*font-size: 60px;*/
 }
 
 .text3 {
-  font-size: 100px;
+  /*font-size: 100px;*/
 }
 
 #tuneUp {
