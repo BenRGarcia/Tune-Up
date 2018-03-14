@@ -9,8 +9,9 @@ $(function() {
 });
 
 $("#show-add-a-car").click(function(){
-  $("#add-new-car").show();
-  $("#wrench").hide();
+
+  $("#add-new-car").toggle();
+  // $("#wrench").hide();
 });
 
 // Global Variable
