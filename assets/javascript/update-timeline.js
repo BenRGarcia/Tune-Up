@@ -36,6 +36,10 @@ const maintenanceTimeline = {
         console.log(nextOil, "NEXT OIL");
         // Add property to maintenance object
         maintenanceObject.oil = nextOil;
+        let li = $('<li>');
+        let nextOilList = li.text("Next Oil " + nextOil);
+        $('#toDoList').append(nextOilList);
+
       }
   
     //   // If not falsey
@@ -50,6 +54,9 @@ const maintenanceTimeline = {
         console.log(nextTire, "NEXT TIRE");
         // Add property to maintenance object
         maintenanceObject.tire = nextTire;
+        let li = $('<li>');
+        let nextTireList = li.text("Next Tire Rotation " + nextTire);
+        $('#toDoList').append(nextTireList);
       }
   
       // If not falsey
@@ -62,6 +69,9 @@ const maintenanceTimeline = {
         console.log(nextBrake, "NEXT BRAKE");
         // Add property to maintenance object
         maintenanceObject.brake = nextBrake;
+        let li = $('<li>');
+        let nextBrakeList = li.text("Next Brake Inspection " + nextBrake);
+        $('#toDoList').append(nextBrakeList);
       }
   
       // If not falsey
@@ -74,6 +84,10 @@ const maintenanceTimeline = {
         console.log(nextInspection, "NEXT INSPECTION");
         // Add property to maintenance object
         maintenanceObject.inspection = nextInspection;
+
+        let li = $('<li>');
+        let nextInspectionList = li.text("Next Car Inspection " + nextInspection);
+        $('#toDoList').append(nextInspectionList);
       }
   
       // If not falsey
@@ -86,6 +100,9 @@ const maintenanceTimeline = {
         console.log(nextWiper, "NEXT WIPER");
         // Add property to maintenance object
         maintenanceObject.wiper = nextWiper;
+        let li = $('<li>');
+        let nextWiperList = li.text("Replace Wiper Blades " + nextWiper);
+        $('#toDoList').append(nextWiperList);
       }
   
       console.log(maintenanceObject);
