@@ -67,3 +67,18 @@ h4, h5, h6 {
 .overdue{
   color: red;
 }
+
+body{
+  background-image: url("../images/tires.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: fixed;
+}
+ .container{
+   background:white;
+ }
+
+ .btn,
+ .btn-large {
+   background: rgb(33, 2, 82);
+ }
