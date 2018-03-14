@@ -21,7 +21,7 @@ const maintenanceTimeline = {
 
         let currentMileage =carObject.mileage;
 
- /*
+    /*
      *  Compute Date Math Stuff, Add properties to object if truthy
     // **/
     // If not falsey
