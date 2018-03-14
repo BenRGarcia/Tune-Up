@@ -20,16 +20,14 @@
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css">
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Import Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Cinzel|Permanent+Marker" rel="stylesheet">
   <!-- Materialize CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css">
   <!-- Google Maps CSS -->
   <link rel="stylesheet" href="./assets/css/google-maps.css">
-  <!-- Timeline CSS -->
-  <!-- <link rel="stylesheet" href="./assets/css/timeline.css"> -->
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/virtual-garage.css" media="screen,projection">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel|Permanent+Marker" rel="stylesheet">
-    
 </head>
 <body>
   <div class="container center">
@@ -41,12 +39,9 @@
       <!--===========================-->
       <!--======= Row 1 Col 1 =======-->
       <!--===========================-->
-        
-        
       <div id="header" class="col s12">
         <h1>Virtual Garage <img id="image"src="./assets/images/logo.png" height="50" width="70"></h1>
         <h4>Welcome, <span id="js-user-name"></span>! </h4>
-          
       </div>
     </div><!-- End 'Page Title' -->
 
@@ -58,16 +53,25 @@
       <!--===========================-->
       <!--======= Row 2 Col 1 =======-->
       <!--===========================-->
-         <div id="garage" class="col s12 l5 m12">
+      <!-- User's Garage of Cars -->
+      <div id="garage" class="col s12 l5 m12">
         <h4>Your Garage</h4>
-               <h7> Click on a car in your garage to display its recommended maintenance data.</h7>
+        <h6>Click on a car in your garage to display its recommended maintenance data.</h6>
         <ul id="js-garage" class="collection">
           <!-- Cars in virtual garage append here -->
         </ul>
-               <button id="show-add-a-car"> Add a vehicle to garage</button>
+        <button id="show-add-a-car">Add a vehicle to garage</button>
       </div>
-        <div id="car-div" class="col s1 l1"></div>
-        
+      <!--===========================-->
+      <!--======= Row 2 Col 2 =======-->
+      <!--===========================-->
+      <div id="car-div" class="col s1 l1">
+        <!-- Empty div for column spacing -->
+      </div>
+
+      <!--===========================-->
+      <!--======= Row 2 Col 3 =======-->
+      <!--===========================-->
       <!-- Add new car form -->
       <div id="add-new-car" class="col s12 l6 pb-2 mb-1">
         <h4>Add New Car</h4>
@@ -133,19 +137,14 @@
             <i class="material-icons">add</i>
           </button>
         </form>
+      </div><!-- End 'Add new car form' -->
+      <!--===========================-->
+      <!--======= Row 2 Col 4 =======-->
+      <!--===========================-->
+      <div class="col s12 m12 l6" style="overflow: hidden;">
+        <img id="wrench" src="./assets/images/wrench.jpg">
       </div>
-         <div class="col s12 m12 l3">
-          <img id="wrench"src="./assets/images/wrench.jpg" >
-          
-          </div>
-        
-        <!-- End 'Add new car form' -->
-      <!--===========================-->
-      <!--======= Row 2 Col 2 =======-->
-      <!--===========================-->
-      <!-- User's Garage of Cars -->
-     
-    </div><!-- End 'Add New Car + User Car Display' -->
+    </div><!-- End 'Add New Car + User Car Display' Row -->
 
 <!--========================================================================-->
 <!--================================ Row 3 =================================-->
@@ -188,7 +187,9 @@
       <!--===========================-->
       <!-- Update Data -->
         <div class="col s1 l1 m1"></div>
-        
+      <!--===========================-->
+      <!--======= Row 3 Col 3 =======-->
+      <!--===========================-->
       <div id="update-data" class="col s12 m6 l6">
         <h4>Update Data</h4>
         <h6>Hit ENTER to submit data</h6>
@@ -273,45 +274,18 @@
 <!--========================================================================-->
 <!--================================ Row 4 =================================-->
 <!--========================================================================-->
-    <!-- To Do Timeline -->
+    <!-- To Do List -->
     <div class="row">
       <!--===========================-->
       <!--======= Row 4 Col 1 =======-->
       <!--===========================-->
-      <div class="col s12">
-<<<<<<< HEAD
-          <h2>TO-DO LIST</h2>
+      <div id="to-do-list" class="col s12">
+        <h1>TO-DO LIST</h1>
         <ul id="toDoList">
-          
-
+          <!-- To Do's Append Here -->
         </ul>
-=======
-        <div class="row">
-          <div id="checklist" class="col s12">
-            <h1 id="todoTimeline">TO-DO TIMELINE</h1>
-            <p class="shadow text1">TO-DO LIST</p>
-            <section class="cd-horizontal-timeline">
-              <div class="timeline">
-                <div class="events-wrapper">
-                  <div class="events">
-                    <ul id="timelineDates"></ul>
-                    <span class="filling-line" aria-hidden="true"></span>
-                  </div> <!-- .events -->
-                </div> <!-- .events-wrapper -->
-                <ul class="cd-timeline-navigation">
-                  <li><a href="#0" class="prev inactive">Prev</a></li>
-                  <li><a href="#0" class="next">Next</a></li>
-                </ul> <!-- .cd-timeline-navigation -->
-              </div> <!-- .timeline -->
-              <div class="events-content">
-                <ul id="timelineDisplay"></ul>
-              </div> <!-- .events-content -->
-            </section>
-          </div>
-        </div>
->>>>>>> origin/secondlayout
-      </div><!-- End 'To Do Timeline' col -->
-    </div><!-- End 'To Do Timeline' row -->
+      </div><!-- End 'To Do ' col -->
+    </div><!-- End 'To Do' row -->
 
 <!--========================================================================-->
 <!--================================ Row 5 =================================-->
@@ -351,26 +325,9 @@
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFdv8PR3M0FCYXL0CeJJPVOh8pF0VGb20&libraries=places"></script>
   <!-- Unix date converter code -->
   <script src="./assets/javascript/date-converter.js"></script>
-  <!-- todo-maker JS -->
-  <script src="./assets/javascript/todo-maker.js"></script>
-  
-  <!-- Timeline JS -->
-  <!-- <script src="./assets/javascript/timeline.js"></script> -->
   <!-- Add New Car JS -->
   <script src="./assets/javascript/add-new-car.js"></script>
   <!-- Custom JS -->
   <script src="./assets/javascript/main.js"></script>
-        <script>
-        $(document).ready(function() {
-            $("#add-new-car").hide();
-        })
-        
-        $("#show-add-a-car").click(function(){
-            $("#add-new-car").show();
-            $("#wrench").hide();
-            
-            
-        });
-    </script>
 </body>
 </html>

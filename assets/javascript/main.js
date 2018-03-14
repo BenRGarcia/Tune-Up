@@ -1,9 +1,16 @@
 // After page loads
 $(function() {
+  // Hide virtual garage
+  $("#add-new-car").hide();
   // Initialize Materialize CSS drop downs
   $('select').formSelect();
   // Get user cars from database, render to DOM
   initializeGarage();
+});
+
+$("#show-add-a-car").click(function(){
+  $("#add-new-car").show();
+  $("#wrench").hide();
 });
 
 // Global Variable
