@@ -47,14 +47,16 @@ h4, h5, h6 {
   right: 25%; 
 }
 
-#add-new-car, #garage, #maint-data, #update-data, #to-do-list {
+#add-new-car, #garage, #maint-data, #update-data, #to-do-list, #header, #find-closest {
   border-style: solid; 
   background-color: antiquewhite;
 }
 
+/*
 #maint-data {
   padding: 60px;
 }
+*/
 
 #maint-header {
   margin-top: 0px;
@@ -85,6 +87,13 @@ body{
    background: rgb(33, 2, 82);
  }
 
-#to-do, #find-closest {
+#to-do, #find-closest2 {
     font-family: 'Raleway', sans-serif;
+}
+
+
+.row {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap:wrap;
 }
