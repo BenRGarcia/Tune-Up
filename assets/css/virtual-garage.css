@@ -64,6 +64,6 @@ h4, h5, h6 {
   left: 50%
 }
 
-#checklist{
-  color: black;
+.overdue{
+  color: red;
 }
