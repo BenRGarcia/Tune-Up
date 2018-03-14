@@ -38,6 +38,7 @@ $('#js-sign-out').click( function() {
 
 //DISPLAY CAR DETAILS
 $('body').on('click',".js-car-in-garage",function(){
+  $("#toDoList").empty();
   var uid = userAuth.getUid;
   var carKey = $(this).data("car-key");
 
@@ -75,6 +76,8 @@ $('body').on('click',".js-car-in-garage",function(){
 
 //RETRIEVE ALL CARS 
 $('body').on('click',".js-get-all-cars",function(){
+  $("#toDoList").empty();
+
   var uid = userAuth.getUid;
   var carKey = $(this).data("car-key");
 
@@ -89,6 +92,8 @@ $('body').on('click',".js-get-all-cars",function(){
 
 //DELETE USER'S CAR
 $('body').on('click','.js-delete-car',function(){
+  $("#toDoList").empty();
+
   var uid = userAuth.getUid;
   var carKey = $(this).data("car-key");
    
@@ -105,6 +110,7 @@ $('body').on('click','.js-delete-car',function(){
 //UPDATE CAR MILEAGE
 $('body').on('submit','#js-update-mileage-form',function(event){
   event.preventDefault();
+  $("#toDoList").empty();
 
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
@@ -139,6 +145,7 @@ $('body').on('submit','#js-update-mileage-form',function(event){
 //UPDATE INTERVAL FOR OIL MAINTENANCE
 $('body').on('submit','#js-update-interval-oil-change-form',function(event){
   event.preventDefault();
+  $("#toDoList").empty();
 
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
@@ -178,6 +185,7 @@ $('body').on('submit','#js-update-interval-oil-change-form',function(event){
 //UPDATE INTERVAL FOR TIRE ROTATION
 $('body').on('submit','#js-update-interval-tire-rotation-form',function(event){
   event.preventDefault();
+  $("#toDoList").empty();
 
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
@@ -217,6 +225,7 @@ $('body').on('submit','#js-update-interval-tire-rotation-form',function(event){
 //UPDATE INTERVAL FOR CAR INSPECTION
 $('body').on('submit','#js-update-interval-car-inspection-form',function(event){
   event.preventDefault();
+  $("#toDoList").empty();
 
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
@@ -256,6 +265,7 @@ $('body').on('submit','#js-update-interval-car-inspection-form',function(event){
 //UPDATE INTERVAL FOR WIPER BLADES
 $('body').on('submit','#js-update-interval-wiper-blades-form',function(event){
   event.preventDefault();
+  $("#toDoList").empty();
 
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
@@ -295,6 +305,7 @@ $('body').on('submit','#js-update-interval-wiper-blades-form',function(event){
 //UPDATE INTERVAL FOR BRAKES
 $('body').on('submit','#js-update-interval-brake-inspection-form',function(event){
   event.preventDefault();
+  $("#toDoList").empty();
 
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
@@ -334,6 +345,7 @@ $('body').on('submit','#js-update-interval-brake-inspection-form',function(event
 //UPDATE LAST MAINTENANCE FOR OIL
 $('body').on('submit','#js-update-last-oil-change-form',function(event){
   event.preventDefault();
+  $("#toDoList").empty();
 
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
@@ -374,6 +386,7 @@ $('body').on('submit','#js-update-last-oil-change-form',function(event){
 //UPDATE LAST MAINTENANCE FOR TIRES
 $('body').on('submit','#js-update-last-tire-rotation-form',function(event){
   event.preventDefault();
+  $("#toDoList").empty();
 
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
@@ -413,7 +426,7 @@ $('body').on('submit','#js-update-last-tire-rotation-form',function(event){
 
 //UPDATE LAST MAINTENANCE FOR CAR INSPECTION
 $('body').on('change','#js-update-last-car-inspection-form',function(event){
-
+  $("#toDoList").empty();
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
     // Get user input
@@ -455,7 +468,7 @@ $('body').on('change','#js-update-last-car-inspection-form',function(event){
 
 //UPDATE LAST MAINTENANCE FOR WIPER BLADES
 $('body').on('change','#js-update-last-wiper-blades-form', function(event){
-
+  $("#toDoList").empty();
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
     // Get user input
@@ -497,7 +510,7 @@ $('body').on('change','#js-update-last-wiper-blades-form', function(event){
 
 //UPDATE LAST MAINTENANCE FOR BRAKES
 $('body').on('change','#js-update-last-brake-inspection-form',function(event){
-
+  $("#toDoList").empty();
   // Ignore inputs if car not yet selected
   if (selectedCarKey) {
     // Get user input
