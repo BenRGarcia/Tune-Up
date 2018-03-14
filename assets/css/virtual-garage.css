@@ -21,6 +21,6 @@
   right: 25%;
 }
 
-#checklist{
-  color: black;
+.overdue{
+  color: red;
 }

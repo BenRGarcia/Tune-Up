@@ -37,8 +37,11 @@ const maintenanceTimeline = {
         // Add property to maintenance object
         maintenanceObject.oil = nextOil;
         let li = $('<li>');
-        let nextOilList = li.text("Next Oil " + nextOil);
+        let nextOilList = li.text("Next Oil---  " + nextOil);
         $('#toDoList').append(nextOilList);
+        if(oilDefine <= moment()){
+          nextOilList.addClass("overdue");
+        }
 
       }
   
@@ -55,8 +58,11 @@ const maintenanceTimeline = {
         // Add property to maintenance object
         maintenanceObject.tire = nextTire;
         let li = $('<li>');
-        let nextTireList = li.text("Next Tire Rotation " + nextTire);
+        let nextTireList = li.text("Next Tire Rotation---  " + nextTire);
         $('#toDoList').append(nextTireList);
+        if(tireDefine <= moment()){
+          nextTireList.addClass("overdue");
+        }
       }
   
       // If not falsey
@@ -70,8 +76,11 @@ const maintenanceTimeline = {
         // Add property to maintenance object
         maintenanceObject.brake = nextBrake;
         let li = $('<li>');
-        let nextBrakeList = li.text("Next Brake Inspection " + nextBrake);
+        let nextBrakeList = li.text("Next Brake Inspection---  " + nextBrake);
         $('#toDoList').append(nextBrakeList);
+        if(nextBrakeDefine <= moment()){
+          nextBrakeList.addClass("overdue");
+        }
       }
   
       // If not falsey
@@ -84,10 +93,12 @@ const maintenanceTimeline = {
         console.log(nextInspection, "NEXT INSPECTION");
         // Add property to maintenance object
         maintenanceObject.inspection = nextInspection;
-
         let li = $('<li>');
-        let nextInspectionList = li.text("Next Car Inspection " + nextInspection);
+        let nextInspectionList = li.text("Next Car Inspection---  " + nextInspection);
         $('#toDoList').append(nextInspectionList);
+        if(nextInspectionDefine <= moment()){
+          nextInspectionList.addClass("overdue");
+        }
       }
   
       // If not falsey
@@ -101,8 +112,11 @@ const maintenanceTimeline = {
         // Add property to maintenance object
         maintenanceObject.wiper = nextWiper;
         let li = $('<li>');
-        let nextWiperList = li.text("Replace Wiper Blades " + nextWiper);
+        let nextWiperList = li.text("Replace Wiper Blades--- " + nextWiper);
         $('#toDoList').append(nextWiperList);
+        if(nextWiperDefine <= moment()){
+          nextWiperList.addClass("overdue");
+        }
       }
   
       console.log(maintenanceObject);
