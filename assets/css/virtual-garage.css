@@ -24,3 +24,18 @@
 #checklist{
   color: black;
 }
+
+body{
+  background-image: url("../images/tires.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: fixed;
+}
+ .container{
+   background:white;
+ }
+
+ .btn,
+ .btn-large {
+   background: rgb(33, 2, 82);
+ }
