@@ -1,3 +1,4 @@
+$(document).ready(function(){
 // After page loads
 $(function() {
   // Initialize Materialize CSS drop downs
@@ -18,6 +19,7 @@ function initializeGarage() {
       db.getAllUserCars(uid).then( function(response) {
         // console.log(response); // 'response' will be an object of car objects
         DOM.renderCars(response);
+        console.log(db);
       }, function(err) {
       console.log(err); // Errors are logged in the console
       });
@@ -54,9 +56,11 @@ $('body').on('click',".js-car-in-garage",function(){
 
   // Call db object's method to return 'maintenanceInterval' object
   db.getMaintenanceIntervals(uid, carKey).then( function(response) {
-    // console.log(response); // 'response' will be the 'maintenanceInterval' object
+    console.log(response, "first response"); // 'response' will be the 'maintenanceInterval' object
     DOM.renderMaintenanceIntervals(response);
+    console.log(response.selectedCarKey, "response");
      var timelineObject = maintenanceTimeline.calculateNext(response[selectedCarKey]);  
+     console.log(timelineObject, "timeline object");
      DOM.renderTimeline(timelineObject);
   }, function(err) {
     console.log(err); // Errors are logged in the console
@@ -66,7 +70,7 @@ $('body').on('click',".js-car-in-garage",function(){
   db.getAllUserCars(uid, carKey).then( function(response) {
     // console.log(response[selectedCarKey]); // 'response' will be the 'car objects' object
     DOM.renderMileage(response[selectedCarKey]);
-    var timelineObject = maintenanceTimeline.calculateNext(response[selectedCarKey]);  
+    var timelineObject = maintenanceTimeline.calculateNext(response.selectedCarKey);  
     DOM.renderTimeline(timelineObject);
   }, function(err) {
     console.log(err); // Errors are logged in the console
@@ -355,7 +359,8 @@ $('body').on('submit','#js-update-last-oil-change-form',function(event){
         db.getLastMaintenance(uid, carKey).then( function(response) {
           DOM.renderLastMaintenance(response);
           db.getAllUserCars(uid, carKey).then( function(response) {
-            var timelineObject = maintenanceTimeline.calculateNext(response[selectedCarKey]);  
+            var timelineObject = maintenanceTimeline.calculateNext(response);  
+            console.log(response, "carkey response");
             DOM.renderTimeline(timelineObject);
           }, function(err) {
             console.log(err); // Errors are logged in the console
@@ -535,4 +540,5 @@ $('body').on('change','#js-update-last-brake-inspection-form',function(event){
       });
     }
   }
+});
 });
