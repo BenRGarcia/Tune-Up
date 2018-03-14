@@ -6,7 +6,7 @@ body {
 }
 
 h1{
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Lobster', cursive;
   font size: 60px;
   color:brown;
   background-color: antiquewhite;
@@ -19,7 +19,7 @@ h1{
 h4, h5, h6 {
   margin-top: 10px;
   padding: 10px;
-  font-family: 'Cinzel', serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: bold;
   color: firebrick;
 }
@@ -74,11 +74,17 @@ body{
   background-size: cover;
   background-position: fixed;
 }
+/*
  .container{
-   background:white;
+   background: firebrick;
  }
+*/
 
  .btn,
  .btn-large {
    background: rgb(33, 2, 82);
  }
+
+#to-do, #find-closest {
+    font-family: 'Raleway', sans-serif;
+}
