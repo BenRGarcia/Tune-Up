@@ -1,8 +1,8 @@
 body {
-  background-image: url("../images/indoorcar.jpg");
+  /*background-image: url("../images/indoorcar.jpg");*/
   /*background-repeat: no-repeat;*/
   background-attachment: fixed;
-  background-size: cover;     
+  /*background-size: cover;     */
 }
 
 h1{
@@ -74,16 +74,18 @@ body{
   background-size: cover;
   background-position: fixed;
 }
- .container{
-   background:white;
- }
 
- .btn,
- .btn-large {
-   background: red;
- }
+.container{
+  background:white;
+}
 
- .btn:hover,
- .bten-large:hover{
-   background: rgb(231, 59, 59);
- }
+#show-add-a-car,
+.btn,
+.btn-large {
+  background: red;
+}
+
+.btn:hover,
+.btn-large:hover{
+  background: rgb(231, 59, 59);
+}
